@@ -171,7 +171,16 @@ label.f .req{color:var(--pink)}
 .strip .ph{aspect-ratio:1/1;border-radius:4px;overflow:hidden;background:#F6DCE6}
 .strip img{width:100%;height:100%;object-fit:cover}
 .strip figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:15px}
-.strip figcaption b{font-family:var(--f-d);font-size:21px;font-weight:400}
+.strip figcaption b{font-family:var(--f-d);font-size:21px;font-weight:400;line-height:1.1}
+.strip figcaption{align-items:flex-start;min-height:52px}
+.sbar{display:flex;align-items:center;gap:24px;margin-top:18px}
+.sbar .trk{flex:1;height:1px;background:var(--rule);position:relative}
+.sbar .trk i{position:absolute;top:-1px;height:3px;background:var(--ink);left:0;width:0;border-radius:2px}
+.sbar .arrows{display:flex;gap:8px}
+.sbar button{width:40px;height:40px;border-radius:50%;border:1px solid var(--rule);background:#fff;display:grid;place-items:center;color:var(--ink)}
+.sbar button:hover{border-color:var(--ink)}
+.sbar button:disabled{opacity:.3;cursor:default}
+.sbar button svg{width:18px;height:18px}
 .strip figcaption span{font-size:12px;color:var(--muted);white-space:nowrap}
 .flav .foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:28px;color:var(--muted);font-size:14.5px}
 
@@ -343,6 +352,7 @@ footer.ft .fine{grid-column:1/-1;margin-top:28px;padding-top:18px;border-top:1px
       <h2 class="big d">Twelve flavours, <em>baked from scratch.</em></h2>
       <p class="lede">Every jar is two layers of cake and icing. Vegan and gluten-free options are available for mixed teams.</p>
       <div class="strip" id="strip"></div>
+      <div class="sbar"><div class="trk"><i id="sbarFill"></i></div><div class="arrows"><button type="button" id="sPrev" aria-label="Previous flavours"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 5l-7 7 7 7"/></svg></button><button type="button" id="sNext" aria-label="More flavours"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 5l7 7-7 7"/></svg></button></div></div>
       <div class="foot"><span>Baked in a kitchen that also handles peanuts, tree nuts, wheat, soy, dairy and eggs. <a href="https://cuteasacupcake3.com/pages/cupcakes-in-a-jar-nutrition-facts-ingredients" target="_blank" rel="noopener">Nutrition and allergens</a></span><a class="tlink" href="https://stationonemain-source.github.io/cute-as-a-cupcake/#shop" target="_blank" rel="noopener">Want one jar? Shop the bakery site <span aria-hidden="true">→</span></a></div>
     </div>
   </section>
@@ -414,15 +424,20 @@ const cv=$('#cv'), ctx=cv.getContext('2d',{alpha:false});
 const film=$('#film'), images=new Array(FRAME_COUNT), decoded=new Set(), decoding=new Set();
 let loaded=0, target=0, current=0, displayed=-1, warmAt=-999, W=0, H=0, DPR=1;
 const WARM=10;
-function size(){DPR=Math.min(innerWidth<860?2:1.25,devicePixelRatio||1);W=innerWidth;H=innerHeight;cv.width=Math.round(W*DPR);cv.height=Math.round(H*DPR);displayed=-1}
+function size(){DPR=Math.min(innerWidth<860?2:1.5,devicePixelRatio||1);W=innerWidth;H=innerHeight;cv.width=Math.round(W*DPR);cv.height=Math.round(H*DPR);displayed=-1}
 /* never hand the canvas an undecoded frame (that is a synchronous 2K decode on the main thread): the nearest DECODED frame stands in, and warm() catches up within a tick or two */
 const ok=k=>decoded.has(k)||primed.has(k);
 function nearest(i){for(let d=0;d<FRAME_COUNT;d++){if(ok(i-d))return i-d;if(ok(i+d))return i+d}
  for(let d=0;d<FRAME_COUNT;d++){if(images[i-d]&&images[i-d].complete&&images[i-d].naturalWidth)return i-d;if(images[i+d]&&images[i+d].complete&&images[i+d].naturalWidth)return i+d}return -1}
 function paint(im){const iw=im.naturalWidth,ih=im.naturalHeight,cw=cv.width,ch=cv.height;const sc=Math.max(cw/iw,ch/ih);const dw=iw*sc,dh=ih*sc;ctx.drawImage(im,(cw-dw)*0.5,(ch-dh)*0.5,dw,dh)}
+/* the opening frame is a real photograph (far sharper than any video frame); it dissolves into the film over the first 3% of scroll */
+const STILL=new Image();STILL.decoding='async';STILL.src=`film/${SET}/f_0000.webp`;let stillOk=false;STILL.onload=()=>{stillOk=true;STILL.decode().then(()=>{if(displayed<=1)draw(current,true)}).catch(()=>{})};
+const DISSOLVE=0.012;
 /* one clean frame per draw; the nearest loaded frame stands in until the exact one arrives */
-function draw(f,force){const i=Math.max(0,Math.min(FRAME_COUNT-1,Math.round(f)));if(i===displayed&&!force)return;const n=nearest(i);if(n<0)return;paint(images[n]);displayed=i;
- hdr.classList.toggle('on-light',LUM[n]>138)}
+function draw(f,force){const i=Math.max(0,Math.min(FRAME_COUNT-1,Math.round(f)));const mix=stillOk&&p<DISSOLVE?Math.max(0,Math.min(1,p/DISSOLVE)):1;const key=mix<1?-1:i;
+ if(key===displayed&&!force)return;const n=nearest(i);if(n<0&&mix>0)return;
+ if(mix<1){paint(STILL);if(mix>0.02&&n>=0){ctx.globalAlpha=mix;paint(images[n]);ctx.globalAlpha=1}}else paint(images[n]);
+ displayed=key;hdr.classList.toggle('on-light',LUM[Math.max(0,n)]>138)}
 /* decode ahead in the direction of travel, a little behind, and FORGET frames far from the playhead: Chrome evicts decoded
    images beyond its cache budget, and a frame remembered as decoded but evicted would decode synchronously on draw */
 let lastCenter=0;
@@ -473,6 +488,10 @@ addEventListener('scroll',()=>{lastScrollT=performance.now();spyUpdate()},{passi
 /* ---------- content ---------- */
 const F=[['birthday','Birthday Cake','Vegan or GF option'],['red-velvet','Red Velvet',''],['chocolate','Chocolate',''],['vanilla','Vanilla','Vegan option'],['oreo','Oreo','Vegan option'],['salted-caramel','Salted Caramel','GF option'],['lemon','Lemon',''],['strawberry','Strawberry',''],['turtle','Turtle','Contains nuts'],['peanut-butter','Peanut Butter','Contains nuts'],['mm','M&M',''],['toffee-caramel','Toffee Caramel','']];
 $('#strip').innerHTML=F.map(([k,n,t])=>`<figure><div class="ph"><img loading="lazy" src="assets/studio/${k}.webp" alt="${n} Cupcake in a Jar" width="1200" height="1200"></div><figcaption><b>${n}</b><span>${t}</span></figcaption></figure>`).join('');
+/* flavour strip: a progress line and arrows, since the strip hides its own scrollbar */
+const strip=$('#strip');function sbar(){const max=strip.scrollWidth-strip.clientWidth;const q=max>0?strip.scrollLeft/max:1;$('#sbarFill').style.width=(Math.max(0.12,q)*100)+'%';$('#sPrev').disabled=strip.scrollLeft<4;$('#sNext').disabled=strip.scrollLeft>max-4}
+strip.addEventListener('scroll',sbar,{passive:true});addEventListener('resize',sbar);
+$('#sNext').onclick=()=>strip.scrollBy({left:strip.clientWidth*0.8,behavior:'smooth'});$('#sPrev').onclick=()=>strip.scrollBy({left:-strip.clientWidth*0.8,behavior:'smooth'});setTimeout(sbar,50);
 const USES=[
  {t:'A thank-you on every client’s desk.',p:'Two or four jars and your note, shipped to each client. It arrives fresh and gets opened the same day.',li:['Box of 2 or 4 per client','Your note in every box','Ships to each address'],img:'assets/photo-bday-box.jpg',cap:'Her photo'},
  {t:'Day one, with something sweet.',p:'A welcome box on a new hire’s desk, or shipped to their home before their first remote day.',li:['Box of 2 per new hire','Vegan and gluten-free options','One order, ongoing deliveries'],img:'assets/photo-jars-spoon.jpg',cap:'Her photo'},
