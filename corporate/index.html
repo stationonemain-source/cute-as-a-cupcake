@@ -62,7 +62,7 @@ header.top:not(.on-light):not(.solid) .btn.sm{background:#fff;color:var(--ink)}
 .drawer a{text-decoration:none;font-family:var(--f-d);font-size:28px;font-weight:380;padding:10px 0;border-bottom:var(--hair)}
 
 /* the film */
-.film{position:relative;height:540vh;background:#f3dbe4}
+.film{position:relative;height:700vh;background:#f3dbe4}
 .stage{position:sticky;top:0;height:100vh;overflow:hidden;background:#f3dbe4}
 .stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
 .grain{position:absolute;inset:0;pointer-events:none;opacity:.08;mix-blend-mode:multiply;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .55 0'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>")}
@@ -78,19 +78,20 @@ header.top:not(.on-light):not(.solid) .btn.sm{background:#fff;color:var(--ink)}
 .beat h1,.beat h2{font-size:clamp(40px,5vw,88px);line-height:.98;letter-spacing:-.035em;font-weight:340;color:var(--ink)}
 .beat p{margin:0;font-size:clamp(17px,1.3vw,19.5px);line-height:1.5;color:#4F4650;max-width:40ch}
 .beat .ctas{display:flex;flex-wrap:wrap;align-items:center;gap:26px;margin-top:4px}
-.beat.mid .in{max-width:min(560px,46vw)}
+.beat.mid .in{max-width:min(500px,37vw)}
+.beat.mid p{max-width:34ch}
 .beat.mid h2{font-size:clamp(34px,4vw,68px)}
 .beat.end{align-content:end;padding-bottom:13vh}
 .beat.end .in{max-width:min(600px,48vw)}
-.beat.hero .in,.beat.end .in{position:relative;z-index:0}
-.beat.hero .in::before,.beat.end .in::before{content:"";position:absolute;inset:-16% -24%;z-index:-1;pointer-events:none;background:radial-gradient(62% 62% at 42% 50%,rgba(255,255,255,.78),rgba(255,255,255,.35) 55%,rgba(255,255,255,0) 78%)}
+.beat .in{position:relative;z-index:0}
+.beat .in::before{content:"";position:absolute;inset:-16% -24%;z-index:-1;pointer-events:none;background:radial-gradient(62% 62% at 42% 50%,rgba(255,255,255,.78),rgba(255,255,255,.35) 55%,rgba(255,255,255,0) 78%)}
 .readout{position:absolute;left:var(--gut);bottom:28px;display:grid;gap:10px;color:var(--ink);font-family:var(--f-m);font-size:11px;letter-spacing:.14em;text-transform:uppercase;transition:color .35s}
 .readout .trk{width:160px;height:1px;background:rgba(35,31,34,.22);position:relative}
 .readout .trk i{position:absolute;inset:0;background:currentColor;transform-origin:left;transform:scaleX(0)}
 .readout.dark{color:#fff}.readout.dark .trk{background:rgba(255,255,255,.3)}
 .cap{position:absolute;right:var(--gut);bottom:28px;font-family:var(--f-m);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);background:rgba(255,255,255,.78);backdrop-filter:blur(6px);padding:5px 9px;border-radius:999px}
 @media (max-width:860px){
-  .film{height:460vh}
+  .film{height:600vh}
   .beat{align-content:end;padding-bottom:110px}
   .beat .in,.beat.mid .in,.beat.end .in{max-width:none}
   .beat h1,.beat h2{font-size:clamp(36px,10vw,52px)}
@@ -247,20 +248,20 @@ footer.ft .fine{grid-column:1/-1;margin-top:28px;padding-top:18px;border-top:1px
       <div class="grain" id="grain"></div><div class="vig" id="vig"></div><div class="fade" id="fade"></div>
       <div class="loader" id="loader" aria-hidden="true"><div class="bar"><i id="lbar"></i></div></div>
 
-      <div class="beat hero" data-in="-0.1" data-peak="0" data-out="0.15"><div class="in">
+      <div class="beat hero" data-in="-0.1" data-peak="0" data-out="0.13"><div class="in">
         <h1 class="d">The gift that gets opened <em>at the desk.</em></h1>
         <p>Scratch-made Cupcakes in a Jar, sealed fresh and shipped to every name on your list.</p>
         <div class="ctas"><a class="btn" href="#quote">Start a corporate order</a><a class="tlink" href="#ship">How it ships <span aria-hidden="true">→</span></a></div>
       </div></div>
-      <div class="beat mid" data-in="0.2" data-peak="0.3" data-out="0.42"><div class="in">
+      <div class="beat mid" data-in="0.16" data-peak="0.25" data-out="0.36"><div class="in">
         <h2 class="d">Fresh for 30 days. <em>Shipped to all 50 states.</em></h2>
         <p>Two layers of cake and icing in a sealed 8 oz jar. It arrives looking like it left the kitchen.</p>
       </div></div>
-      <div class="beat mid" data-in="0.47" data-peak="0.57" data-out="0.7"><div class="in">
+      <div class="beat mid" data-in="0.62" data-peak="0.73" data-out="0.84"><div class="in">
         <h2 class="d">Six flavours. One note card. <em>Every address on your list.</em></h2>
         <p>Boxes of 2, 4 or 6, packed and tracked to each recipient, with your words inside.</p>
       </div></div>
-      <div class="beat end" data-in="0.8" data-peak="0.9" data-out="2"><div class="in">
+      <div class="beat end" data-in="0.88" data-peak="0.95" data-out="2"><div class="in">
         <h2 class="d">Client gifts people <em>actually open.</em></h2>
         <p>From one box to five hundred addresses, from a certified Minority and Women-owned supplier in Merrillville, Indiana.</p>
         <div class="ctas"><a class="btn" href="#quote">Get a quote in 60 seconds</a></div>
@@ -403,19 +404,22 @@ const JUMP=new URLSearchParams(location.search).get('jump');
 if(JUMP!==null)history.scrollRestoration='manual';
 
 /* ---------- scrub engine: canvas + pre-extracted frames, ImageBitmap window ---------- */
-const FRAME_COUNT=181, src=i=>`film/f_${String(i+1).padStart(4,'0')}.jpg`;
+const FRAME_COUNT=241, SET=innerWidth<860?'m':'d', src=i=>`film/${SET}/f_${String(i+1).padStart(4,'0')}.webp`;
 const cv=$('#cv'), ctx=cv.getContext('2d',{alpha:false});
 const film=$('#film'), images=new Array(FRAME_COUNT), bitmaps=new Map(), decoding=new Set();
-let loaded=0, target=0, current=0, displayed=-1, bmpCenter=-999, W=0, H=0, DPR=1;
+let loaded=0, target=0, current=0, displayed=-1, shownKey=-1, bmpCenter=-999, W=0, H=0, DPR=1;
 const B_AHEAD=18, B_KEEP=28;
-function size(){DPR=Math.min(1.5,devicePixelRatio||1);W=innerWidth;H=innerHeight;cv.width=Math.round(W*DPR);cv.height=Math.round(H*DPR);displayed=-1}
+function size(){DPR=Math.min(1.5,devicePixelRatio||1);W=innerWidth;H=innerHeight;cv.width=Math.round(W*DPR);cv.height=Math.round(H*DPR);displayed=-1;shownKey=-1}
 function nearest(i){for(let d=0;d<FRAME_COUNT;d++){if(images[i-d]&&images[i-d].complete)return i-d;if(images[i+d]&&images[i+d].complete)return i+d}return -1}
-function draw(i,force){if(i===displayed&&!force)return;const b=bitmaps.get(i);let im=b;if(!im){const n=nearest(i);if(n<0)return;im=images[n]}
- const iw=im.width,ih=im.height,cw=cv.width,ch=cv.height;const s=Math.max(cw/iw,ch/ih);const dw=iw*s,dh=ih*s;
- const fx=W<860?0.56:0.5;const dx=(cw-dw)*fx,dy=(ch-dh)*0.5;ctx.drawImage(im,dx,dy,dw,dh);displayed=i}
+function pick(i){const b=bitmaps.get(i);if(b)return b;const n=nearest(i);return n<0?null:images[n]}
+function paint(im,a){const iw=im.width,ih=im.height,cw=cv.width,ch=cv.height;const s=Math.max(cw/iw,ch/ih);const dw=iw*s,dh=ih*s;
+ const fx=W<860?0.56:0.5;ctx.globalAlpha=a;ctx.drawImage(im,(cw-dw)*fx,(ch-dh)*0.5,dw,dh);ctx.globalAlpha=1}
+/* a fractional frame: the frame below at full strength, the next one blended in by the remainder, so the scrub never steps */
+function draw(f,force){f=Math.max(0,Math.min(FRAME_COUNT-1,f));const key=Math.round(f*24);if(key===shownKey&&!force)return;
+ const i=Math.floor(f),t=f-i,a=pick(i);if(!a)return;paint(a,1);if(t>0.03&&i+1<FRAME_COUNT){const b=bitmaps.get(i+1);if(b)paint(b,t)}shownKey=key;displayed=i}
 function ensure(center){if(Math.abs(center-bmpCenter)<3)return;bmpCenter=center;const lo=Math.max(0,center-B_AHEAD),hi=Math.min(FRAME_COUNT-1,center+B_AHEAD);
  for(let i=lo;i<=hi;i++){if(bitmaps.has(i)||decoding.has(i)||!images[i]||!images[i].complete)continue;decoding.add(i);
-  createImageBitmap(images[i]).then(b=>{decoding.delete(i);if(Math.abs(i-bmpCenter)>B_KEEP){b.close();return}bitmaps.set(i,b);if(i===displayed)draw(i,true)}).catch(()=>decoding.delete(i))}
+  createImageBitmap(images[i]).then(b=>{decoding.delete(i);if(Math.abs(i-bmpCenter)>B_KEEP){b.close();return}bitmaps.set(i,b);if(i===displayed||i===displayed+1)draw(current,true)}).catch(()=>decoding.delete(i))}
  for(const k of Array.from(bitmaps.keys()))if(k<center-B_KEEP||k>center+B_KEEP){bitmaps.get(k).close();bitmaps.delete(k)}}
 /* concurrency-capped pump; first frame first, then outward */
 let fq=[...Array(FRAME_COUNT).keys()], inflight=0; const CAP=10;
@@ -424,7 +428,7 @@ function pump(){while(inflight<CAP&&fq.length){const i=fq.shift();const im=new I
 /* ---------- beats, readout, header, seam ---------- */
 const beats=$$('.beat').map(el=>({el,in:+el.dataset.in,peak:+el.dataset.peak,out:+el.dataset.out}));
 function beatAlpha(b,p){if(p<b.in||p>b.out)return 0;if(p<b.peak)return(p-b.in)/Math.max(1e-4,b.peak-b.in);if(b.out>1.5)return 1;return 1-(p-b.peak)/Math.max(1e-4,b.out-b.peak)}
-const CHAP=[[0,'The jar'],[.34,'The box'],[.68,'The table']];
+const CHAP=[[0,'The jar'],[.5,'The box'],[.8,'The table']];
 const hdr=$('#top'), readout=$('#readout'), fade=$('#fade'), grain=$('#grain'), vig=$('#vig'), cap=$('#cap');
 const lum=document.createElement('canvas');lum.width=16;lum.height=4;const lctx=lum.getContext('2d',{willReadFrequently:true});let lastLum=0;
 function sampleLum(){if(performance.now()-lastLum<180||displayed<0)return;lastLum=performance.now();try{lctx.drawImage(cv,0,0,cv.width,cv.height*0.12,0,0,16,4);const d=lctx.getImageData(0,0,16,4).data;let s=0;for(let i=0;i<d.length;i+=4)s+=d[i]*.299+d[i+1]*.587+d[i+2]*.114;const L=s/(d.length/4);hdr.classList.toggle('on-light',L>138)}catch(e){}}
@@ -439,7 +443,7 @@ function overlays(){beats.forEach(b=>{const a=beatAlpha(b,p);b.el.style.opacity=
 let jank=[],lastT=0;
 function tick(t){if(lastT){const d=t-lastT;jank.push(d);if(jank.length>240)jank.shift()}lastT=t;
  progress();target=p*(FRAME_COUNT-1);current+= RM?(target-current):(target-current)*0.14;if(Math.abs(target-current)<0.02)current=target;
- const i=Math.round(current);ensure(i);draw(i);sampleLum();overlays();requestAnimationFrame(tick)}
+ ensure(Math.round(current));draw(current);sampleLum();overlays();requestAnimationFrame(tick)}
 window.__jank=()=>{const s=[...jank].sort((a,b)=>a-b);return{max:Math.round(s[s.length-1]||0),p95:Math.round(s[Math.floor(s.length*.95)]||0),n:s.length}};
 
 /* ---------- smooth scroll (skipped under ?jump and reduced motion) ---------- */
@@ -480,11 +484,11 @@ const toastEl=$('#toast');let tt;function toast(t){toastEl.textContent=t;toastEl
 $('#quoteForm').addEventListener('submit',e=>{e.preventDefault();const f=e.target;let bad=false;$$('[required]',f).forEach(i=>{const ok=i.checkValidity()&&String(i.value).trim();i.closest('.f').classList.toggle('bad',!ok);if(!ok)bad=true});$('#qErr').classList.toggle('show',bad);if(bad){f.querySelector('.bad input')?.focus();return}$('#qOk').classList.add('show');f.querySelector('button[type=submit]').disabled=true;toast('Quote request sent')});
 
 /* ---------- boot + dev contract ---------- */
-addEventListener('resize',()=>{size();draw(Math.round(current),true)});
+addEventListener('resize',()=>{size();draw(current,true)});
 size();pump();
 let readyFired=false;
 function ready(){if(readyFired)return;readyFired=true;
- if(JUMP!==null){scrollTo(0,+JUMP||0);progress();current=target=p*(FRAME_COUNT-1);ensure(Math.round(current));draw(Math.round(current),true);overlays();spyUpdate()}
+ if(JUMP!==null){scrollTo(0,+JUMP||0);progress();current=target=p*(FRAME_COUNT-1);ensure(Math.round(current));draw(current,true);overlays();spyUpdate()}
  setTimeout(()=>{window.__ready=true},JUMP!==null?400:0)}
 requestAnimationFrame(tick);spyUpdate();
 })();
