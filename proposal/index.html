@@ -1,0 +1,236 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="robots" content="noindex,nofollow"><meta name="description" content="Station Solutions proposal for Cute as a Cupcake! Cupcakery and Bake Shop."></head><body><title>Station proposal · Cute as a Cupcake</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Schibsted+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a proposal read in order. Plum cover, findings tied to fixes, three options side by side, then the math and the first 30 days. */
+:root{
+  --pink:#F7A1E5; --hot:#F47CDA; --plum:#99227F; --plum-deep:#7A1A66; --ink:#252525;
+  --paper:#FFFFFF; --bg:#FBF8FB; --blush:#FDF0FA; --muted:#6E6475; --rule:#EADFE8; --good:#2F6B3A; --bad:#B3261E;
+  --f-d:"Fraunces",Georgia,serif; --f-t:"Schibsted Grotesk","Segoe UI",system-ui,sans-serif; --f-m:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-t);font-size:17px;line-height:1.6;padding-inline:16px;padding-block:0 72px}
+img{max-width:100%;height:auto;display:block}
+.wrap{max-width:960px;margin:0 auto}
+.d{font-family:var(--f-d);font-variation-settings:"SOFT" 100,"WONK" 0;letter-spacing:-.012em}
+.m{font-family:var(--f-m);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:500}
+a{color:var(--plum)}
+:focus-visible{outline:3px solid var(--hot);outline-offset:2px}
+.cover{background:var(--plum);color:#fff;margin-inline:-16px;padding:60px 16px 54px}
+.cover .wrap{display:grid;gap:18px}
+.cover img.logo{width:190px}
+.cover h1{font-size:clamp(38px,6.4vw,66px);line-height:1.02;margin:6px 0 0;font-weight:700;text-wrap:balance}
+.cover h1 em{font-style:normal;color:var(--pink)}
+.cover p{margin:0;color:#F6D8EE;font-size:18.5px;max-width:62ch}
+.cover .meta{display:flex;flex-wrap:wrap;gap:6px 22px;font-size:14.5px;color:#F6D8EE}
+.cover .meta b{color:#fff;font-weight:600}
+section{padding-block:48px 4px;display:grid;gap:18px;grid-template-columns:minmax(0,1fr)}
+h2{font-size:clamp(27px,3.6vw,38px);line-height:1.1;margin:0;font-weight:700;text-wrap:balance}
+h2 .n{font-family:var(--f-m);font-size:13px;letter-spacing:.1em;color:var(--plum);display:block;margin-bottom:8px;font-weight:500}
+h2 em{font-style:normal;color:var(--plum)}
+h3{margin:0;font-size:21px}
+p{margin:0}
+.lede{font-size:19px;max-width:66ch}
+.summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+@media (max-width:760px){.summary{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.summary div{background:var(--paper);border:1px solid var(--rule);border-radius:12px;padding:18px 20px;display:grid;gap:6px;min-width:0}
+.summary b{font-family:var(--f-d);font-variation-settings:"SOFT" 100;font-size:clamp(23px,6vw,32px);overflow-wrap:anywhere;line-height:1.05;color:var(--plum)}
+.summary span{font-size:15px;color:var(--muted)}
+.gap{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:0;background:var(--paper);border:1px solid var(--rule);border-radius:14px;overflow:hidden}
+.gap>div{padding:18px 22px;min-width:0}
+.gap .found{border-right:1px solid var(--rule)}
+.gap .found .m{color:var(--bad)}
+.gap .fix .m{color:var(--good)}
+.gap b{display:block;font-size:17.5px;margin:6px 0 4px;line-height:1.35}
+.gap span.s{font-size:15.5px;color:#4a3f4d}
+.gap .prods{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.chip{font-family:var(--f-m);font-size:11.5px;letter-spacing:.05em;padding:3px 9px;border-radius:999px;background:var(--blush);color:var(--plum);font-weight:500}
+@media (max-width:700px){.gap{grid-template-columns:1fr}.gap .found{border-right:0;border-bottom:1px solid var(--rule)}}
+.gaps{display:grid;gap:12px}
+.jobs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:700px){.jobs{grid-template-columns:1fr}}
+.job{background:var(--paper);border:1px solid var(--rule);border-radius:14px;padding:22px;display:grid;gap:10px;align-content:start;min-width:0}
+.job h3{font-family:var(--f-d);font-variation-settings:"SOFT" 100;font-size:25px}
+.job .scene{background:var(--blush);border-radius:10px;padding:12px 14px;font-size:15.5px;color:#4a3f4d}
+.job .scene::before{content:"What it looks like";display:block;font-family:var(--f-m);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--plum);margin-bottom:4px}
+.opts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:stretch}
+@media (max-width:860px){.opts{grid-template-columns:1fr}}
+.opt{background:var(--paper);border:1px solid var(--rule);border-radius:16px;padding:24px;display:grid;gap:12px;align-content:start;position:relative;min-width:0}
+.opt.rec{border:2px solid var(--plum);box-shadow:0 26px 50px -34px rgba(122,26,102,.6)}
+.opt .flag{position:absolute;top:-13px;left:22px;background:var(--plum);color:#fff;font-family:var(--f-m);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px}
+.opt h3{font-family:var(--f-d);font-variation-settings:"SOFT" 100;font-size:26px}
+.opt .price{font-family:var(--f-d);font-variation-settings:"SOFT" 100;font-size:44px;font-weight:700;line-height:1}
+.opt .price small{font-size:18px;font-weight:500;color:var(--muted)}
+.opt ul{margin:0;padding-left:20px;display:grid;gap:5px;font-size:15.5px}
+.opt .terms{font-size:14px;color:var(--muted);border-top:1px solid var(--rule);padding-top:10px}
+.tbl{overflow-x:auto;background:var(--paper);border:1px solid var(--rule);border-radius:12px}
+table{border-collapse:collapse;width:100%;font-size:15.5px}
+th,td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--f-m);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500;background:var(--bg)}
+td.n,th.n{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+td.y{color:var(--good);font-weight:600;text-align:center} td.no{color:#b9adb7;text-align:center}
+th.c{text-align:center}
+tr:last-child td{border-bottom:0}
+tr.hl td{background:var(--blush)}
+.calc{background:var(--ink);color:#fff;border-radius:16px;padding:26px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:28px;align-items:center}
+@media (max-width:760px){.calc{grid-template-columns:1fr}}
+.calc label{font-family:var(--f-m);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--pink)}
+.calc .big{font-family:var(--f-d);font-variation-settings:"SOFT" 100;font-size:54px;font-weight:700;line-height:1;margin-top:6px}
+.calc input{width:100%;accent-color:var(--hot);margin-top:12px}
+.calc .rows div{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.14);font-size:15.5px}
+.calc .rows b{font-variant-numeric:tabular-nums}
+.calc .note{font-size:13.5px;color:#d9cfdc;margin-top:10px}
+.weeks{display:grid;gap:10px}
+.wk{display:grid;grid-template-columns:120px minmax(0,1fr);gap:6px 20px;background:var(--paper);border:1px solid var(--rule);border-radius:12px;padding:16px 18px}
+.wk .m{color:var(--plum);padding-top:3px}
+.wk ul{margin:4px 0 0;padding-left:20px}
+@media (max-width:560px){.wk{grid-template-columns:1fr}}
+ol.need{margin:0;padding-left:22px;display:grid;gap:8px}
+.links{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;gap:10px;align-items:center;background:var(--plum);color:#fff;text-decoration:none;font-weight:600;padding:12px 20px;border-radius:999px}
+.btn:hover{background:var(--plum-deep)}
+.btn.alt{background:var(--paper);color:var(--plum);border:1.5px solid var(--plum)}
+.note{font-size:14.5px;color:var(--muted)}
+footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--rule);font-size:14px;color:var(--muted);display:grid;gap:6px}
+</style>
+
+<div class="cover">
+  <div class="wrap">
+    <img class="logo" src="assets/logo.svg" alt="Cute as a Cupcake">
+    <span class="m" style="color:var(--pink)">Proposal from Station Solutions</span>
+    <h1 class="d">You bake it. <em>We run the front office.</em></h1>
+    <p>Reviews, replies, bookings, follow-up and the email list, handled every day under your name, so every person who finds Cute as a Cupcake becomes an order.</p>
+    <div class="meta"><span>Prepared for <b>Michelle Wainwright</b>, Cute as a Cupcake! Cupcakery &amp; Bake Shop</span><span>By <b>Station Solutions</b> with Team 6</span><span>12 October 2026</span></div>
+  </div>
+</div>
+
+<div class="wrap">
+<section>
+  <h2 class="d"><span class="n">1 · The short version</span>Google already sends you the customers. <em>We make sure none of them slip away.</em></h2>
+  <div class="summary">
+    <div><b>Core</b><span>All 12 Station products, our recommendation</span></div>
+    <div><b>$1,297/mo</b><span>Month to month. 30-day money-back on the first month</span></div>
+    <div><b>~9 jars a day</b><span>pays for it, at $5 profit a jar (enter your own number below)</span></div>
+    <div><b>Week 1</b><span>Google, reviews and booking fixes go live</span></div>
+  </div>
+  <p class="lede">Our Business Scan scored you 76 out of 100. You are the first map result for cupcakes in Merrillville and Crown Point. What's leaking is everything after that first click: a 4.1 rating with nothing asking happy customers to review, event leads that can arrive with no contact details, replies promised in 24 to 48 hours, and an email list nobody can join.</p>
+  <div class="links"><a class="btn alt" href="https://stationonemain-source.github.io/cute-as-a-cupcake/scan/" target="_blank" rel="noopener">Read the full Business Scan →</a></div>
+</section>
+
+<section>
+  <h2 class="d"><span class="n">2 · What we found, and what fixes it</span>Six leaks, <em>six fixes.</em></h2>
+  <div class="gaps">
+    <div class="gap"><div class="found"><span class="m">Found</span><b>4.1 stars, the lowest of the bakeries Google lists beside you.</b><span class="s">Great Harvest 4.8, Nothing Bundt Cakes 4.8, Peach Cobbler 4.6. Nothing asks a happy customer for a review, and the newest review Google shows is a one-star from May.</span></div><div class="fix"><span class="m">Fix</span><b>Every customer gets a review request, and every review gets a reply.</b><span class="s">The same friendly ask goes to everyone after they buy. Replies are drafted for you to approve, so every review, good or bad, gets an answer.</span><div class="prods"><span class="chip">Repute</span><span class="chip">Echo</span></div></div></div>
+    <div class="gap"><div class="found"><span class="m">Found</span><b>Truck and cart bookings can arrive with no name, email or phone.</b><span class="s">Replies are promised in 24 to 48 hours, and there is no chat on any page.</span></div><div class="fix"><span class="m">Fix</span><b>Chat that answers at 9 PM, and a calendar that holds the date.</b><span class="s">The planner gets an answer and a booking slot on the spot. You get a complete lead with every contact detail.</span><div class="prods"><span class="chip">Greet</span><span class="chip">Slate</span></div></div></div>
+    <div class="gap"><div class="found"><span class="m">Found</span><b>After hours, there is no quick way to get an answer.</b><span class="s">No chat on the site, and the contact form promises a reply in 24 to 48 hours. We didn't call to test the phone, so we make no claim about it.</span></div><div class="fix"><span class="m">Fix</span><b>Every missed call gets a text back in seconds, and the phone can answer itself.</b><span class="s">"Sorry we missed you, are you asking about an order, an event or a gift?" Then the receptionist books it.</span><div class="prods"><span class="chip">Lineback</span><span class="chip">Frontdesk</span><span class="chip">Dial</span></div></div></div>
+    <div class="gap"><div class="found"><span class="m">Found</span><b>Gift, event and wholesale enquiries depend on someone remembering to follow up.</b><span class="s">The corporate form and the wholesale application each land in an inbox.</span></div><div class="fix"><span class="m">Fix</span><b>Every enquiry gets a same-day reply and a follow-up until it's a yes or a no.</b><span class="s">Text and email steps you approve, stopped the moment they answer, all in one pipeline you can see.</span><div class="prods"><span class="chip">Pursuit</span></div></div></div>
+    <div class="gap"><div class="found"><span class="m">Found</span><b>Klaviyo is installed, but nobody can join the list.</b><span class="s">No sign-up form on any page, so the list only grows from past buyers.</span></div><div class="fix"><span class="m">Fix</span><b>A list that grows from the site and every machine, and campaigns that go out.</b><span class="s">New flavours, holiday ordering dates, machine openings, plus win-back for customers who haven't ordered in months.</span><div class="prods"><span class="chip">Dispatch</span><span class="chip">Revive</span></div></div></div>
+    <div class="gap"><div class="found"><span class="m">Found</span><b>Google says you close at 6, the website says 7, and the truck has no listing.</b><span class="s">Two phone numbers are in circulation, and the truck can't be found on Google Maps.</span></div><div class="fix"><span class="m">Fix</span><b>One managed Google profile, kept right, with posts going out every week.</b><span class="s">Hours, photos and posts kept current, and social posts scheduled to nine networks from one place.</span><div class="prods"><span class="chip">Echo</span><span class="chip">Marquee</span></div></div></div>
+  </div>
+</section>
+
+<section>
+  <h2 class="d"><span class="n">3 · How it works day to day</span>Four jobs, <em>done every day.</em></h2>
+  <div class="jobs">
+    <div class="job"><span class="m" style="color:var(--plum)">Get found &amp; trusted</span><h3>Echo · Repute · Marquee</h3><p>Your Google profile managed, more reviews with replies, and social posts to nine networks.</p><p class="scene">A few days after an order or a visit, every customer gets a short text: "How was your jar? A Google review helps a small bakery more than you'd think." When a review lands, a reply is drafted in your voice for you to approve.</p></div>
+    <div class="job"><span class="m" style="color:var(--plum)">Answer everyone</span><h3>Greet · Slate · Lineback · Frontdesk · Dial</h3><p>Website chat, a booking calendar, missed-call text-back, a phone receptionist and a business texting number.</p><p class="scene">Saturday, 9 PM: a wedding planner asks the chat about the dessert cart. The chat answers her questions, takes her details and books a call on your calendar for Tuesday. You see it all on Monday morning.</p></div>
+    <div class="job"><span class="m" style="color:var(--plum)">Follow up to the order</span><h3>Pursuit · Dispatch · Revive</h3><p>Lead follow-up by text and email, monthly email campaigns, and win-back for past customers.</p><p class="scene">An HR manager requests a quote for 40 boxes and goes quiet. Day 2 she gets the quote again with holiday ship dates; day 5, a photo of the box. She replies "let's do it."</p></div>
+    <div class="job"><span class="m" style="color:var(--plum)">Get paid</span><h3>Tap</h3><p>Payments, invoices and estimates for event deposits and corporate orders, alongside your Shopify store.</p><p class="scene">A school books the truck. The estimate and deposit link go out in the same text, and the date is held when it's paid.</p></div>
+  </div>
+  <p class="note">Every message any product sends is pre-written in your voice and yours to edit before it goes live. Your name and your number are on everything; Station stays backstage. A monthly report shows what rang, what booked and what it made you.</p>
+</section>
+
+<section>
+  <h2 class="d"><span class="n">4 · Options</span>Three ways to start. <em>We recommend Core.</em></h2>
+  <div class="opts">
+    <div class="opt"><h3>Fix the leaks</h3><div class="price">$794<small>/mo</small></div><p class="note">Get Found + Answer collections</p><ul><li>Google profile managed, reviews with replies, social posting</li><li>Website chat, booking calendar, missed-call text-back</li><li>Business number &amp; texting, card payments</li></ul><p class="terms">14-day free trial on each collection. Month to month.</p></div>
+    <div class="opt rec"><span class="flag">Recommended</span><h3>Core</h3><div class="price">$1,297<small>/mo</small></div><p class="note">All 12 products at Standard size</p><ul><li>Everything in "Fix the leaks"</li><li>Lead follow-up for gift, event, wholesale and host enquiries</li><li>Email campaigns and win-back</li><li>Phone receptionist, 750 minutes a month</li><li>One plan, one bill. Station lists it as worth $1,899/mo separately</li></ul><p class="terms">Billed today with a 30-day money-back on the first month. Month to month.</p></div>
+    <div class="opt"><h3>Pro</h3><div class="price">$2,197<small>/mo</small></div><p class="note">Core at busy size, done for you</p><ul><li>Everything in Core, at the busy tier</li><li>12 social posts a month, written and posted by us</li><li>4 email campaigns a month, written and sent by us</li><li>For the holiday season and a growing host network</li></ul><p class="terms">Billed today with a 30-day money-back on the first month. Month to month.</p></div>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>What's included</th><th class="c">Fix the leaks</th><th class="c">Core</th><th class="c">Pro</th></tr></thead>
+    <tbody>
+      <tr><td>Google profile managed (Echo)</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+      <tr><td>Review requests and replies (Repute)</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+      <tr><td>Social posting to 9 networks (Marquee)</td><td class="y">self-serve</td><td class="y">self-serve</td><td class="y">12 posts done for you</td></tr>
+      <tr><td>Website chat (Greet)</td><td class="y">✓</td><td class="y">✓</td><td class="y">busy size</td></tr>
+      <tr><td>Booking calendar &amp; reminders (Slate)</td><td class="y">✓</td><td class="y">✓</td><td class="y">busy size</td></tr>
+      <tr><td>Missed-call text-back (Lineback)</td><td class="y">✓</td><td class="y">✓</td><td class="y">busy size</td></tr>
+      <tr><td>Business number &amp; texting (Dial)</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+      <tr><td>Payments, invoices, estimates (Tap)</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+      <tr><td>Lead follow-up by text &amp; email (Pursuit)</td><td class="no">–</td><td class="y">✓</td><td class="y">busy size</td></tr>
+      <tr><td>Email campaigns (Dispatch)</td><td class="no">–</td><td class="y">self-serve</td><td class="y">4 done for you</td></tr>
+      <tr><td>Win-back for past customers (Revive)</td><td class="no">–</td><td class="y">✓</td><td class="y">✓</td></tr>
+      <tr><td>Phone receptionist (Frontdesk)</td><td class="no">add +$297</td><td class="y">750 min</td><td class="y">busy size</td></tr>
+      <tr class="hl"><td><b>Monthly</b></td><td class="n"><b>$794</b></td><td class="n"><b>$1,297</b></td><td class="n"><b>$2,197</b></td></tr>
+      <tr><td>Yearly billing (2 months free)</td><td class="n">$7,940</td><td class="n">$12,970</td><td class="n">$21,970</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">Usage: you're warned at 80% of any allowance, the first overage is free, and later overages bill at twice the per-unit rate. Prices are Station's published prices on 12 October 2026.</p>
+</section>
+
+<section>
+  <h2 class="d"><span class="n">5 · What it takes to pay for itself</span>Count it <em>in jars.</em></h2>
+  <div class="calc">
+    <div><label for="ppj">Your profit per jar</label><div class="big" id="ppjV">$5.00</div><input type="range" id="ppj" min="3" max="8" step="0.25" value="5"><p class="note">Set it to your real number: price minus ingredients, jar, label and any host share. Everything on the right updates.</p></div>
+    <div class="rows" id="calcRows"></div>
+  </div>
+  <p class="note">A corporate order of 50 jars covers a lot of these on its own. The model counts jars only; truck and cart events are extra.</p>
+</section>
+
+<section>
+  <h2 class="d"><span class="n">6 · Website work</span>The pages the campaign needs, <em>quoted after you see them.</em></h2>
+  <p class="lede">The Find a Machine page with QR landing, Corporate Gifts with the quote builder, Host a Machine, the gift-box builder, the 8 oz jar fix and the booking forms, built inside your Shopify store. The demo is already built. Websites are priced to the project, and nothing is charged until you approve the quote.</p>
+  <div class="links"><a class="btn" href="https://stationonemain-source.github.io/cute-as-a-cupcake/" target="_blank" rel="noopener">Open the demo website →</a></div>
+</section>
+
+<section>
+  <h2 class="d"><span class="n">7 · The first 30 days</span>Live in weeks, <em>not months.</em></h2>
+  <div class="weeks">
+    <div class="wk"><span class="m">Week 1</span><div><b>Get found, get reviewed</b><ul><li>Start managing the Google profile: hours fixed, photos, first posts, replies to recent reviews</li><li>Review requests switched on for every customer</li><li>Booking forms fixed so every lead has contact details</li></ul></div></div>
+    <div class="wk"><span class="m">Week 2</span><div><b>Answer everyone</b><ul><li>Chat on every page and a booking calendar on the truck and cart</li><li>Missed-call text-back on your number; the receptionist trained on your FAQ</li><li>Texting goes live about two business days after we file your business details</li></ul></div></div>
+    <div class="wk"><span class="m">Week 3</span><div><b>Follow up</b><ul><li>Follow-up sequences for gift, event, wholesale and host enquiries, in your words</li><li>Email sign-up on the site and machines; the holiday-gifting campaign drafted for your approval</li></ul></div></div>
+    <div class="wk"><span class="m">Week 4</span><div><b>Report</b><ul><li>First monthly report: calls, chats, bookings, reviews, quotes and what they turned into</li><li>We agree the next month's priorities with you</li></ul></div></div>
+  </div>
+</section>
+
+<section>
+  <h2 class="d"><span class="n">8 · What we need from you</span>Five things, <em>then we start.</em></h2>
+  <ol class="need">
+    <li>Manager access to your Google Business Profile.</li>
+    <li>A staff account on your Shopify store, for the website work.</li>
+    <li>Your legal business name and EIN, which texting requires. It goes live about two business days after we file; calls and email work right away.</li>
+    <li>An hour to review the messages before they go live: review requests, chat answers, follow-ups. They're pre-written; you make them sound like you.</li>
+    <li>Your real profit per jar and the hours you want the phone answered.</li>
+  </ol>
+</section>
+
+<section>
+  <h2 class="d"><span class="n">9 · Next step</span>Pick an option, <em>and we start Monday.</em></h2>
+  <div class="links">
+    <a class="btn" href="https://stationonemain-source.github.io/cute-as-a-cupcake/scan/" target="_blank" rel="noopener">Business Scan →</a>
+    <a class="btn alt" href="https://stationonemain-source.github.io/cute-as-a-cupcake/" target="_blank" rel="noopener">Demo website →</a>
+    <a class="btn alt" href="https://stationonemain-source.github.io/cute-as-a-cupcake/deck/" target="_blank" rel="noopener">Presentation →</a>
+  </div>
+  <p>Questions or a yes: <b>main@station.solutions</b></p>
+</section>
+
+<footer>
+  <span>Station Solutions · main@station.solutions</span>
+  <span>Month to month, no contracts. Collections start with a 14-day free trial; Core, Pro and Max bill today with a 30-day money-back on the first month. Payback figures use the profit per jar you set above and are a model, not a guarantee.</span>
+</footer>
+</div>
+
+<script>
+(function(){
+  const plans=[['Fix the leaks',794],['Core',1297],['Pro',2197]];
+  const r=document.getElementById('ppj'),v=document.getElementById('ppjV'),rows=document.getElementById('calcRows');
+  function draw(){const p=+r.value;v.textContent='$'+p.toFixed(2);
+    rows.innerHTML=plans.map(([n,c])=>{const j=Math.ceil(c/p);return `<div><span>${n} · $${c.toLocaleString()}/mo</span><b>${j.toLocaleString()} jars/mo · ~${Math.ceil(j/30)} a day</b></div>`}).join('')+
+    `<div><span>One corporate order of 50 jars</span><b>$${(50*p).toLocaleString(undefined,{maximumFractionDigits:0})} profit</b></div>`;}
+  r.addEventListener('input',draw);draw();
+})();
+</script>
+</body></html>

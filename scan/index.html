@@ -1,0 +1,817 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="robots" content="noindex,nofollow"><meta name="description" content="Station Business Scan of Cute as a Cupcake! Cupcakery and Bake Shop, October 2026."></head><body><title>Business Scan · Cute as a Cupcake</title>
+
+
+
+
+
+<meta name="robots" content="noindex">
+<meta name="color-scheme" content="light">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700;800&family=Inter+Tight:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F4F2ED;
+    --card:#FFFFFF;
+    --ink:#16181d;
+    --ink-2:#4a4e57;
+    --muted:#8e929c;
+    --amber:#FFB000;
+    --green:#2FBF71;
+    --hairline:rgba(22,24,29,.12);
+    --hairline-soft:rgba(22,24,29,.07);
+    --radius:10px;
+  }
+
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+
+  html{-webkit-text-size-adjust:100%;}
+
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+  }
+
+  .page{
+    max-width:740px;
+    margin:0 auto;
+    padding:0 20px 56px;
+  }
+
+  /* ---------- utility type ---------- */
+
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    font-weight:500;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+
+  .eyebrow--amber{color:#B87F00;}
+
+  .sec-num{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    font-weight:500;
+    letter-spacing:.14em;
+    color:var(--muted);
+  }
+
+  .sec-head{
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+    margin:0 0 18px;
+  }
+
+  .sec-head .rule{
+    flex:1;
+    height:1px;
+    background:var(--hairline-soft);
+    align-self:center;
+  }
+
+  .sec-title{
+    font-family:'Fraunces',Georgia,serif;
+    font-weight:500;
+    font-size:20px;
+    letter-spacing:-.01em;
+    color:var(--ink);
+  }
+
+  /* ---------- header bar ---------- */
+
+  header.topbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    padding:22px 0 20px;
+    border-bottom:1px solid var(--hairline);
+    margin-bottom:44px;
+  }
+
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    color:var(--ink);
+  }
+
+  .brand svg{display:block;flex:none;}
+
+  .brand .wordmark{
+    font-family:'Inter',sans-serif;
+    font-weight:800;
+    font-size:15px;
+    letter-spacing:-.02em;
+  }
+
+  .topbar-meta{
+    text-align:right;
+    display:flex;
+    flex-direction:column;
+    gap:3px;
+  }
+
+  .topbar-meta .date{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:.08em;
+    color:var(--ink-2);
+    font-variant-numeric:tabular-nums;
+  }
+
+  /* ---------- title block ---------- */
+
+  .title-block{margin-bottom:52px;}
+
+  .title-block .eyebrow{display:block;margin-bottom:14px;}
+
+  h1.biz-name{
+    font-family:'Fraunces',Georgia,serif;
+    font-weight:600;
+    font-size:clamp(34px,8vw,52px);
+    line-height:1.06;
+    letter-spacing:-.015em;
+    color:var(--ink);
+    margin-bottom:16px;
+    overflow-wrap:break-word;
+    text-wrap:balance;
+  }
+
+  .title-sub{
+    font-size:17px;
+    line-height:1.55;
+    color:var(--ink-2);
+    max-width:52ch;
+  }
+
+  .title-block::after{
+    content:"";
+    display:block;
+    width:56px;
+    height:2px;
+    background:var(--amber);
+    margin-top:26px;
+  }
+
+  /* ---------- jump nav ---------- */
+
+  .toc{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin:-16px 0 48px;
+  }
+
+  .toc a{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    font-weight:500;
+    letter-spacing:.04em;
+    color:var(--ink-2);
+    text-decoration:none;
+    padding:7px 13px;
+    border:1px solid var(--hairline);
+    border-radius:20px;
+    background:var(--card);
+    white-space:nowrap;
+    transition:border-color .15s ease,color .15s ease;
+  }
+
+  .toc a:hover{border-color:var(--amber);color:var(--ink);}
+
+  /* ---------- cards ---------- */
+
+  .card{
+    background:var(--card);
+    border:1px solid var(--hairline-soft);
+    border-radius:var(--radius);
+    padding:28px;
+  }
+
+  @media (min-width:560px){
+    .card{padding:34px 38px;}
+  }
+
+  section{margin-bottom:44px;}
+
+  /* ---------- headline finding ---------- */
+
+  .headline-card .eyebrow{display:block;margin-bottom:14px;}
+
+  .headline-text{
+    font-family:'Fraunces',Georgia,serif;
+    font-weight:500;
+    font-size:clamp(20px,4.4vw,25px);
+    line-height:1.4;
+    letter-spacing:-.005em;
+    color:var(--ink);
+    text-wrap:balance;
+  }
+
+  /* ---------- big number ---------- */
+
+  .big-num{
+    font-family:'Inter Tight','Inter',sans-serif;
+    font-weight:700;
+    font-variant-numeric:tabular-nums;
+    font-size:clamp(64px,17vw,104px);
+    line-height:1;
+    letter-spacing:-.03em;
+    color:var(--ink);
+    margin-bottom:6px;
+  }
+
+  .big-num-label{
+    font-size:15px;
+    font-weight:600;
+    color:var(--ink-2);
+    margin-bottom:18px;
+    max-width:40ch;
+  }
+
+  .num-divider{
+    height:1px;
+    background:var(--hairline-soft);
+    margin:0 0 18px;
+  }
+
+  .num-reasoning{
+    font-size:15px;
+    line-height:1.65;
+    color:var(--ink-2);
+    max-width:58ch;
+  }
+
+  .recovery-note{
+    margin-top:16px;
+    font-size:14px;
+    font-weight:600;
+    line-height:1.6;
+    color:var(--green);
+    max-width:52ch;
+  }
+
+  /* ---------- your-math calculator ---------- */
+
+  .math-card .eyebrow{display:block;margin-bottom:6px;}
+
+  .math-card .math-lede{
+    font-size:15px;
+    line-height:1.6;
+    color:var(--ink-2);
+    margin-bottom:22px;
+  }
+
+  .math-card .math-lede strong{color:var(--ink);font-weight:700;}
+
+  .calc-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+    margin-bottom:8px;
+  }
+
+  @media (max-width:480px){
+    .calc-grid{grid-template-columns:1fr;}
+  }
+
+  .calc-field{display:flex;flex-direction:column;gap:8px;}
+
+  .calc-field-label{
+    font-size:13px;
+    font-weight:600;
+    color:var(--ink-2);
+  }
+
+  .calc-input-wrap{
+    display:flex;
+    align-items:center;
+    gap:2px;
+    border:1.5px solid var(--hairline);
+    border-radius:8px;
+    background:var(--paper);
+    padding:0 14px;
+    transition:border-color .15s ease;
+  }
+
+  .calc-input-wrap:focus-within{border-color:var(--amber);}
+
+  .calc-affix{
+    font-family:'Inter Tight','Inter',sans-serif;
+    font-weight:600;
+    color:var(--muted);
+    font-size:15px;
+  }
+
+  .calc-input-wrap input{
+    appearance:textfield;
+    -moz-appearance:textfield;
+    border:none;
+    background:none;
+    outline:none;
+    width:100%;
+    min-width:0;
+    padding:12px 8px;
+    font-family:'Inter Tight','Inter',sans-serif;
+    font-weight:600;
+    font-size:16px;
+    color:var(--ink);
+    font-variant-numeric:tabular-nums;
+  }
+
+  .calc-input-wrap input::-webkit-outer-spin-button,
+  .calc-input-wrap input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0;}
+
+  .calc-result{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+    margin-top:22px;
+    padding-top:22px;
+    border-top:1px solid var(--hairline-soft);
+  }
+
+  @media (max-width:480px){
+    .calc-result{grid-template-columns:1fr;gap:20px;}
+  }
+
+  .calc-result-label{
+    display:block;
+    font-size:11.5px;
+    font-weight:600;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:6px;
+  }
+
+  .calc-result-num{
+    font-family:'Inter Tight','Inter',sans-serif;
+    font-weight:700;
+    font-variant-numeric:tabular-nums;
+    font-size:clamp(27px,6vw,36px);
+    letter-spacing:-.02em;
+    color:var(--ink);
+  }
+
+  .calc-result-num--annual{color:var(--green);}
+
+  .math-disclaimer{
+    margin-top:20px;
+    padding-top:16px;
+    border-top:1px solid var(--hairline-soft);
+    font-size:14px;
+    line-height:1.6;
+    color:var(--muted);
+  }
+
+  /* ---------- findings ---------- */
+
+  .findings-list{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+
+  .finding{
+    background:var(--card);
+    border:1px solid var(--hairline-soft);
+    border-radius:var(--radius);
+    padding:24px 26px;
+  }
+
+  @media (min-width:560px){
+    .finding{padding:26px 32px;}
+  }
+
+  .finding-title{
+    font-size:16.5px;
+    font-weight:700;
+    letter-spacing:-.01em;
+    color:var(--ink);
+    margin-bottom:8px;
+  }
+
+  .finding-detail{
+    font-size:15px;
+    line-height:1.65;
+    color:var(--ink-2);
+  }
+
+  .finding-detail .positive{color:var(--green);font-weight:600;}
+
+  /* ---------- competitive context ---------- */
+
+  .competitor-card{
+    border-left:3px solid var(--amber);
+  }
+
+  .competitor-card .eyebrow{display:block;margin-bottom:12px;}
+
+  .competitor-text{
+    font-size:15.5px;
+    line-height:1.7;
+    color:var(--ink-2);
+  }
+
+  /* ---------- three fixes ---------- */
+
+  .fixes{
+    display:flex;
+    flex-direction:column;
+  }
+
+  .fix{
+    display:flex;
+    gap:20px;
+    padding:22px 0;
+    border-bottom:1px solid var(--hairline-soft);
+  }
+
+  .fix:first-child{padding-top:4px;}
+  .fix:last-child{border-bottom:none;padding-bottom:4px;}
+
+  .fix-num{
+    font-family:'Inter Tight','Inter',sans-serif;
+    font-weight:700;
+    font-size:26px;
+    line-height:1.15;
+    letter-spacing:-.02em;
+    color:var(--amber);
+    font-variant-numeric:tabular-nums;
+    flex:none;
+    width:34px;
+  }
+
+  .fix-body{
+    font-size:15.5px;
+    line-height:1.65;
+    color:var(--ink);
+    padding-top:3px;
+  }
+
+  /* ---------- close / CTA ---------- */
+
+  .close-card .eyebrow{display:block;margin-bottom:14px;}
+
+  .close-callout{
+    font-family:'Fraunces',Georgia,serif;
+    font-weight:500;
+    font-size:19px;
+    line-height:1.5;
+    color:var(--ink);
+    margin-bottom:18px;
+    text-wrap:balance;
+  }
+
+  .close-callout strong{color:#B87F00;}
+
+  .close-text{
+    font-size:16px;
+    line-height:1.7;
+    color:var(--ink-2);
+    max-width:56ch;
+    margin-bottom:28px;
+  }
+
+  .cta-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+  }
+
+  .cta-btn{
+    display:block;
+    text-align:center;
+    background:var(--amber);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    font-weight:700;
+    font-size:15.5px;
+    letter-spacing:-.01em;
+    text-decoration:none;
+    padding:15px 28px;
+    border-radius:8px;
+    transition:filter .15s ease,border-color .15s ease;
+  }
+
+  @media (min-width:560px){
+    .cta-btn{display:inline-block;}
+  }
+
+  .cta-btn:hover{filter:brightness(1.05);}
+
+  .cta-btn--ghost{
+    background:none;
+    border:1.5px solid var(--hairline);
+    color:var(--ink);
+  }
+
+  .cta-btn--ghost:hover{filter:none;border-color:var(--ink);}
+
+  .cta-quiet{
+    margin-top:16px;
+    font-size:14px;
+    color:var(--muted);
+    line-height:1.6;
+  }
+
+  /* ---------- footer ---------- */
+
+  footer.foot{
+    margin-top:56px;
+    padding-top:24px;
+    border-top:1px solid var(--hairline);
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:10px 18px;
+    color:var(--muted);
+  }
+
+  footer.foot svg{display:block;flex:none;color:var(--muted);}
+
+  footer.foot .foot-item{
+    font-family:'JetBrains Mono',monospace;
+    font-size:10.5px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+  }
+
+  footer.foot .foot-sep{
+    width:3px;height:3px;border-radius:50%;
+    background:var(--hairline);
+  }
+
+  /* ---------- print ---------- */
+
+  @media print{
+    body{background:#fff;}
+    .page{max-width:100%;padding:0;}
+    .card,.finding{
+      border:1px solid #ddd;
+      box-shadow:none;
+      break-inside:avoid;
+    }
+    .toc{display:none;}
+    .calc-input-wrap{border:1px solid #ccc;background:none;}
+    .cta-btn{
+      display:inline-block;
+      background:none;
+      border:1px solid var(--ink);
+      color:var(--ink);
+      padding:10px 18px;
+    }
+    .cta-btn--primary::after{
+      content:" — station.solutions/call";
+      font-weight:400;
+    }
+    .cta-btn--ghost{display:none;}
+    header.topbar,footer.foot{border-color:#ddd;}
+    section{break-inside:avoid;}
+  }
+
+  @media (max-width:420px){
+    header.topbar{flex-direction:column;align-items:flex-start;gap:12px;}
+    .topbar-meta{text-align:left;}
+    .fix{gap:14px;}
+  }
+</style>
+<style>
+  @media print{section{break-inside:auto;}.sec-head{break-after:avoid;}.card,.finding{break-inside:avoid;}
+    .toc{display:flex!important;flex-direction:column;gap:5px;margin:34px 0 0;}
+    .toc::before{content:"Contents";font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#8e929c;margin-bottom:8px;}
+    .toc a{border:none;background:none;padding:3px 0;font-size:12.5px;color:#4a4e57;}
+    .headline-card{break-before:page;}
+    #sec-seo .card,#sec-geo .card,#sec-appendix .card{break-inside:auto;}
+    .card>.eyebrow{break-after:avoid;}.lede{break-inside:avoid;}
+    .findings-list{display:block;}.finding{margin-bottom:14px;}
+    .kv,.safety-grid{display:block;}.kv>div,.safety-grid>div{break-inside:avoid;margin-top:14px;}.kv>span,.safety-grid>span{margin-top:6px;display:inline-block;}
+    .mini-fixes{break-inside:avoid;}.tbl tr{break-inside:avoid;}
+    .foot{break-before:avoid;margin-top:10px!important;padding-top:10px!important;}.appendix dl{margin-top:10px;}}
+  .score-card{display:flex;gap:28px;align-items:center;flex-wrap:wrap;}
+  .ring{flex:none;}
+  .ring-num{font-family:'Inter Tight','Inter',sans-serif;font-weight:700;font-size:38px;fill:#16181d;letter-spacing:-.03em;}
+  .ring-lbl{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.14em;fill:#8e929c;text-transform:uppercase;}
+  .bars{flex:1;min-width:240px;display:flex;flex-direction:column;gap:11px;}
+  .bar-row{display:grid;grid-template-columns:1fr 3fr 34px;gap:12px;align-items:center;font-size:13px;}
+  .bar-name{font-weight:600;color:var(--ink-2);white-space:nowrap;}
+  .bar-name em{font-style:normal;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);margin-left:4px;}
+  .bar-track{height:8px;border-radius:999px;background:rgba(22,24,29,.07);overflow:hidden;}
+  .bar-fill{display:block;height:100%;background:var(--amber);border-radius:999px;}
+  .bar-val{font-family:'Inter Tight','Inter',sans-serif;font-weight:700;font-variant-numeric:tabular-nums;text-align:right;color:var(--ink);}
+  .score-note{width:100%;font-size:13.5px;line-height:1.6;color:var(--muted);margin-top:6px;}
+  @media (max-width:480px){.bar-row{grid-template-columns:1fr 2fr 30px;}.bar-name{white-space:normal;}}
+  table.tbl{width:100%;border-collapse:collapse;font-size:14px;margin-top:16px;}
+  table.tbl th{text-align:left;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500;padding:0 8px 10px 0;border-bottom:1px solid var(--hairline);}
+  table.tbl td{padding:10px 8px 10px 0;border-bottom:1px solid var(--hairline-soft);color:var(--ink-2);vertical-align:top;font-variant-numeric:tabular-nums;}
+  table.tbl td.num{text-align:right;font-weight:600;color:var(--ink);}
+  table.tbl th.num{text-align:right;}
+  table.tbl tr.you td{color:var(--ink);font-weight:700;background:rgba(255,176,0,.08);}
+  .verdict{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;padding:5px 10px;border-radius:999px;border:1px solid var(--hairline);white-space:nowrap;}
+  .verdict--ok{color:#1f8a52;border-color:rgba(47,191,113,.4);background:rgba(47,191,113,.08);}
+  .safety-grid{display:grid;grid-template-columns:1fr auto;gap:14px 18px;align-items:center;font-size:14.5px;color:var(--ink-2);}
+  .safety-grid strong{color:var(--ink);font-weight:600;display:block;}
+  .safety-grid small{display:block;font-size:13px;color:var(--muted);line-height:1.5;}
+  @media (max-width:480px){.safety-grid{grid-template-columns:1fr;gap:6px;}.safety-grid .verdict{margin-bottom:10px;justify-self:start;}}
+  .kv{display:grid;grid-template-columns:1fr auto;gap:14px 18px;align-items:center;font-size:14.5px;color:var(--ink-2);}
+  .kv strong{color:var(--ink);font-weight:600;display:block;}
+  .kv small{display:block;font-size:13px;color:var(--muted);line-height:1.5;}
+  .verdict--warn{color:#B87F00;border-color:rgba(255,176,0,.55);background:rgba(255,176,0,.10);}
+  .verdict--bad{color:#b3261e;border-color:rgba(179,38,30,.35);background:rgba(179,38,30,.07);}
+  .verdict--na{color:var(--muted);}
+  @media (max-width:480px){.kv{grid-template-columns:1fr;gap:6px;}.kv .verdict{margin-bottom:10px;justify-self:start;}}
+  .lede{font-size:15.5px;line-height:1.7;color:var(--ink-2);margin-bottom:22px;}
+  .lede strong{color:var(--ink);}
+  .mini-fixes{margin-top:22px;padding-top:18px;border-top:1px solid var(--hairline-soft);}
+  .mini-fixes .eyebrow{display:block;margin-bottom:10px;}
+  .mini-fixes ol{padding-left:20px;font-size:14.5px;line-height:1.65;color:var(--ink-2);}
+  .mini-fixes li{margin-bottom:8px;}
+  .mini-fixes li strong{color:var(--ink);}
+  .appendix{font-size:13.5px;line-height:1.6;color:var(--ink-2);}
+  .appendix dl{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;margin-top:14px;}
+  .appendix dt{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;color:var(--muted);white-space:nowrap;padding-top:2px;}
+  .appendix dd{margin:0;}
+  .omission{margin-top:16px;padding:14px 16px;border-left:3px solid var(--amber);background:rgba(255,176,0,.06);font-size:14px;line-height:1.6;color:var(--ink-2);}
+  @media (max-width:480px){.appendix dl{grid-template-columns:1fr;gap:2px 0;}.appendix dd{margin-bottom:10px;}}
+</style>
+
+
+<div class="page">
+  
+    <div class="brand"><svg viewBox="0 0 100 100" width="26" height="26" aria-hidden="true"><defs><g id="stArm"><rect x="29.5" y="3" width="18" height="36" rx="8.5"/><rect x="52.5" y="3" width="18" height="36" rx="8.5"/></g><mask id="stCore"><rect width="100" height="100" fill="#fff"/><circle cx="50" cy="50" r="16.5" fill="#000"/></mask></defs><g mask="url(#stCore)" fill="currentColor" transform="rotate(45 50 50)"><use href="#stArm"/><use href="#stArm" transform="rotate(90 50 50)"/><use href="#stArm" transform="rotate(180 50 50)"/><use href="#stArm" transform="rotate(270 50 50)"/></g></svg><span class="wordmark">STATION</span></div>
+    <div class="topbar-meta"><span class="eyebrow">Business Scan · Confidential</span><span class="date">12 Oct 2026</span></div>
+  
+
+  <div class="title-block">
+    <span class="eyebrow">Prepared For</span>
+    <h1 class="biz-name">Cute as a Cupcake!</h1>
+    <p class="title-sub">Cupcakery &amp; Bake Shop, Merrillville, Indiana. Storefront, nationwide shipping, Cutie the Cupcake Truck, the mobile dessert cart and Cupcake in a Jar machines. What we found, and the three fastest fixes.</p>
+  </div>
+
+  <nav class="toc" aria-label="Jump to a section">
+    <a href="#sec-score">00 &middot; Score</a>
+    <a href="#sec-findings">01 &middot; What we found</a>
+    <a href="#sec-safety">02 &middot; Site safety</a>
+    <a href="#sec-seo">03 &middot; Search engines</a>
+    <a href="#sec-geo">04 &middot; AI search</a>
+    <a href="#sec-competitor">05 &middot; Around you</a>
+    <a href="#sec-fixes">06 &middot; Three fixes</a>
+    <a href="#sec-close">07 &middot; Next step</a>
+    <a href="#sec-appendix">A &middot; Evidence</a>
+  </nav>
+
+  <section>
+    <div class="card headline-card">
+      <span class="eyebrow eyebrow--amber">The Headline</span>
+      <p class="headline-text">Google already puts you first for cupcakes in Merrillville and Crown Point, and your jar is a product most bakeries would envy. What&rsquo;s leaking is everything after the first click: a 4.1-star rating with nothing asking happy customers to review, a flagship page that scores 15 on a phone, event leads that can arrive with no contact details, and an email list nobody can join.</p>
+    </div>
+  </section>
+
+  <section id="sec-score">
+    <div class="sec-head"><span class="sec-num">00</span><span class="sec-title">Search &amp; discovery score</span><span class="rule"></span></div>
+    <div class="card score-card">
+      <svg class="ring" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="Score 76 of 100"><circle cx="64" cy="64" r="54" fill="none" stroke="rgba(22,24,29,.08)" stroke-width="10"/><circle cx="64" cy="64" r="54" fill="none" stroke="#FFB000" stroke-width="10" stroke-linecap="round" stroke-dasharray="339.3" stroke-dashoffset="81.4" transform="rotate(-90 64 64)"/><text x="64" y="60" text-anchor="middle" class="ring-num">76</text><text x="64" y="80" text-anchor="middle" class="ring-lbl">of 100</text></svg>
+      <div class="bars"><div class="bar-row"><span class="bar-name">Google Business Profile <em>25%</em></span><span class="bar-track"><span class="bar-fill" style="width:70%"></span></span><span class="bar-val">70</span></div><div class="bar-row"><span class="bar-name">Reputation <em>25%</em></span><span class="bar-track"><span class="bar-fill" style="width:92%"></span></span><span class="bar-val">92</span></div><div class="bar-row"><span class="bar-name">Website <em>20%</em></span><span class="bar-track"><span class="bar-fill" style="width:77%"></span></span><span class="bar-val">77</span></div><div class="bar-row"><span class="bar-name">Local search <em>20%</em></span><span class="bar-track"><span class="bar-fill" style="width:62%"></span></span><span class="bar-val">62</span></div><div class="bar-row"><span class="bar-name">Tools & tracking <em>10%</em></span><span class="bar-track"><span class="bar-fill" style="width:75%"></span></span><span class="bar-val">75</span></div></div>
+      <p class="score-note">Computed by rule from the checks in the appendix, weighted as shown. It measures how easily someone can find you, trust you and buy or book. It says nothing about the cupcakes. Reputation scores high because 262 reviews is more than double the 127 a typical bakery around you has; the 4.1 average is what holds it back.</p>
+    </div>
+  </section>
+
+  <section id="sec-findings">
+    <div class="sec-head"><span class="sec-num">01</span><span class="sec-title">What we found</span><span class="rule"></span></div>
+    <div class="findings-list"><div class="finding"><p class="finding-title">4.1 stars: the lowest rating among the bakeries Google ranks around you.</p><p class="finding-detail">You have 262 Google reviews and you are the first map result for &ldquo;cupcakes Merrillville&rdquo;, &ldquo;bakery Merrillville&rdquo; and even &ldquo;cupcakes Crown Point&rdquo;. But the bakeries Google lists beside you sit at 4.3 to 4.8: Great Harvest 4.8, Nothing Bundt Cakes 4.8, The Peach Cobbler Factory 4.6, Marilyn&rsquo;s 4.5. The newest review Google returned is a one-star from May about a birthday cake that fell over before it got home, and a phone call that ended with &ldquo;nothing they can do&rdquo;. Nothing asks happy customers for a review after they buy, and your website shows no reviews at all.</p></div><div class="finding"><p class="finding-title">Your flagship jar page scores 15 out of 100 on a phone.</p><p class="finding-detail">The 8 oz Cupcake in a Jar page (its address is /products/demo-1) takes 6.9 seconds to show its main image on a mobile connection, freezes for 2.0 seconds while scripts load, and its layout jumps as the bundle builder arrives (layout shift 0.869; Google treats anything above 0.25 as poor). Share that link and Google, Facebook and iMessage preview it with an app&rsquo;s admin note: &ldquo;Your Bundle is Unlisted&hellip; Do Not Delete.&rdquo; And a shopper cannot buy one 8 oz jar; the smallest option is a box of two.</p></div><div class="finding"><p class="finding-title">Event bookings can arrive with no way to reply, and replies are promised in 24 to 48 hours.</p><p class="finding-detail">On both booking forms, for the truck and for the dessert cart, the name, email, phone and event date are all optional. Only the time, headcount, address and details are required. The contact page promises a reply within 24 to 48 hours, and there is no chat on any page. An event planner comparing three caterers usually books whoever answers first.</p></div><div class="finding"><p class="finding-title">Your email tool is installed, but nobody can join the list.</p><p class="finding-detail">Klaviyo loads on every page, yet no page carries a sign-up form or pop-up, so the list only grows from people who have already bought. Google Analytics 4 and Google Ads are counting, which is good. No Meta pixel fired on a full visit to the homepage, so the 8,700 people who follow you on Facebook and the 4,500 on Instagram cannot be shown an ad for what they looked at.</p></div><div class="finding"><p class="finding-title">The truck and the machines barely exist online.</p><p class="finding-detail">Search Google Maps for &ldquo;food truck Merrillville&rdquo; and Cutie the Cupcake Truck is not among the 12 results; it has no listing of its own. The vending machines, which you won a pitch competition to fund, are mentioned once on the whole site, in one sentence on the About page. There is no page that says where a machine is. The Truck and Dessert Cart pages each carry a large blank space where a private video will not play.</p></div><div class="finding"><p class="finding-title">Google says you close at 6. Your website says 7.</p><p class="finding-detail">Your Google listing shows Tuesday to Saturday, 10 AM to 6 PM. The website&rsquo;s contact page says 10 AM to 7 PM. The site shows (219) 472-0858, while the store&rsquo;s policy page and your sell sheet also list 219-712-6436. A store that ships food nationwide has no refund policy and no terms of service published.</p></div></div>
+  </section>
+
+  <section id="sec-safety">
+    <div class="sec-head"><span class="sec-num">02</span><span class="sec-title">Site safety</span><span class="rule"></span></div>
+    <div class="card">
+      <span class="eyebrow" style="display:block;margin-bottom:16px">Malware &amp; injected-content check</span>
+      <div class="safety-grid">
+        <div><strong>Station injected-link sweep</strong><small>41 pages fetched twice, once as a browser and once as Googlebot, compared for hidden, off-screen or crawler-only links.</small></div><span class="verdict verdict--ok">Nothing found</span>
+        <div><strong>Sucuri SiteCheck</strong><small>Independent malware and blacklist scanner. No malware, no blacklist entries. Security 5 of 6 (one sign-in link returns a harmless &ldquo;400&rdquo;); TLS 6 of 6.</small></div><span class="verdict verdict--ok">No malware · not blacklisted</span>
+        <div><strong>Secure connection</strong><small>Valid certificate. Every http address forwards to https.</small></div><span class="verdict verdict--ok">Correct</span>
+        <div><strong>Google Safe Browsing</strong><small>Not queried for this scan, so not claimed either way.</small></div><span class="verdict verdict--na">Not verified</span>
+      </div>
+      <p class="omission">Nothing injected was found. The store runs on Shopify, so there is no server or plugin to keep patched. &ldquo;Nothing found&rdquo; means these checks found nothing, not that nothing could ever be wrong.</p>
+    </div>
+  </section>
+
+  <section id="sec-seo">
+    <div class="sec-head"><span class="sec-num">03</span><span class="sec-title">Search engines</span><span class="rule"></span></div>
+    <div class="card">
+      <span class="eyebrow" style="display:block;margin-bottom:14px">Technical &amp; on-page SEO</span>
+      <p class="lede">Google can reach every page and your listing does the heavy lifting. <strong>The site underneath it is slow on a phone and thin where buyers search.</strong> The truck, the cart, corporate gifting and the machines each have a page or a mention, but none of them is built to win its own search.</p>
+      <div class="kv">
+        <div><strong>Indexability</strong><small>robots.txt is Shopify&rsquo;s standard file; the sitemap lists products, pages, collections and the blog.</small></div><span class="verdict verdict--ok">Open</span>
+        <div><strong>Phone speed</strong><small>Homepage: performance 50, largest image 6.5 s, 1,120 ms blocked, 3,603 KiB. Flagship jar page: performance 15, layout shift 0.869.</small></div><span class="verdict verdict--bad">Slow</span>
+        <div><strong>Titles</strong><small>14 of 45 page titles name Merrillville, Indiana or the region. The homepage title (&ldquo;Cupcakes in a Jar | Cute as a Cupcake Bakery&rdquo;) does not.</small></div><span class="verdict verdict--bad">14 of 45</span>
+        <div><strong>Meta description</strong><small>31 of 45 pages have one. On the 8 oz jar and Signature Cupcakes pages it is the bundle app&rsquo;s admin note.</small></div><span class="verdict verdict--bad">31 of 45</span>
+        <div><strong>Headings &amp; images</strong><small>Eight bundle-builder pages have no H1 and 7 to 15 images each with no alt text.</small></div><span class="verdict verdict--bad">Gaps</span>
+        <div><strong>Bakery schema</strong><small>Organization markup only. No Bakery or LocalBusiness record with address, hours and reviews; no review stars on any product.</small></div><span class="verdict verdict--bad">Partial</span>
+        <div><strong>Tap to call</strong><small>The phone number is a tap-to-call link on 1 of 45 pages.</small></div><span class="verdict verdict--bad">1 of 45</span>
+      </div>
+      <p class="lede" style="margin:24px 0 8px"><strong>Which page answers which search.</strong> For six things people type, the closest page today and what stops it.</p>
+      <table class="tbl"><thead><tr><th>Search phrase</th><th>Closest page today</th><th>Gap</th></tr></thead><tbody>
+        <tr><td>cupcakes Merrillville</td><td>Homepage</td><td>First on the map. The page itself is 145 words and its title names no town</td></tr>
+        <tr><td>corporate gifts Northwest Indiana</td><td>Corporate Gifts</td><td>95 words, no region in the title, no prices, request form on a separate page</td></tr>
+        <tr><td>dessert catering Merrillville</td><td>Mobile Dessert Cart</td><td>#3 on the map; the page has a blank video block and an optional-contact booking form</td></tr>
+        <tr><td>cupcake food truck near me</td><td>Cupcake Truck</td><td>No Google listing for the truck; not among the 12 map results for &ldquo;food truck Merrillville&rdquo;</td></tr>
+        <tr><td>vegan cupcakes Merrillville</td><td>4 oz jar product</td><td>Vegan flavours appear only as option names. No vegan page, nothing on the homepage</td></tr>
+        <tr><td>cupcake vending machine Indiana</td><td>About</td><td>One sentence. No machine page, no locations</td></tr>
+      </tbody></table>
+      <div class="mini-fixes"><span class="eyebrow">Ranked fixes</span><ol>
+        <li><strong>Rewrite the 8 oz jar page</strong>: real description, its own address (not demo-1), single-jar option, and load the bundle builder without the jump.</li>
+        <li><strong>Give each line of business a page that can win its search</strong>: corporate gifts, truck, dessert cart, vegan and gluten-free, find a machine.</li>
+        <li><strong>Add Bakery markup</strong> with address, hours and reviews, and review stars on products.</li>
+        <li><strong>Name the town in the titles</strong> of the homepage, corporate, truck and cart pages, and make every phone number tap-to-call.</li>
+      </ol></div>
+    </div>
+  </section>
+
+  <section id="sec-geo">
+    <div class="sec-head"><span class="sec-num">04</span><span class="sec-title">AI search</span><span class="rule"></span></div>
+    <div class="card">
+      <span class="eyebrow" style="display:block;margin-bottom:14px">Generative engine optimisation</span>
+      <p class="lede">People now ask ChatGPT or Google&rsquo;s AI answer &ldquo;best corporate gifts in Northwest Indiana&rdquo; or &ldquo;vegan cupcakes near Merrillville&rdquo;. The answer is built from text a model can read. <strong>Your About page says everything a model would need; the pages buyers land on say very little.</strong></p>
+      <div class="kv">
+        <div><strong>AI crawler access</strong><small>robots.txt blocks no AI crawler. GPTBot, ClaudeBot, PerplexityBot and Google-Extended can read the site.</small></div><span class="verdict verdict--ok">Open</span>
+        <div><strong>llms.txt</strong><small>Present (Shopify generates it), with an agent guide at /agents.md.</small></div><span class="verdict verdict--ok">Present</span>
+        <div><strong>Entity clarity</strong><small>Name, address and phone match Google. Hours do not (6 PM on Google, 7 PM on the site), and a second phone number appears in the store policy.</small></div><span class="verdict verdict--bad">Mixed</span>
+        <div><strong>Quotable facts</strong><small>The About page has them: since 2015, M/WBE certified, 30-day shelf life, Cutie Cares. The homepage, corporate and truck pages repeat almost none.</small></div><span class="verdict verdict--bad">Thin where it counts</span>
+        <div><strong>Structured facts</strong><small>Organization markup only; product markup on product pages carries the admin note as the description on two of them.</small></div><span class="verdict verdict--bad">Partial</span>
+        <div><strong>Social profiles</strong><small>Facebook about 8,700 followers, Instagram about 4,500, TikTok about 1,600 (public profile counts, 12 Oct). Posting frequency was not checked.</small></div><span class="verdict verdict--na">Counted only</span>
+      </div>
+      <div class="mini-fixes"><span class="eyebrow">Ranked fixes</span><ol>
+        <li><strong>Put the About facts on the pages buyers land on</strong>: since 2015, M/WBE, ships to 50 states, 30 days fresh, vegan and gluten-free.</li>
+        <li><strong>Match the hours and phone</strong> everywhere: Google, site, policy page, sell sheet.</li>
+        <li><strong>Bakery and Product markup</strong> with clean descriptions and reviews.</li>
+      </ol></div>
+    </div>
+  </section>
+
+  <section id="sec-competitor">
+    <div class="sec-head"><span class="sec-num">05</span><span class="sec-title">Around you</span><span class="rule"></span></div>
+    <div class="card competitor-card">
+      <span class="eyebrow">Competitive Context</span>
+      <p class="competitor-text">You hold the first map position for &ldquo;bakery&rdquo; and &ldquo;cupcakes&rdquo; in Merrillville, and for &ldquo;cupcakes&rdquo; in Crown Point. You also have more reviews than most of the bakeries Google lists beside you. The gap is the rating: every bakery in this table is rated higher, and a shopper comparing the top results sees that first.</p>
+      <table class="tbl"><thead><tr><th>Bakery</th><th class="num">Rating &middot; reviews</th><th class="num">&ldquo;bakery Merrillville&rdquo;</th><th class="num">&ldquo;cupcakes Merrillville&rdquo;</th></tr></thead><tbody><tr class="you"><td>Cute as a Cupcake!<br><small style="font-weight:400;color:var(--muted)">2008 W. 81st Ave, Merrillville</small></td><td class="num">4.1 &middot; 262</td><td class="num">#1</td><td class="num">#1</td></tr><tr><td>Great Harvest Crown Point</td><td class="num">4.8 &middot; 669</td><td class="num">#3</td><td class="num">#11</td></tr><tr><td>Marilyn's Bakery</td><td class="num">4.5 &middot; 658</td><td class="num">#4</td><td class="num">#6</td></tr><tr><td>The Peach Cobbler Factory</td><td class="num">4.6 &middot; 435</td><td class="num">#2</td><td class="num">#10</td></tr><tr><td>Beck's Crown Bakery</td><td class="num">4.3 &middot; 342</td><td class="num">#6</td><td class="num">#2</td></tr><tr><td>Nothing Bundt Cakes</td><td class="num">4.8 &middot; 286</td><td class="num">#14</td><td class="num">#7</td></tr></tbody></table>
+    </div>
+  </section>
+
+  <section id="sec-fixes">
+    <div class="sec-head"><span class="sec-num">06</span><span class="sec-title">Three fixes for this week</span><span class="rule"></span></div>
+    <div class="card"><div class="fixes">
+      <div class="fix"><span class="fix-num">1</span><p class="fix-body"><strong>Fix the Google listing in fifteen minutes.</strong> Match the hours to the shop, reply to the May review with what you&rsquo;d do next time, and start asking every happy customer for a review at the counter and in the order email.</p></div>
+      <div class="fix"><span class="fix-num">2</span><p class="fix-body"><strong>Stop losing leads in twenty minutes.</strong> Make name, email, phone and date required on both booking forms, and replace the admin note on the 8 oz jar and Signature Cupcakes pages with a real description.</p></div>
+      <div class="fix"><span class="fix-num">3</span><p class="fix-body"><strong>Let people join your list.</strong> Klaviyo is already paid for: switch on a sign-up form, and connect Shopify&rsquo;s Facebook &amp; Instagram channel so your followers can be reached again.</p></div>
+    </div></div>
+  </section>
+
+  <section id="sec-close">
+    <div class="sec-head"><span class="sec-num">07</span><span class="sec-title">Where Station comes in</span><span class="rule"></span></div>
+    <div class="card close-card">
+      <span class="eyebrow eyebrow--amber">Next Step</span>
+      <p class="close-text">You have done the hard part: a product people drive to Merrillville for, a truck, a cart, machines and ten years of reviews. What&rsquo;s missing is the front office behind it: asking for reviews, answering every lead fast, following up gift and event enquiries, and keeping the list warm. That is what Station runs, under your name.</p>
+      <div class="cta-row">
+        <a class="cta-btn cta-btn--primary" href="https://stationonemain-source.github.io/cute-as-a-cupcake/proposal/" target="_blank" rel="noopener">See the proposal</a>
+      </div>
+      <p class="cta-quiet">Questions? main@station.solutions</p>
+    </div>
+  </section>
+
+  <section id="sec-appendix">
+    <div class="sec-head"><span class="sec-num">A</span><span class="sec-title">Evidence</span><span class="rule"></span></div>
+    <div class="card appendix">
+      <p>Every claim above rests on one of these probes, all run on 12 Oct 2026.</p>
+      <dl>
+        <dt>Google Places</dt><dd>Listing &ldquo;Cute as a Cupcake! Cupcakery &amp; Bake Shop&rdquo;, operational, category Bakery, 4.1 from 262 reviews, 10 photos returned, website and phone set. Hours: Tuesday&ndash;Saturday 10 AM&ndash;6 PM, closed Sunday and Monday. Five most-relevant reviews returned, newest 2026-05-17 (one star).</dd>
+        <dt>Local searches</dt><dd>Places text searches: &ldquo;cupcakes Merrillville&rdquo; #1 of 20; &ldquo;bakery Merrillville&rdquo; #1 of 20; &ldquo;cupcakes Crown Point&rdquo; #1 of 20; &ldquo;dessert catering Merrillville&rdquo; #3 of 17; &ldquo;food truck Merrillville&rdquo; not in 12. Median reviews among the 20 rated competitors in the first four searches: 127.</dd>
+        <dt>Site crawl</dt><dd>45 live pages (sitemap plus standard policy URLs; refund-policy and terms-of-service return 404). Rendered at 1440 and 390 px. Bundle-builder pages: no H1, 7&ndash;15 images without alt text each.</dd>
+        <dt>Lighthouse</dt><dd>Mobile, local headless Chromium. Homepage: performance 50, accessibility 87, best practices 54, SEO 92; FCP 2.4 s, LCP 6.5 s, TBT 1,120 ms, CLS 0.001, 3,603 KiB. 8 oz jar page: performance 15, LCP 6.9 s, TBT 2,010 ms, CLS 0.869, 3,944 KiB. One run each; scores vary a few points between runs.</dd>
+        <dt>Tools</dt><dd>Requests seen on a full homepage visit: Google Analytics 4, Google Ads conversion tags, Google Merchant Center, Klaviyo, Shopify. Not seen: Meta pixel, TikTok tracking requests, any chat widget. No email input or sign-up pop-up on the page.</dd>
+        <dt>Forms</dt><dd>Truck and dessert-cart booking forms (Jotform): name, email, phone and date optional; time, headcount, address and details required. Corporate form: contact fields required. Contact page: &ldquo;respond within 24&ndash;48 hours&rdquo;.</dd>
+        <dt>Safety</dt><dd>Station injected-link sweep: 41 pages, browser and Googlebot views, 0 spam links, 0 hidden, 0 crawler-only (69 s). Sucuri SiteCheck: no malware, no blacklist; total B, security 5/6, TLS 6/6.</dd>
+      </dl>
+      <p class="omission"><strong>Three things we did not do.</strong> We did not call, order or submit anything, so phone answering, response times and delivery are untested. We make no claim about your position in Google&rsquo;s regular search results; the map positions come from Google&rsquo;s Places index. We did not log in to any of your accounts, so ad spend, email results and sales figures are unknown to us.</p>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <svg viewBox="0 0 100 100" width="16" height="16" aria-hidden="true"><defs><g id="stArmF"><rect x="29.5" y="3" width="18" height="36" rx="8.5"/><rect x="52.5" y="3" width="18" height="36" rx="8.5"/></g><mask id="stCoreF"><rect width="100" height="100" fill="#fff"/><circle cx="50" cy="50" r="16.5" fill="#000"/></mask></defs><g mask="url(#stCoreF)" fill="currentColor" transform="rotate(45 50 50)"><use href="#stArmF"/><use href="#stArmF" transform="rotate(90 50 50)"/><use href="#stArmF" transform="rotate(180 50 50)"/><use href="#stArmF" transform="rotate(270 50 50)"/></g></svg>
+    <span class="foot-item">station.solutions</span><span class="foot-sep"></span>
+    <span class="foot-item">Prepared by Station · Mission control for business</span><span class="foot-sep"></span>
+    <span class="foot-item">12 Oct 2026</span>
+  </footer>
+</div>
+</body></html>

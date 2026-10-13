@@ -1,0 +1,696 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="robots" content="noindex,nofollow"><meta name="description" content="Growth plan deck by Team 6 and Station Solutions for Cute as a Cupcake, Merrillville, Indiana."></head><body><title>Break Room to Boardroom · Cute as a Cupcake growth plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Schibsted+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* A 1920x1080 stage scaled to the window. One idea per slide. The film the website opens with is the deck's only decoration. */
+:root{
+  --ink:#231F22; --paper:#FFFFFF; --tint:#FBF5F7; --blush:#F9DDEB; --plum:#99227F; --pink:#F7A1E5; --walnut:#4A3128;
+  --muted:#6F6670; --rule:#ECE3E8; --good:#2F6B3A; --warn:#A15C00; --crit:#B3261E;
+  --f-display:"Fraunces","Georgia",serif; --f-text:"Schibsted Grotesk","Segoe UI",system-ui,sans-serif; --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:#15110F;color:var(--ink);font-family:var(--f-text);overflow:hidden;-webkit-font-smoothing:antialiased;letter-spacing:-.003em}
+.viewport{position:fixed;inset:0;overflow:hidden}
+.stage{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform-origin:center center;background:var(--paper);overflow:hidden}
+.d{font-family:var(--f-display);font-variation-settings:"SOFT" 50,"WONK" 0;font-optical-sizing:auto;letter-spacing:-.025em;font-weight:360}
+.d em,.h1 em,.q em{font-style:italic;font-variation-settings:"SOFT" 100,"WONK" 1;color:inherit;font-weight:inherit}
+.m{font-family:var(--f-mono);text-transform:uppercase;letter-spacing:.16em;font-size:13px;font-weight:500}
+.n{font-variant-numeric:tabular-nums}
+
+/* slides */
+.slide{position:absolute;inset:0;padding:120px 120px 150px;display:none;color:var(--ink)}
+.slide.on{display:block}
+.h1{font-size:72px;line-height:1.06;margin:0;max-width:1400px;text-wrap:balance}
+.lede{font-size:26px;line-height:1.45;color:var(--muted);max-width:1040px;margin:26px 0 0}
+.muted{color:var(--muted)}
+.body{font-size:22px;line-height:1.5}
+.small{font-size:17px;line-height:1.45;color:var(--muted)}
+.cap{position:absolute;left:120px;bottom:158px;font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+img{max-width:100%;display:block}
+.photo{border-radius:4px;overflow:hidden;position:relative;background:var(--tint)}
+.photo img{width:100%;height:100%;object-fit:cover}
+.tag{position:absolute;left:14px;bottom:14px;font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);background:rgba(255,255,255,.84);backdrop-filter:blur(6px);padding:6px 10px;border-radius:999px}
+.linkbtn{display:inline-flex;align-items:center;gap:14px;background:var(--ink);color:#fff;text-decoration:none;font-weight:500;font-size:20px;padding:16px 26px;border-radius:999px;transition:background .25s}
+.linkbtn:hover{background:var(--plum)}
+.linkbtn .arr{font-family:var(--f-mono);font-size:18px}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--plum);outline-offset:3px}
+hr.rule{border:0;border-top:1px solid var(--rule);margin:0}
+
+/* full-bleed film slides */
+.slide.film{color:#fff;padding:0}
+.slide.film .bg{position:absolute;inset:0}
+.slide.film .bg img{width:100%;height:100%;object-fit:cover;object-position:62% 50%}
+.slide.film .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(21,17,15,.82) 0%,rgba(21,17,15,.62) 38%,rgba(21,17,15,.1) 72%,rgba(21,17,15,0) 100%)}
+.slide.film .in{position:absolute;left:120px;right:120px;top:120px;bottom:150px;display:grid;align-content:end;gap:26px}
+.slide.film .h1{color:#fff;max-width:1100px}
+.slide.film .lede{color:#E9DCD6}
+.slide.film .small{color:#CDBDB6}
+
+/* chrome */
+.chrome{position:absolute;left:0;right:0;bottom:0;height:92px;pointer-events:none}
+.chrome .bar{position:absolute;left:120px;right:120px;top:0;height:1px;background:rgba(35,31,34,.14)}
+.chrome .bar i{position:absolute;left:0;top:0;bottom:0;background:var(--ink);width:0;transition:width .7s cubic-bezier(.2,.8,.2,1)}
+.chrome .ch{position:absolute;left:120px;top:30px;font-family:var(--f-mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.chrome .ct{position:absolute;right:120px;top:30px;font-family:var(--f-mono);font-size:12px;letter-spacing:.16em;color:var(--muted)}
+.stage[data-tone="film"] .chrome .bar{background:rgba(255,255,255,.22)}
+.stage[data-tone="film"] .chrome .bar i{background:#fff}
+.stage[data-tone="film"] .chrome .ch,.stage[data-tone="film"] .chrome .ct{color:rgba(255,255,255,.7)}
+.chrome .tick{position:absolute;top:-4px;width:1px;height:9px;background:rgba(35,31,34,.35)}
+.stage[data-tone="film"] .chrome .tick{background:rgba(255,255,255,.5)}
+.cutie{position:absolute;left:0;top:-49px;width:48px;height:48px;color:var(--plum);will-change:transform;transform-origin:50% 100%}
+.cutie svg{width:100%;height:100%;overflow:visible;display:block}
+.stage[data-tone="film"] .cutie{color:#fff}
+.brand{position:absolute;left:120px;top:44px;height:40px;width:auto}
+.stage[data-tone="film"] .brand{filter:brightness(0) invert(1)}
+.ctrls{position:fixed;right:18px;bottom:16px;display:flex;gap:8px;z-index:20;transition:opacity .4s}
+body.idle .ctrls,body.idle .hint{opacity:0;pointer-events:none}
+.ctrls button{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;border:1px solid rgba(255,255,255,.22);background:rgba(21,17,15,.7);color:#fff;border-radius:999px;padding:9px 14px;cursor:pointer;backdrop-filter:blur(6px)}
+.ctrls button:hover{background:var(--plum)}
+.hint{position:fixed;left:18px;bottom:18px;font-family:var(--f-mono);font-size:12px;color:rgba(255,255,255,.5);letter-spacing:.06em;z-index:20}
+.notes{position:fixed;left:50%;bottom:64px;transform:translateX(-50%);width:min(880px,92vw);max-height:34vh;overflow:auto;background:#fff;color:var(--ink);border-radius:8px;padding:18px 22px;font-size:16px;line-height:1.55;box-shadow:0 10px 40px rgba(0,0,0,.35);z-index:30}
+.notes b{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--plum);display:block;margin-bottom:6px}
+.viewport.overview .stage{display:none}
+.ov{position:fixed;inset:0;overflow:auto;padding:28px;display:none;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;background:#15110F;z-index:40}
+.viewport.overview .ov{display:grid}
+.ov button{all:unset;cursor:pointer;background:#221B18;border-radius:6px;padding:16px 18px;color:#fff;display:grid;gap:6px;border:1px solid transparent}
+.ov button:hover,.ov button:focus-visible{border-color:var(--pink)}
+.ov .n{font-family:var(--f-mono);font-size:11px;color:var(--pink);letter-spacing:.14em}
+.ov .t{font-family:var(--f-display);font-size:21px;line-height:1.2;font-weight:380}
+
+/* ---------- slide-specific ---------- */
+/* 1 cover */
+#s1 .h1{font-size:140px;line-height:.96;letter-spacing:-.035em}
+#s1 .by{font-size:18px;line-height:1.7;color:#E9DCD6;max-width:1100px}
+#s1 .by b{color:#fff;font-weight:500}
+/* 2 timeline */
+#s2 .shop{position:absolute;right:120px;top:120px;width:700px;height:400px}
+#s2 .h1{max-width:900px}
+#s2 .tl{position:absolute;left:120px;right:120px;top:600px;display:grid;grid-template-columns:repeat(6,1fr);gap:28px}
+#s2 .ev{border-top:1px solid var(--ink);padding-top:22px}
+#s2 .ev.hi{border-top-color:var(--plum)}
+#s2 .yr{font-family:var(--f-display);font-size:52px;font-weight:340;line-height:1}
+#s2 .ev.hi .yr{color:var(--plum);font-style:italic;font-variation-settings:"SOFT" 100,"WONK" 1}
+#s2 .ev p{margin:14px 0 0;font-size:19.5px;line-height:1.45;color:#4F4650}
+#s2 .src{position:absolute;left:120px;bottom:158px;font-size:13px;color:var(--muted)}
+/* 3 product */
+#s3 .grid{display:grid;grid-template-columns:720px 1fr;gap:80px;margin-top:52px}
+#s3 .pic{height:420px}
+#s3 .facts{display:grid;grid-template-columns:1fr 1fr;gap:0 48px;align-content:start}
+#s3 .f{border-top:1px solid var(--rule);padding:22px 0}
+#s3 .f b{display:block;font-family:var(--f-display);font-size:60px;line-height:1;font-weight:340}
+#s3 .f span{display:block;font-size:19px;line-height:1.4;margin-top:10px;color:#4F4650}
+#s3 .trust{position:absolute;left:120px;right:120px;top:790px;display:flex;align-items:center;gap:56px;border-top:1px solid var(--rule);padding-top:30px}
+#s3 .trust .m{color:var(--muted);flex:0 0 auto}
+#s3 .trust img{height:40px;width:auto;max-width:190px;object-fit:contain;filter:grayscale(1) contrast(1.1);opacity:.6}
+#s3 .trust img.nd{height:54px}
+#s3 .trust img.badges{height:84px;max-width:none;margin-left:auto;filter:none;opacity:1}
+/* 4 quote */
+#s4 .q{font-size:92px;line-height:1.08;margin:40px 0 0;max-width:1520px;text-wrap:balance;font-style:italic;font-variation-settings:"SOFT" 100,"WONK" 1}
+#s4 .who{margin-top:34px;font-size:20px}
+#s4 .three{position:absolute;left:120px;right:120px;top:660px;display:grid;grid-template-columns:repeat(3,1fr);gap:48px}
+#s4 .three div{border-top:1px solid var(--ink);padding-top:20px}
+#s4 .three b{display:block;font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;font-weight:500}
+#s4 .three p{margin:0;font-size:22px;line-height:1.45}
+/* 5 math */
+#s5 .eq{display:flex;align-items:baseline;gap:34px;margin-top:70px;font-family:var(--f-display);font-weight:340;color:var(--ink)}
+#s5 .eq .nn{font-size:150px;line-height:1}
+#s5 .eq .op{font-size:84px;color:#CFC4CC;font-weight:300}
+#s5 .eq .u{display:block;font-family:var(--f-text);font-size:19px;font-weight:400;color:var(--muted);letter-spacing:0;margin-top:12px}
+#s5 .eq > div{display:flex;flex-direction:column}
+#s5 .then{position:absolute;left:120px;right:120px;top:620px;display:grid;grid-template-columns:1fr 1fr;gap:80px}
+#s5 .then .big{font-family:var(--f-display);font-size:44px;line-height:1.15;font-weight:360;margin:0}
+#s5 .then .big b{font-weight:360;font-style:italic;font-variation-settings:"SOFT" 100,"WONK" 1;color:var(--crit)}
+#s5 .then .pivot{font-size:25px;line-height:1.45;border-left:1px solid var(--ink);padding-left:30px;margin:0}
+#s5 .then .pivot b{font-weight:500}
+#s5 .note{position:absolute;left:120px;bottom:158px;font-size:14px;color:var(--muted);max-width:1500px}
+/* 6 audit */
+#s6 .list{margin-top:46px;display:grid;gap:0;max-width:1400px}
+#s6 .it{display:grid;grid-template-columns:140px 1fr 220px;align-items:baseline;gap:30px;padding:20px 0;border-bottom:1px solid var(--rule)}
+#s6 .it:first-child{border-top:1px solid var(--ink)}
+#s6 .sev{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:500}
+#s6 .sev.c{color:var(--crit)} #s6 .sev.h{color:var(--warn)}
+#s6 .it p{margin:0;font-size:23px;line-height:1.35}
+#s6 .fix{font-family:var(--f-mono);font-size:12.5px;color:var(--good);letter-spacing:.08em;text-transform:uppercase;text-align:right}
+#s6 .go{position:absolute;left:120px;bottom:158px;display:flex;align-items:center;gap:30px}
+#s6 .go span{font-size:18px;color:var(--muted)}
+/* 7 the idea: the film in three frames */
+#s7 .h1{max-width:1500px}
+#s7 .trip{position:absolute;left:120px;right:120px;top:400px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+#s7 .trip .photo{height:380px}
+#s7 .trip .lab{display:flex;justify-content:space-between;margin-top:14px;font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+#s7 .trip .lab b{color:var(--ink);font-weight:500}
+/* 8 loop */
+#s8 .wrap{display:grid;grid-template-columns:1fr 540px;gap:80px;margin-top:40px}
+#s8 .steps{display:grid}
+#s8 .st{display:grid;grid-template-columns:70px 1fr;gap:22px;padding:20px 0;border-bottom:1px solid var(--rule);align-items:baseline}
+#s8 .st:first-child{border-top:1px solid var(--ink)}
+#s8 .st .k{font-family:var(--f-display);font-size:34px;font-weight:300;color:var(--plum);line-height:1}
+#s8 .st b{font-family:var(--f-display);font-size:32px;font-weight:380;display:block;line-height:1.1}
+#s8 .st span{font-size:19px;color:var(--muted);display:block;margin-top:5px}
+#s8 .pic{height:600px}
+/* 9 people */
+#s9 .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:56px;margin-top:64px}
+#s9 .p{border-top:1px solid var(--ink);padding-top:26px;display:grid;gap:18px;align-content:start}
+#s9 .p .role{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:500}
+#s9 .p h3{font-family:var(--f-display);font-size:40px;line-height:1.08;margin:0;font-weight:380}
+#s9 .p .need{font-size:21px;line-height:1.45;margin:0;color:#4F4650}
+#s9 .p .say{margin:10px 0 0;padding-top:18px;border-top:1px solid var(--rule);font-family:var(--f-display);font-size:29px;line-height:1.28;font-weight:360;font-style:italic;font-variation-settings:"SOFT" 100,"WONK" 1}
+#s9 .credit{position:absolute;left:120px;bottom:158px;font-size:14px;color:var(--muted)}
+/* 10 host program */
+#s10 .wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:44px}
+#s10 ul{list-style:none;margin:0;padding:0;display:grid}
+#s10 li{font-size:22px;line-height:1.4;padding:16px 0;border-bottom:1px solid var(--rule)}
+#s10 li:first-child{border-top:1px solid var(--ink)}
+#s10 li b{font-weight:500}
+#s10 .targets{display:grid}
+#s10 .t{display:grid;grid-template-columns:150px 1fr;gap:20px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--rule)}
+#s10 .t:first-child{border-top:1px solid var(--ink)}
+#s10 .t .m{color:var(--muted)}
+#s10 .t p{margin:0;font-size:21px;line-height:1.4}
+#s10 .pic{height:280px;margin-top:28px}
+#s10 .fine{font-size:14px;color:var(--muted);margin-top:10px}
+/* 11 what it looks like */
+#s11 .h1{max-width:1150px}
+#s11 .go{position:absolute;right:120px;top:120px;display:flex;gap:12px}
+#s11 .g{position:absolute;left:120px;right:120px;top:290px;height:590px;display:grid;grid-template-columns:1fr 1fr 290px;gap:20px}
+#s11 .brw{border-radius:6px;overflow:hidden;background:#fff;border:1px solid var(--rule);display:grid;grid-template-rows:34px auto;align-self:start}
+#s11 .brw img{aspect-ratio:1440/900;height:auto;object-fit:fill}
+#s11 .brw .top{background:var(--tint);border-bottom:1px solid var(--rule);display:flex;align-items:center;gap:6px;padding:0 12px}
+#s11 .brw .top i{width:9px;height:9px;border-radius:50%;background:#D9CCD3}
+#s11 .brw .top span{margin-left:10px;font-family:var(--f-mono);font-size:10.5px;color:var(--muted);letter-spacing:.06em}
+#s11 .brw img{width:100%;height:100%;object-fit:cover;object-position:top}
+#s11 .phone{border-radius:38px;background:#151014;padding:12px;justify-self:center;width:290px}
+#s11 .phone .scr{border-radius:28px;overflow:hidden;height:100%;background:#fff}
+#s11 .phone img{width:100%;height:100%;object-fit:cover;object-position:top}
+#s11 .lab{position:absolute;left:120px;right:120px;top:900px;display:grid;grid-template-columns:1fr 1fr 290px;gap:20px;font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+/* 12 roadmap */
+#s12 .rm{position:absolute;left:120px;right:120px;top:300px}
+#s12 .months{position:relative;height:26px}
+#s12 .months span{position:absolute;transform:translateX(-50%);font-family:var(--f-mono);font-size:12px;color:var(--muted);letter-spacing:.08em;white-space:nowrap}
+#s12 .strip{position:relative;height:1px;background:var(--rule);margin-top:10px}
+#s12 .strip i{position:absolute;top:0;height:1px;background:var(--ink)}
+#s12 .gm{position:absolute;top:-10px;width:1px;height:21px;background:var(--plum)}
+#s12 .gm::after{content:attr(data-g);position:absolute;left:10px;top:-2px;font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--plum);white-space:nowrap}
+#s12 .cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-top:48px}
+#s12 .ph{padding:24px 0 0;display:grid;align-content:start;gap:12px;min-width:0;border-top:1px solid var(--ink)}
+#s12 .ph .m{color:var(--muted);font-size:12px}
+#s12 .ph h3{margin:0;font-family:var(--f-display);font-size:38px;line-height:1.08;font-weight:380}
+#s12 .ph ul{margin:8px 0 0;padding-left:18px;font-size:19px;line-height:1.45;display:grid;gap:7px;color:#4F4650}
+#s12 .ph .gate{margin-top:14px;padding-top:14px;border-top:1px solid var(--rule);font-size:17px;line-height:1.4;color:var(--plum)}
+#s12 .ph .gate b{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:4px;font-weight:500}
+/* 13 budget */
+#s13 table{border-collapse:collapse;width:100%;margin-top:44px;font-variant-numeric:tabular-nums;font-size:21px}
+#s13 th{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:500;text-align:right;padding:12px 18px;border-bottom:1px solid var(--ink)}
+#s13 th:first-child,#s13 td:first-child{text-align:left;padding-left:0}
+#s13 td{padding:14px 18px;text-align:right;border-bottom:1px solid var(--rule)}
+#s13 td:first-child b{font-weight:500}
+#s13 td:first-child span{display:block;font-size:15.5px;color:var(--muted);margin-top:2px}
+#s13 tr.station td{color:var(--plum)}
+#s13 tr.tot td{font-weight:500;border-bottom:1px solid var(--ink)}
+#s13 tr.res td{color:var(--muted)}
+#s13 tr.grand td{font-family:var(--f-display);font-size:32px;font-weight:360;border-bottom:0;padding-top:20px}
+/* 14 money */
+#s14 .wrap{display:grid;grid-template-columns:1060px 1fr;gap:70px;margin-top:30px}
+#s14 svg.chart{width:1060px;height:560px;overflow:visible}
+#s14 .ctl{display:grid;gap:26px;align-content:start;padding-top:10px}
+#s14 label{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:500;display:block}
+#s14 .val{font-family:var(--f-display);font-size:66px;font-weight:340;line-height:1;margin-top:8px}
+#s14 input[type=range]{width:100%;accent-color:var(--plum);margin-top:14px;height:28px}
+#s14 .read{display:grid;gap:16px;border-top:1px solid var(--ink);padding-top:22px}
+#s14 .read div span{display:block;font-size:15px;color:var(--muted)}
+#s14 .read div b{font-family:var(--f-display);font-size:40px;font-weight:360;line-height:1.1}
+#s14 .read div b.ok{color:var(--good)} #s14 .read div b.no{color:var(--crit)}
+#s14 .assume{font-size:14px;line-height:1.45;color:var(--muted)}
+/* 15 kpis */
+#s15 table{border-collapse:collapse;width:100%;margin-top:44px;font-size:22px;font-variant-numeric:tabular-nums}
+#s15 th{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:500;text-align:left;padding:12px 20px 12px 0;border-bottom:1px solid var(--ink)}
+#s15 td{padding:16px 20px 16px 0;border-bottom:1px solid var(--rule);vertical-align:baseline}
+#s15 td.t{font-family:var(--f-display);font-weight:360;font-size:30px;white-space:nowrap}
+#s15 td.w{font-family:var(--f-mono);font-size:14px;color:var(--muted);letter-spacing:.04em}
+#s15 td.tool{font-size:18px;color:var(--muted)}
+/* 16 station */
+#s16 .wrap{display:grid;grid-template-columns:1fr 470px;gap:70px;margin-top:40px}
+#s16 .prods{display:grid;grid-template-columns:1fr 1fr;gap:0 40px}
+#s16 .pr{border-top:1px solid var(--ink);padding:22px 0 26px;display:grid;gap:8px;align-content:start}
+#s16 .pr .top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+#s16 .pr h3{margin:0;font-family:var(--f-display);font-size:34px;font-weight:380}
+#s16 .pr .price{font-family:var(--f-mono);font-size:12px;color:var(--muted);letter-spacing:.06em;text-align:right}
+#s16 .pr p{margin:0;font-size:18px;line-height:1.45;color:#4F4650}
+#s16 .pr .fix{font-size:15.5px;color:var(--good)}
+#s16 .sum{background:var(--ink);color:#fff;border-radius:6px;padding:36px;display:grid;gap:18px;align-content:start}
+#s16 .sum .tot{font-family:var(--f-display);font-size:84px;font-weight:340;line-height:1}
+#s16 .sum .tot small{font-size:28px;font-weight:360}
+#s16 .sum p{margin:0;font-size:18px;line-height:1.45;color:#CFC4CC}
+#s16 .sum p b{color:#fff;font-weight:500}
+#s16 .sum .linkbtn{background:#fff;color:var(--ink);justify-self:start;margin-top:6px}
+#s16 .sum .linkbtn:hover{background:var(--blush)}
+/* 17 close */
+#s17 .h1{font-size:96px}
+#s17 .wrap{display:grid;grid-template-columns:1fr 560px;gap:80px;margin-top:40px}
+#s17 ol{margin:0;padding:0;list-style:none;display:grid;counter-reset:n}
+#s17 li{counter-increment:n;display:grid;grid-template-columns:90px 1fr;padding:18px 0;border-top:1px solid rgba(255,255,255,.22);font-size:24px;line-height:1.4;color:#fff}
+#s17 li::before{content:"Week " counter(n);font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#CDBDB6;padding-top:7px}
+#s17 .links{display:grid;gap:12px;align-content:start}
+#s17 .links .linkbtn{justify-content:space-between;font-size:21px;padding:20px 28px;background:#fff;color:var(--ink)}
+#s17 .links .linkbtn:hover{background:var(--blush)}
+#s17 .sig{font-size:17px;line-height:1.6;color:#CDBDB6}
+#s17 .sig b{color:#fff;font-weight:500}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<div class="viewport" id="vp">
+<div class="stage" id="stage">
+
+<!-- 1 -->
+<section class="slide film" id="s1" data-title="Break Room to Boardroom" data-tone="film"
+ data-notes="Open on the brand, not on us. Thank Michelle. One line: this is a plan to turn a 3 PM treat into corporate orders. Name the team and say Station Solutions built the tools behind it.">
+  <div class="bg"><img src="assets/film-table.jpg" alt="" data-kb></div>
+  <div class="in">
+    <h1 class="h1 d" data-a>Break Room<br>to <em>Boardroom.</em></h1>
+    <p class="lede" data-a>A growth plan that turns a 3 PM Cupcake in a Jar into a corporate order.</p>
+    <p class="by" data-a>Prepared for <b>Michelle Wainwright</b>, Cute as a Cupcake! Cupcakery and Bake Shop<br><b>Team 6</b>, Jordan Ricker, Natalie Mulat, Sadie Moon and Zion Matesun, with <b>Station Solutions</b>. October 2026.</p>
+  </div>
+</section>
+
+<!-- 2 -->
+<section class="slide" id="s2" data-title="Ten years of building" data-chap="1"
+ data-notes="Start with respect. She has been building this for ten years. The jar kept the doors open in the pandemic, and she won the Chicago Sky Foundation pitch to fund the vending machines. We are not starting from zero; we are adding fuel.">
+  <h2 class="h1 d" data-a>Ten years of building, <em>one product at a time.</em></h2>
+  <div class="photo shop" data-a data-reveal><img src="assets/photo-storefront.jpg" alt="Cute as a Cupcake storefront on Route 30 with the pink cupcake truck"><span class="tag">Her storefront, Merrillville</span></div>
+  <div class="tl">
+    <div class="ev" data-a><div class="yr">2015</div><p>Starts at a Southlake Mall kiosk and farmers markets.</p></div>
+    <div class="ev" data-a><div class="yr">2016</div><p>Opens the storefront on 81st Ave (US Route 30), Merrillville.</p></div>
+    <div class="ev" data-a><div class="yr">2020</div><p>Pandemic closes the shop. Cupcakes in a Jar keep the business running.</p></div>
+    <div class="ev" data-a><div class="yr">2022</div><p>Truck on the road. Vending machines enter the plan.</p></div>
+    <div class="ev hi" data-a><div class="yr">2025</div><p>Wins the Chicago Sky Foundation pitch and funds her vending rollout.</p></div>
+    <div class="ev hi" data-a><div class="yr">2026</div><p>WISH-TV "Indiana Grown" feature and the State Fair pavilion.</p></div>
+  </div>
+  <p class="src" data-a>Sources: whatnow.com (2022), Citizen Newspaper Group (Nov 2022), Chicago Sky (May 2025), WISH-TV (Aug 2026), cuteasacupcake3.com.</p>
+</section>
+
+<!-- 3 -->
+<section class="slide" id="s3" data-title="Built for business" data-chap="1"
+ data-notes="The point of this slide: the jar is already a business-to-business product. Thirty days fresh means it can sit in a machine, ship to a client, or wait in a hotel fridge. And real companies already buy it. Confirm the nature of each logo relationship with Michelle before presenting them as clients.">
+  <h2 class="h1 d" data-a>The jar was built for business <em>before anyone called it that.</em></h2>
+  <div class="grid">
+    <div class="photo pic" data-a data-reveal><img src="assets/film-jar.jpg" alt="A Birthday Cake Cupcake in a Jar on a blush studio set"><span class="tag">Studio edit of her jar</span></div>
+    <div class="facts">
+      <div class="f" data-a><b class="n">30 days</b><span>fresh in the fridge. Six months frozen.</span></div>
+      <div class="f" data-a><b class="n">50 states</b><span>Ships nationwide, sealed and stackable.</span></div>
+      <div class="f" data-a><b class="n">12</b><span>jar flavours, with vegan and gluten-free options.</span></div>
+      <div class="f" data-a><b class="n">$10</b><span>for an 8 oz jar. $6.50 for 4 oz.</span></div>
+    </div>
+  </div>
+  <div class="trust" data-a>
+    <span class="m">Gifted by teams at</span>
+    <img src="assets/hellofresh-logo.png" alt="HelloFresh">
+    <img src="assets/Chicago-Sky.svg" alt="Chicago Sky">
+    <img src="assets/Countrycrocknew2.svg" alt="Country Crock">
+    <img class="nd" src="assets/university-of-notre-dame-logo.png" alt="University of Notre Dame">
+    <img class="badges" src="assets/footer-img.webp" alt="M/WBE certified, Women Owned, Goldman Sachs 10,000 Small Businesses">
+  </div>
+</section>
+
+<!-- 4 -->
+<section class="slide" id="s4" data-title="The real constraint" data-chap="2"
+ data-notes="Use her words. The bottleneck is not demand and not the machine. It is placement. Everything after this slide is built around that sentence.">
+  <p class="q d" data-a>Right now, finding the right host location is the greater priority.</p>
+  <p class="who muted" data-a>Michelle Wainwright, founder, in the client Q and A</p>
+  <div class="three">
+    <div data-a><b>The machines</b><p>Already in rollout, funded by her 2025 Chicago Sky Foundation pitch win.</p></div>
+    <div data-a><b>The bottleneck</b><p>Places to put them, and a reason for the people there to buy again.</p></div>
+    <div data-a><b>Proposed pilot</b><p>realSPACE coworking, 5164 E 81st Ave, Merrillville. 3,003 sq ft, members on site around the clock.</p></div>
+  </div>
+</section>
+
+<!-- 5 -->
+<section class="slide" id="s5" data-title="One machine's math" data-chap="2"
+ data-notes="Be honest about the ceiling. A full machine is about $2,304. Advertising one machine with a big budget never pays back. That is why the plan grows the number of hosts and the size of each order instead.">
+  <h2 class="h1 d" data-a>One machine can't carry <em>a campaign.</em></h2>
+  <div class="eq" data-a>
+    <div><span class="nn n" data-count="288">288</span><span class="u">jars, one full machine</span></div>
+    <span class="op">×</span>
+    <div><span class="nn n">~$<span data-count="8">8</span></span><span class="u">to her per $9 jar</span></div>
+    <span class="op">=</span>
+    <div><span class="nn n">$<span data-count="2304" data-fmt="comma">2,304</span></span><span class="u">per full load, before ingredients</span></div>
+  </div>
+  <div class="then">
+    <p class="big d" data-a>To earn back $250,000 from one machine, it would have to sell <b>43 jars a day, every day, for two years.</b></p>
+    <p class="pivot" data-a>So the plan grows the two things that can scale: <b>the number of hosts</b>, and <b>the size of each order</b>.</p>
+  </div>
+  <p class="note" data-a>For scale: Sprinkles' cupcake ATMs held about 760 cupcakes and sold 500 to 1,000 a day on Beverly Hills foot traffic (Fortune, 2014). The chain closed every store in December 2025.</p>
+</section>
+
+<!-- 6 -->
+<section class="slide" id="s6" data-title="What we found online" data-chap="2"
+ data-notes="Five things from a 49-page audit. Every one is fixable in days. Click through to the full Business Scan if they ask how we found them.">
+  <h2 class="h1 d" data-a>We audited all 49 pages of her site. <em>Five things can't wait.</em></h2>
+  <div class="list">
+    <div class="it" data-a><span class="sev c">Critical</span><p>The vending machines appear once on the whole site. There is no page for a QR code to open.</p><span class="fix">Fix: 1 new page</span></div>
+    <div class="it" data-a><span class="sev c">Critical</span><p>Truck and dessert-cart bookings can arrive with no name, email or phone.</p><span class="fix">Fix: 5 minutes</span></div>
+    <div class="it" data-a><span class="sev c">Critical</span><p>Share the 8 oz jar and Google, Facebook and iMessage show "Your Bundle is Unlisted. Do Not Delete."</p><span class="fix">Fix: 15 minutes</span></div>
+    <div class="it" data-a><span class="sev h">High</span><p>No reviews on the site, while 64 sit on Yelp and 262 on Google.</p><span class="fix">Fix: review requests</span></div>
+    <div class="it" data-a><span class="sev h">High</span><p>No refund policy or terms, on a store that ships food nationwide.</p><span class="fix">Fix: 1 hour</span></div>
+  </div>
+  <div class="go" data-a><a class="linkbtn" href="https://stationonemain-source.github.io/cute-as-a-cupcake/scan/" target="_blank" rel="noopener">Open the Business Scan <span class="arr">→</span></a><span>Every finding with how we found it and the fix.</span></div>
+</section>
+
+<!-- 7 -->
+<section class="slide" id="s7" data-title="The idea" data-chap="3"
+ data-notes="This is the whole campaign in one line, and it is the film the new website opens with: one continuous shot from the sprinkles to the boardroom table. The machine is the free sample. The jar is the business. Someone tastes it at 3 PM, and the money is in the dozen they send to their clients.">
+  <h2 class="h1 d" data-a>The machine is the free sample. <em>The jar is the business.</em></h2>
+  <div class="trip">
+    <div data-a><div class="photo" data-reveal><img src="assets/film-jar.jpg" alt="One Cupcake in a Jar on the blush set"></div><div class="lab"><b>3 PM</b><span>One jar, in their building</span></div></div>
+    <div data-a><div class="photo" data-reveal><img src="assets/film-box.jpg" alt="An open gift box of six jars"></div><div class="lab"><b>The gift</b><span>Six jars and a note card</span></div></div>
+    <div data-a><div class="photo" data-reveal><img src="assets/film-table.jpg" alt="The gift box on a boardroom table"></div><div class="lab"><b>The boardroom</b><span>Shipped to every client</span></div></div>
+  </div>
+  <p class="cap" data-a>Three frames from the one-shot film on the new site, rendered from her real jars</p>
+</section>
+
+<!-- 8 -->
+<section class="slide" id="s8" data-title="One jar to one order" data-chap="3"
+ data-notes="Walk the loop. Each step has a number we can count, so the campaign is measurable from day one: scans, sign-ups, gift requests, host referrals.">
+  <h2 class="h1 d" data-a>How one 3 PM jar becomes <em>a corporate order.</em></h2>
+  <div class="wrap">
+    <div class="steps">
+      <div class="st" data-a><span class="k">1</span><div><b>Taste</b><span>A member grabs a jar at 3 PM, in their own building.</span></div></div>
+      <div class="st" data-a><span class="k">2</span><div><b>Scan</b><span>A QR code on the machine opens her Find-a-Machine page.</span></div></div>
+      <div class="st" data-a><span class="k">3</span><div><b>Join</b><span>Email sign-up for new flavours and a first-order offer.</span></div></div>
+      <div class="st" data-a><span class="k">4</span><div><b>Send a dozen</b><span>One tap to a corporate gift request, shipped to every address.</span></div></div>
+      <div class="st" data-a><span class="k">5</span><div><b>Refer a host</b><span>"Want one in your building?" turns fans into host leads.</span></div></div>
+    </div>
+    <div class="photo pic" data-a data-reveal><img src="assets/mock-scan.jpg" alt="Concept render: a phone scanning the Send a Dozen QR code on the machine"><span class="tag">Concept render</span></div>
+  </div>
+</section>
+
+<!-- 9 -->
+<section class="slide" id="s9" data-title="Three people to win" data-chap="3"
+ data-notes="Three audiences, one message each. Credit Team 6's host and member personas; we added the gift buyer, because that is where the order value is.">
+  <h2 class="h1 d" data-a>Three people we have to win, <em>one sentence each.</em></h2>
+  <div class="cols">
+    <div class="p" data-a><span class="role">The host</span><h3>Workspace, campus or hospital operator</h3><p class="need">Wants a better member experience without another daily job.</p><p class="say">A premium amenity your members notice, with nothing for you to manage.</p></div>
+    <div class="p" data-a><span class="role">The member</span><h3>Remote worker, student, night-shift nurse</h3><p class="need">Wants a real treat at 3 PM without leaving the building.</p><p class="say">Scratch-made in Merrillville, waiting down the hall.</p></div>
+    <div class="p" data-a><span class="role">The gift buyer</span><h3>Office manager, HR lead, sales director</h3><p class="need">Needs gifts that arrive fresh, look good and are easy to send to 50 addresses.</p><p class="say">Thirty days fresh, shipped to every address, from a certified M/WBE supplier.</p></div>
+  </div>
+  <p class="credit" data-a>Builds on Team 6's host and member personas.</p>
+</section>
+
+<!-- 10 -->
+<section class="slide" id="s10" data-title="The host program" data-chap="4"
+ data-notes="Make it easy to say yes. Thirty-day shelf life means weekly restocking is plenty. The revenue share is hers to set; we propose one. Every name on the right is a prospect, not a partner.">
+  <h2 class="h1 d" data-a>A host program that's <em>easy to say yes to.</em></h2>
+  <div class="wrap">
+    <ul>
+      <li data-a><b>No cost to the host.</b> Floor space and one standard outlet.</li>
+      <li data-a><b>We stock, clean and restock weekly.</b> The 30-day shelf life makes that easy.</li>
+      <li data-a><b>Tap to pay.</b> No cash and no staff time.</li>
+      <li data-a><b>A launch tasting</b> for members in week one.</li>
+      <li data-a><b>Revenue share for the host,</b> proposed and set with Michelle.</li>
+    </ul>
+    <div>
+      <div class="targets">
+        <div class="t" data-a><span class="m">Coworking</span><p>realSPACE Merrillville, the proposed pilot</p></div>
+        <div class="t" data-a><span class="m">Campuses</span><p>Purdue Northwest, IU Northwest, Valparaiso University</p></div>
+        <div class="t" data-a><span class="m">Hospitals</span><p>Methodist Southlake, Franciscan Crown Point, Community Munster</p></div>
+        <div class="t" data-a><span class="m">Travel</span><p>Gary/Chicago International Airport, her stated goal</p></div>
+      </div>
+      <div class="photo pic" data-a data-reveal><img src="assets/mock-machine-campus.jpg" alt="Concept render: the machine in a university student center"><span class="tag">Concept render</span></div>
+      <p class="fine" data-a>Prospects, not partners. None has been approached yet.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 11 -->
+<section class="slide" id="s11" data-title="What it looks like" data-chap="4"
+ data-notes="One website, two front doors, because there are two different buyers. The bakery door is for someone buying jars for themselves or a friend: browse, build a gift box, check out. The corporate door is where every business ad and LinkedIn message points: one film, one offer, one quote form, nothing to distract an office manager from asking for a quote. Same brand, same kitchen; the corporate page links back to the shop. Open the corporate one and scroll slowly through the film.">
+  <h2 class="h1 d" data-a>One website, <em>two front doors.</em></h2>
+  <div class="go" data-a><a class="linkbtn" href="https://stationonemain-source.github.io/cute-as-a-cupcake/corporate/" target="_blank" rel="noopener">Corporate site <span class="arr">→</span></a><a class="linkbtn" href="https://stationonemain-source.github.io/cute-as-a-cupcake/" target="_blank" rel="noopener">Bakery site <span class="arr">→</span></a></div>
+  <div class="g">
+    <div class="brw" data-a><div class="top"><i></i><i></i><i></i><span>cuteasacupcake3.com/corporate</span></div><img src="assets/site-corp-hero.jpg" alt="The corporate site: the film opens on sprinkles"></div>
+    <div class="brw" data-a><div class="top"><i></i><i></i><i></i><span>cuteasacupcake3.com</span></div><img src="assets/site-consumer-menu.jpg" alt="The bakery site: the twelve-flavour menu"></div>
+    <div class="phone" data-a><div class="scr"><img src="assets/phone-corp.jpg" alt="The corporate site on a phone"></div></div>
+  </div>
+  <div class="lab" data-a><span>For business buyers: one film, one quote form</span><span>For everyone else: shop, gift box, find a machine</span><span>Both work on a phone</span></div>
+</section>
+
+<!-- 12 -->
+<section class="slide" id="s12" data-title="The 24-month roadmap" data-chap="4"
+ data-notes="Three phases, two gates. Money only moves to the next phase when the numbers say so. Phase 1 lands on the holiday corporate gifting season, which is the fastest money in the plan.">
+  <h2 class="h1 d" data-a>24 months. Three phases. <em>Two gates.</em></h2>
+  <div class="rm" id="rm">
+    <div class="months" id="rmMonths"></div>
+    <div class="strip" data-a><i style="left:0;width:12.5%"></i><span class="gm" data-g="Gate A" style="left:12.5%"></span><span class="gm" data-g="Gate B" style="left:37.5%"></span></div>
+    <div class="cards">
+      <div class="ph" data-a><span class="m">Nov 2026 to Jan 2027</span><h3>Fix and gift</h3><ul><li>Fix the site findings</li><li>Find-a-Machine page and QR codes</li><li>realSPACE pilot plus 2 hosts</li><li>Holiday corporate-gifting push</li></ul><div class="gate"><b>Gate A, end of January 2027</b>Pilot at 40+ jars a week for 4 weeks, and 150+ QR sign-ups</div></div>
+      <div class="ph" data-a><span class="m">Feb to Jul 2027</span><h3>Build the host network</h3><ul><li>Grow to 8 hosts: coworking, campus, hospital</li><li>LinkedIn and direct outreach, sample kits</li><li>A launch tasting at every new host</li></ul><div class="gate"><b>Gate B, end of July 2027</b>8 hosts live, 80%+ renewing, 6+ gift orders a month</div></div>
+      <div class="ph" data-a><span class="m">Aug 2027 to Oct 2028</span><h3>Scale what works</h3><ul><li>Grow to 15 hosts</li><li>Second holiday season at full weight</li><li>Wholesale offers to the email list</li><li>Renew hosts at 6 months</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- 13 -->
+<section class="slide" id="s13" data-title="Where the money goes" data-chap="4"
+ data-notes="One table, used everywhere. 85 percent is committed by phase; the 15 percent reserve is released only when a gate is passed. Station's Core plan is about twelve percent of the budget.">
+  <h2 class="h1 d" data-a>Where the $250,000 goes, <em>phase by phase.</em></h2>
+  <table data-a>
+    <thead><tr><th>Line</th><th>Phase 1, 3 mo</th><th>Phase 2, 6 mo</th><th>Phase 3, 15 mo</th><th>Total</th><th>Share</th></tr></thead>
+    <tbody>
+      <tr><td><b>Host program</b><span>Outreach, LinkedIn, sample kits, placement</span></td><td>$6,000</td><td>$30,000</td><td>$24,000</td><td>$60,000</td><td>24%</td></tr>
+      <tr><td><b>Corporate gifting demand</b><span>Google Search, LinkedIn retargeting, holiday push</span></td><td>$20,000</td><td>$10,000</td><td>$30,000</td><td>$60,000</td><td>24%</td></tr>
+      <tr><td><b>On-site activation</b><span>Launch tastings, QR signage, member offers</span></td><td>$4,000</td><td>$14,000</td><td>$12,000</td><td>$30,000</td><td>12%</td></tr>
+      <tr class="station"><td><b>Station Core plan</b><span>All 12 front-office products, $1,297 a month</span></td><td>$3,891</td><td>$7,782</td><td>$19,455</td><td>$31,128</td><td>12.5%</td></tr>
+      <tr><td><b>Local social around hosts</b><span>Meta and TikTok, tight radius</span></td><td>$1,295</td><td>$6,590</td><td>$6,475</td><td>$14,360</td><td>5.7%</td></tr>
+      <tr><td><b>Production</b><span>Machine wraps, photo and video, print</span></td><td>$10,000</td><td>$4,000</td><td>$3,012</td><td>$17,012</td><td>6.8%</td></tr>
+      <tr class="tot"><td>Committed</td><td>$45,186</td><td>$72,372</td><td>$94,942</td><td>$212,500</td><td>85%</td></tr>
+      <tr class="res"><td>Reserve, released only at a gate</td><td colspan="3" style="text-align:center">held back</td><td>$37,500</td><td>15%</td></tr>
+      <tr class="grand"><td>Campaign total</td><td></td><td></td><td></td><td>$250,000</td><td>100%</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 14 -->
+<section class="slide" id="s14" data-title="Cost over time and payback" data-chap="5"
+ data-notes="Move the slider live. At about $5 of contribution per jar, the committed budget pays back in April 2028. At $3 it doesn't, and we say so. Ask Michelle for her real cost per jar; that one number tightens the whole plan.">
+  <h2 class="h1 d" data-a>What it costs over time, <em>and what pays it back.</em></h2>
+  <div class="wrap">
+    <div data-a><svg class="chart" id="chart" viewBox="0 0 1060 560" role="img" aria-label="Cumulative campaign spend versus cumulative contribution from machine sales over 24 months"></svg></div>
+    <div class="ctl" data-a>
+      <div><label for="cpj">Her profit per jar (assumption)</label><div class="val n" id="cpjv">$5.00</div><input type="range" id="cpj" min="3" max="7" step="0.25" value="5"></div>
+      <div class="read">
+        <div><span>Committed spend pays back</span><b id="be">Apr 2028</b></div>
+        <div><span>Machine contribution, 24 months</span><b id="tot" class="n">$302,683</b></div>
+        <div><span>Station Core alone breaks even at</span><b id="st" class="n">260 jars/mo</b></div>
+      </div>
+      <p class="assume">Assumes hosts grow from 1 to 15 and each machine sells 40 to 60 jars a week. Counts machine sales only; corporate gifting and wholesale are upside. Replace the profit per jar with her real number.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 15 -->
+<section class="slide" id="s15" data-title="How we'll know" data-chap="5"
+ data-notes="Every number here can be checked. If we miss Gate A, we stop and fix before spending Phase 2 money. That is what keeps the plan safe for a small business.">
+  <h2 class="h1 d" data-a>How we'll know it's working, <em>month by month.</em></h2>
+  <table data-a>
+    <thead><tr><th>Measure</th><th>Target</th><th>By when</th><th>Counted with</th></tr></thead>
+    <tbody>
+      <tr><td>Hosts live</td><td class="t">3, then 8, then 15</td><td class="w">Jan 27 · Jul 27 · Oct 28</td><td class="tool">Host agreements</td></tr>
+      <tr><td>Jars sold per machine per week</td><td class="t">40 to 60</td><td class="w">Gate A · month 12</td><td class="tool">Machine sales data</td></tr>
+      <tr><td>QR scans that become email sign-ups</td><td class="t">15%</td><td class="w">From launch</td><td class="tool">Find-a-Machine page and Dispatch</td></tr>
+      <tr><td>Corporate gift orders</td><td class="t">6 a month</td><td class="w">By Jul 2027</td><td class="tool">Gift request form and Pursuit pipeline</td></tr>
+      <tr><td>New Google reviews</td><td class="t">+60</td><td class="w">First 12 months</td><td class="tool">Repute review requests</td></tr>
+      <tr><td>Hosts renewing at 6 months</td><td class="t">80% or more</td><td class="w">Rolling</td><td class="tool">Host check-ins</td></tr>
+      <tr><td>Event bookings with contact details</td><td class="t">100%</td><td class="w">Week 1</td><td class="tool">Required fields on both forms</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 16 -->
+<section class="slide" id="s16" data-title="Who builds it" data-chap="6"
+ data-notes="Station runs the front office behind her brand; her name is on everything. We recommend Core: all 12 products for $1,297 a month, month to month, 30-day money-back on the first month. If she wants to start smaller, Get Found plus Answer is $794 with a 14-day trial. The website pages are quoted after the free demo, and both demos are already built.">
+  <h2 class="h1 d" data-a>Station runs the front office. <em>Her name stays on everything.</em></h2>
+  <div class="wrap">
+    <div class="prods">
+      <div class="pr" data-a><div class="top"><h3 class="d">Get found</h3><span class="price">Echo · Repute · Marquee</span></div><p>Managed Google profile, a review request to every customer with replies drafted, social posting to nine networks.</p><span class="fix">Closes: 4.1 stars, wrong hours, a truck missing from Maps</span></div>
+      <div class="pr" data-a><div class="top"><h3 class="d">Answer everyone</h3><span class="price">Greet · Slate · Lineback · Frontdesk</span></div><p>Website chat, a booking calendar, missed-call text-back and a phone receptionist.</p><span class="fix">Closes: lost event bookings, 24 to 48 hour replies</span></div>
+      <div class="pr" data-a><div class="top"><h3 class="d">Follow up</h3><span class="price">Pursuit · Dispatch · Revive</span></div><p>Every gift, event, wholesale and host enquiry followed up by text and email, plus campaigns and win-back.</p><span class="fix">Closes: quotes going cold, an email list nobody can join</span></div>
+      <div class="pr" data-a><div class="top"><h3 class="d">Get paid</h3><span class="price">Tap · Dial</span></div><p>Deposits, invoices and estimates, and a business texting number.</p><span class="fix">Closes: deposits chased by hand</span></div>
+    </div>
+    <div class="sum" data-a>
+      <span class="m" style="color:#CFC4CC">Recommended · Core plan</span>
+      <div class="tot d n">$1,297<small>/mo</small></div>
+      <p><b>All 12 products, one bill.</b> Month to month, 30-day money-back on the first month. Station lists it as worth $1,899 a month separately.</p>
+      <p>Starting smaller: <b>Get Found and Answer, $794 a month</b>, with a 14-day free trial.</p>
+      <p>Pays for itself at <b>about 260 jars a month</b>, around 9 a day, at $5 profit per jar. <b>Website pages</b> are quoted after the free demo.</p>
+      <a class="linkbtn" href="https://stationonemain-source.github.io/cute-as-a-cupcake/proposal/" target="_blank" rel="noopener">Open the proposal <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- 17 -->
+<section class="slide film" id="s17" data-title="The next 30 days" data-tone="film" data-chap="6"
+ data-notes="End with action. Four weeks, four moves. Then the links. Ask Michelle for one decision: yes to the pilot host and the revenue share.">
+  <div class="bg"><img src="assets/film-box.jpg" alt="" data-kb style="object-position:70% 50%"></div>
+  <div class="in">
+    <h2 class="h1 d" data-a>The next <em>30 days.</em></h2>
+    <div class="wrap">
+      <ol>
+        <li data-a>Fix the five urgent site issues and turn on review requests.</li>
+        <li data-a>Confirm realSPACE as the pilot host and set the host revenue share.</li>
+        <li data-a>Launch the Find-a-Machine page and put QR codes on every machine.</li>
+        <li data-a>Start the holiday corporate-gifting push to past customers.</li>
+      </ol>
+      <div class="links">
+        <a class="linkbtn" href="https://stationonemain-source.github.io/cute-as-a-cupcake/corporate/" target="_blank" rel="noopener" data-a>The corporate site <span class="arr">→</span></a>
+        <a class="linkbtn" href="https://stationonemain-source.github.io/cute-as-a-cupcake/" target="_blank" rel="noopener" data-a>The bakery site <span class="arr">→</span></a>
+        <a class="linkbtn" href="https://stationonemain-source.github.io/cute-as-a-cupcake/scan/" target="_blank" rel="noopener" data-a>The Business Scan <span class="arr">→</span></a>
+        <a class="linkbtn" href="https://stationonemain-source.github.io/cute-as-a-cupcake/proposal/" target="_blank" rel="noopener" data-a>The proposal <span class="arr">→</span></a>
+      </div>
+    </div>
+    <p class="sig" data-a><b>Team 6</b>, Jordan Ricker, Natalie Mulat, Sadie Moon and Zion Matesun<br><b>Station Solutions</b>, main@station.solutions</p>
+  </div>
+</section>
+
+<!-- chrome -->
+<img class="brand" src="assets/logo.svg" alt="Cute as a Cupcake" id="brand">
+<div class="chrome" aria-hidden="true"><div class="bar" id="track"><i id="bar"></i><div class="cutie" id="cutie"><svg fill="none" viewBox="0 0 140 136" xmlns="http://www.w3.org/2000/svg"> <g clip-path="url(#clip0_30_2593)"> <path fill="currentColor" d="M68.2695 92.6155C65.2236 92.6155 61.4542 91.6183 57.3407 88.3047C56.091 87.2975 55.9038 85.4796 56.9106 84.2357C57.9226 82.9968 59.7491 82.8055 60.9988 83.8076C67.6016 89.1256 72.2514 85.7767 72.297 85.7414C73.5821 84.7846 75.4036 85.0414 76.3649 86.3206C77.3263 87.5997 77.0682 89.4126 75.7831 90.3694C75.5857 90.5205 72.6916 92.6155 68.2746 92.6155H68.2695Z"></path> <path fill="currentColor" d="M54.6035 75.6547C53.5764 75.6547 52.5746 75.131 52.013 74.1943C51.168 72.7792 51.6284 70.9562 53.0451 70.1051C55.8482 68.4281 61.7072 66.5649 65.8713 70.1907C67.121 71.2785 67.2475 73.1669 66.1546 74.4108C65.0618 75.6547 63.1644 75.7806 61.9147 74.6928C60.0527 73.0713 56.1619 75.2166 56.1264 75.2417C55.6458 75.5238 55.1246 75.6547 54.6035 75.6547Z"></path> <path fill="currentColor" d="M75.2571 72.7186C74.23 72.7186 73.2281 72.1949 72.6665 71.2582C71.8216 69.8431 72.282 68.0201 73.6987 67.1691C76.5017 65.4921 82.3608 63.6288 86.5249 67.2547C87.7746 68.3424 87.9011 70.2309 86.8082 71.4748C85.7153 72.7186 83.818 72.8446 82.5682 71.7568C80.7063 70.1352 76.8154 72.2805 76.78 72.3057C76.2993 72.5877 75.7782 72.7186 75.2571 72.7186Z"></path> <path fill="currentColor" d="M139.98 61.3677C139.302 51.2958 128.707 53.8591 128.601 53.8843C128.606 53.7735 129.157 42.9413 119.084 44.1599C109.374 45.3384 110.665 61.4029 111.848 69.0877L111.429 70.3115C109.683 75.4028 104.866 78.7567 99.6244 78.8675L103.961 54.267C108.256 51.5779 111.241 45.0614 110.381 39.114C109.84 35.3672 107.74 32.25 104.623 30.568C102.407 29.3695 98.8705 28.4479 93.7451 29.8025C93.2695 26.8565 92.0603 23.2307 89.1409 20.5616C85.8875 17.5904 81.4097 16.5732 75.8239 17.5401C74.0834 17.8422 70.9717 18.089 69.7372 16.3365C68.5988 14.7149 68.9377 11.5171 70.5467 8.72723C71.8976 6.38049 71.6851 3.65606 70.0053 1.78773C68.4065 0.00501546 65.8615 -0.49354 63.5239 0.513643C56.3595 3.6057 47.2066 9.89052 43.1437 22.4098C36.1311 23.8451 26.022 29.1982 24.4687 42.0298C21.1242 42.1859 16.1304 43.0017 12.4267 46.1139C9.52756 48.5462 7.868 52.016 7.62008 56.1505C7.37722 60.1742 8.83439 63.8957 11.6121 66.3683C12.452 67.1137 13.4134 67.6827 14.4202 68.1561L17.0411 82.1056C9.37577 84.2962 2.9551 90.0523 0.187484 98.1047C-0.424731 99.8925 0.531539 101.831 2.32771 102.446C2.69706 102.572 3.07147 102.632 3.43577 102.632C4.86258 102.632 6.19833 101.736 6.68405 100.321C8.61683 94.6853 13.0086 90.5861 18.306 88.8588L20.7195 101.726C21.8528 107.764 26.9276 111.767 33.0042 111.767C33.8087 111.767 34.6233 111.697 35.4531 111.556L47.8593 109.405L38.7267 124.171C37.735 125.777 38.2359 127.877 39.8449 128.869L50.6168 135.496C51.1683 135.834 51.7957 136.005 52.4231 136.005C52.9443 136.005 53.4603 135.889 53.941 135.653C55.0035 135.129 55.7169 134.101 55.8384 132.928C56.1217 130.118 54.7961 124.563 48.2489 121.804L56.8908 107.829L71.4119 105.311L82.5127 126.507C83.125 127.676 84.319 128.345 85.5586 128.345C86.0899 128.345 86.6313 128.219 87.1372 127.963L98.3797 122.156C99.4321 121.612 100.125 120.57 100.221 119.397C100.318 118.223 99.7964 117.085 98.8452 116.38C96.5684 114.693 91.0939 112.986 85.3613 117.161L78.5106 104.087L84.1824 103.105C90.8561 101.947 96.5633 96.2263 97.7473 89.5034L98.4202 85.6811C98.7238 85.6962 99.0324 85.7214 99.336 85.7214C107.371 85.7214 114.818 80.7308 117.713 73.0712C125.808 72.6784 140.602 70.6942 139.97 61.3778L139.98 61.3677ZM63.2052 8.28407C61.6165 12.6502 61.9049 17.1171 64.1159 20.2544C65.5782 22.3343 69.2059 25.6227 77.0028 24.2681C80.3624 23.6839 82.877 24.1271 84.4809 25.5774C86.3834 27.2997 86.9956 30.3565 87.1322 32.4867C78.4448 36.7219 70.5619 37.855 63.6707 35.8054C55.7878 33.4637 51.1987 27.5062 49.5695 25.0184C52.2561 16.3214 57.9432 11.2099 63.2052 8.28407ZM38.3422 31.6104C40.4723 30.3011 42.6277 29.6112 44.1405 29.2436C46.5337 32.7637 52.1347 39.4715 61.5962 42.3269C64.5257 43.2132 67.5716 43.6513 70.7137 43.6513C77.3823 43.6513 84.5113 41.642 92.0147 37.6888C95.9916 35.8658 99.3057 35.468 101.345 36.5708C102.979 37.4571 103.449 39.1542 103.586 40.0909C103.991 42.8808 102.827 45.711 101.552 47.3376L49.4835 56.367C40.877 56.4224 36.3588 54.3879 34.001 52.2728C31.7191 50.2232 31.2283 47.8613 31.1322 46.6477V45.4945C31.1322 39.2197 33.5557 34.5514 38.3371 31.6155L38.3422 31.6104ZM16.8387 51.3512C18.9081 49.6038 22.1007 49.0095 24.5395 48.8685C25.01 51.2606 26.2193 54.4131 29.2196 57.1879C30.1051 58.0037 31.1119 58.7188 32.1947 59.3684L17.2182 61.967C16.8438 61.7806 16.4947 61.554 16.181 61.272C14.9565 60.1842 14.3494 58.5123 14.4658 56.5634C14.6024 54.2872 15.3765 52.585 16.8337 51.3563L16.8387 51.3512ZM83.0136 96.3623L34.2793 104.813C30.859 105.402 28.066 103.619 27.4741 100.467L25.1315 87.9976C26.1889 88.0631 27.2565 88.2091 28.3241 88.466L38.7318 90.9537C40.5785 91.3969 42.4303 90.2638 42.8705 88.4257C43.3158 86.5926 42.1774 84.7444 40.3357 84.3063L29.928 81.8185C27.889 81.3301 25.8499 81.1286 23.8463 81.1387L21.6049 69.1985C21.7263 69.1834 21.8427 69.1734 21.9591 69.1532L96.6544 56.2008L90.9927 88.3199C90.3046 92.2379 86.8741 95.6975 83.0136 96.3673V96.3623Z"></path> </g> <defs> <clipPath id="clip0_30_2593"> <rect fill="white" height="136" width="140"></rect> </clipPath> </defs> </svg> </div></div><span class="ch" id="chap"></span><span class="ct n" id="counter">01 / 17</span></div>
+</div>
+<nav class="ov" id="ov" aria-label="All slides"></nav>
+</div>
+<div class="hint" id="hint">← → to move · N notes · O overview · F full screen</div>
+<div class="ctrls"><button id="bPrev" aria-label="Previous slide">←</button><button id="bNotes">Notes</button><button id="bOv">Overview</button><button id="bFs">Full screen</button><button id="bNext" aria-label="Next slide">→</button></div>
+<div class="notes" id="notes" hidden><b>Speaker notes</b><span id="notesText"></span></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+(function(){
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const hasG = typeof window.gsap !== 'undefined';
+  const stage = document.getElementById('stage'), vp = document.getElementById('vp');
+  const slides = [...document.querySelectorAll('.slide')];
+  const N = slides.length;
+  let cur = -1;
+  function fit(){ const s = Math.min(innerWidth/1920, innerHeight/1080); stage.style.transform = `translate(-50%,-50%) scale(${s})`; }
+  addEventListener('resize', fit); fit();
+
+  const chapters = {"1":"Where she stands","2":"What's in the way","3":"The idea","4":"The plan","5":"The money","6":"Who builds it"};
+  const ov = document.getElementById('ov');
+  slides.forEach((s,i)=>{ const b=document.createElement('button'); b.innerHTML=`<span class="n">${String(i+1).padStart(2,'0')}</span><span class="t">${s.dataset.title}</span>`; b.onclick=()=>{ toggleOv(false); go(i); }; ov.appendChild(b); });
+  function toggleOv(on){ vp.classList.toggle('overview', on ?? !vp.classList.contains('overview')); }
+
+  function fmt(n,c){ return c ? Math.round(n).toLocaleString('en-US') : Math.round(n).toString(); }
+  function countUp(el){ const t=+el.dataset.count; if(RM||!hasG){ el.textContent=fmt(t,el.dataset.fmt); return; } const o={v:0}; gsap.to(o,{v:t,duration:1.4,ease:'power2.out',onUpdate:()=>el.textContent=fmt(o.v,el.dataset.fmt)}); }
+
+  function enter(s){
+    const els = [...s.querySelectorAll('[data-a]')];
+    if(hasG && !RM){
+      gsap.fromTo(els,{y:22,opacity:0},{y:0,opacity:1,duration:.9,stagger:.07,ease:'power3.out',delay:.12,clearProps:'transform'});
+      s.querySelectorAll('[data-reveal] img').forEach(img=>gsap.fromTo(img,{scale:1.06},{scale:1,duration:1.8,ease:'power2.out'}));
+      s.querySelectorAll('[data-kb]').forEach(img=>gsap.fromTo(img,{scale:1.08},{scale:1,duration:9,ease:'none'}));
+    }
+    s.querySelectorAll('[data-count]').forEach(countUp);
+  }
+
+  // Cutie walks the bottom bar to the current slide; a tick marks where each chapter starts
+  const TRACK_W = 1680, cutie = document.getElementById('cutie'), track = document.getElementById('track');
+  const xAt = i => (i/(N-1))*TRACK_W - 24;
+  const seen = {}; slides.forEach((s,i)=>{ const c=s.dataset.chap; if(c && !(c in seen)){ seen[c]=1; const t=document.createElement('span'); t.className='tick'; t.style.left=(i/(N-1)*TRACK_W)+'px'; track.appendChild(t); } });
+  let walking = null;
+  function walk(i, instant){
+    const x = xAt(i);
+    if(!hasG || RM || instant){ if(hasG) gsap.set(cutie,{x,y:0,rotation:0}); else cutie.style.transform=`translateX(${x}px)`; return; }
+    const from = gsap.getProperty(cutie,'x'), dist = Math.abs(x-from), dur = Math.min(1.6, .55 + dist/900), steps = Math.max(2, Math.round(dur/.16));
+    if(walking) walking.kill();
+    walking = gsap.timeline();
+    walking.to(cutie,{x,duration:dur,ease:'power1.inOut'},0)
+      .fromTo(cutie,{y:0},{y:-7,duration:dur/steps/2,repeat:steps*2-1,yoyo:true,ease:'sine.inOut'},0)
+      .fromTo(cutie,{rotation:x>=from?-7:7},{rotation:x>=from?7:-7,duration:dur/steps,repeat:steps-1,yoyo:true,ease:'sine.inOut'},0)
+      .to(cutie,{y:0,rotation:0,duration:.25,ease:'back.out(3)'},dur);
+  }
+
+  function go(i, instant){
+    i = Math.max(0, Math.min(N-1, i)); if(i===cur) return;
+    const prev = slides[cur], next = slides[i];
+    if(prev) prev.classList.remove('on');
+    next.classList.add('on');
+    stage.dataset.tone = next.dataset.tone || '';
+    cur = i;
+    document.getElementById('counter').textContent = `${String(i+1).padStart(2,'0')} / ${N}`;
+    document.getElementById('chap').textContent = chapters[next.dataset.chap] || '';
+    document.getElementById('bar').style.width = (i/(N-1)*100)+'%';
+    walk(i, instant);
+    enter(next);
+    document.getElementById('notesText').textContent = next.dataset.notes || '';
+    try{ history.replaceState(null,'','#s'+(i+1)); }catch(e){}
+    if(next.id==='s14') drawChart();
+  }
+
+  addEventListener('keydown', e=>{
+    if(e.target.matches('input')) return;
+    if(['ArrowRight','PageDown',' '].includes(e.key)){ e.preventDefault(); go(cur+1); }
+    else if(['ArrowLeft','PageUp'].includes(e.key)){ e.preventDefault(); go(cur-1); }
+    else if(e.key==='Home') go(0); else if(e.key==='End') go(N-1);
+    else if(e.key==='n'||e.key==='N') toggleNotes();
+    else if(e.key==='o'||e.key==='O') toggleOv();
+    else if(e.key==='f'||e.key==='F') fs();
+    else if(e.key==='Escape') toggleOv(false);
+  });
+  document.getElementById('bNext').onclick=()=>go(cur+1);
+  document.getElementById('bPrev').onclick=()=>go(cur-1);
+  document.getElementById('bOv').onclick=()=>toggleOv();
+  document.getElementById('bNotes').onclick=toggleNotes;
+  document.getElementById('bFs').onclick=fs;
+  function toggleNotes(){ const n=document.getElementById('notes'); n.hidden=!n.hidden; }
+  function fs(){ try{ document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen().catch(()=>{}); }catch(e){} }
+  let tx=null; addEventListener('touchstart',e=>{tx=e.touches[0].clientX},{passive:true});
+  addEventListener('touchend',e=>{ if(tx===null) return; const dx=e.changedTouches[0].clientX-tx; if(Math.abs(dx)>50) go(cur+(dx<0?1:-1)); tx=null; });
+
+  // ---------- money model (same numbers as the proposal) ----------
+  const M = ["Nov 26","Dec 26","Jan 27","Feb 27","Mar 27","Apr 27","May 27","Jun 27","Jul 27","Aug 27","Sep 27","Oct 27","Nov 27","Dec 27","Jan 28","Feb 28","Mar 28","Apr 28","May 28","Jun 28","Jul 28","Aug 28","Sep 28","Oct 28"];
+  const LONG = {"26":"2026","27":"2027","28":"2028"};
+  const HOSTS=[1,2,3,4,5,6,7,7,8,9,10,11,12,12,13,13,14,14,15,15,15,15,15,15];
+  const WEEKLY=[40,40,40,50,50,50,50,50,50].concat(Array(15).fill(60));
+  const SPEND=[...Array(3).fill(45186/3),...Array(6).fill(72372/6),...Array(15).fill(94942/15)];
+  const money = n => '$'+Math.round(n).toLocaleString('en-US');
+  function model(c){ let cs=0,cc=0,be=null; const S=[],C=[]; for(let i=0;i<24;i++){ cs+=SPEND[i]; cc+=HOSTS[i]*WEEKLY[i]*52/12*c; S.push(cs); C.push(cc); if(be===null&&cc>=cs) be=i; } return {S,C,be}; }
+  const svg = document.getElementById('chart'); const NS='http://www.w3.org/2000/svg';
+  const W=1060,H=560,L=96,R=24,T=20,B=64, YMAX=440000;
+  const px = i => L + (i/23)*(W-L-R), py = v => T + (1 - v/YMAX)*(H-T-B);
+  function el(t,a,txt){ const e=document.createElementNS(NS,t); for(const k in a) e.setAttribute(k,a[k]); if(txt!=null) e.textContent=txt; return e; }
+  function drawChart(){
+    const c = +document.getElementById('cpj').value; const {S,C,be}=model(c);
+    svg.innerHTML='';
+    for(let v=0; v<=YMAX; v+=80000){ svg.appendChild(el('line',{x1:L,x2:W-R,y1:py(v),y2:py(v),stroke:'#ECE3E8','stroke-width':1})); svg.appendChild(el('text',{x:L-14,y:py(v)+5,'text-anchor':'end','font-family':'IBM Plex Mono, monospace','font-size':13,fill:'#6F6670'}, v===0?'$0':'$'+(v/1000)+'k')); }
+    [0,3,6,9,12,15,18,21,23].forEach(i=> svg.appendChild(el('text',{x:px(i),y:H-B+30,'text-anchor':'middle','font-family':'IBM Plex Mono, monospace','font-size':13,fill:'#6F6670'},M[i])));
+    svg.appendChild(el('line',{x1:L,x2:W-R,y1:py(250000),y2:py(250000),stroke:'#99227F','stroke-width':1,'stroke-dasharray':'5 6'}));
+    const line = (arr,col,w) => { const d=arr.map((v,i)=>(i?'L':'M')+px(i).toFixed(1)+' '+py(v).toFixed(1)).join(' '); const p=el('path',{d,fill:'none',stroke:col,'stroke-width':w,'stroke-linejoin':'round','stroke-linecap':'round'}); svg.appendChild(p); return p; };
+    const area = 'M'+px(0)+' '+py(0)+' '+C.map((v,i)=>'L'+px(i).toFixed(1)+' '+py(v).toFixed(1)).join(' ')+' L'+px(23)+' '+py(0)+' Z';
+    svg.appendChild(el('path',{d:area,fill:'#F9DDEB','fill-opacity':.55}));
+    const pS=line(S,'#231F22',2.5), pC=line(C,'#99227F',3);
+    const lg=(x,col,dash,label)=>{ svg.appendChild(el('line',{x1:x,x2:x+34,y1:T+14,y2:T+14,stroke:col,'stroke-width':dash?1:3,'stroke-dasharray':dash?'5 5':'none','stroke-linecap':'round'})); svg.appendChild(el('text',{x:x+44,y:T+19,'font-family':'Schibsted Grotesk, sans-serif','font-size':16,'font-weight':500,fill:'#231F22'},label)); };
+    lg(L+16,'#99227F',false,'Her contribution from machines'); lg(L+330,'#231F22',false,'Committed campaign spend'); lg(L+640,'#99227F',true,'Budget incl. reserve');
+    if(be!==null){ const cx=px(be), cy=py(C[be]); svg.appendChild(el('line',{x1:cx,x2:cx,y1:cy,y2:H-B,stroke:'#99227F','stroke-width':1})); svg.appendChild(el('circle',{cx,cy,r:7,fill:'#99227F',stroke:'#fff','stroke-width':3})); svg.appendChild(el('text',{x:cx-14,y:cy-18,'text-anchor':'end','font-family':'IBM Plex Mono, monospace','font-size':13,fill:'#99227F'},'Pays back'))}
+    if(hasG && !RM){ [pS,pC].forEach(p=>{ const len=p.getTotalLength(); p.style.strokeDasharray=len; gsap.fromTo(p,{strokeDashoffset:len},{strokeDashoffset:0,duration:1.6,ease:'power2.inOut'}); }); }
+    document.getElementById('cpjv').textContent = '$'+c.toFixed(2);
+    const beEl=document.getElementById('be'); if(be===null){ beEl.textContent='Not within 24 months'; beEl.className='no'; } else { const [mo,yy]=M[be].split(' '); beEl.textContent=mo+' '+LONG[yy]; beEl.className='ok'; }
+    document.getElementById('tot').textContent = money(C[23]);
+    document.getElementById('st').textContent = Math.ceil(1297/c)+' jars/mo';
+  }
+  document.getElementById('cpj').addEventListener('input', drawChart);
+
+  const rmM = document.getElementById('rmMonths');
+  [0,3,6,9,12,15,18,21,24].forEach(i=>{ const s=document.createElement('span'); s.style.left=(i/24*100)+'%'; s.textContent = i<24 ? M[i] : 'Oct 28'; if(i===24) s.style.transform='translateX(-100%)'; if(i===0) s.style.transform='none'; rmM.appendChild(s); });
+
+  let idleT; function wake(){ document.body.classList.remove('idle'); clearTimeout(idleT); idleT=setTimeout(()=>document.body.classList.add('idle'),2500); }
+  addEventListener('mousemove',wake); addEventListener('touchstart',wake,{passive:true}); wake();
+  const m = location.hash.match(/^#s(\d+)$/); const start = m ? Math.min(N, +m[1])-1 : 0;
+  go(start, true);
+  if(start===0 && hasG && !RM) gsap.from(cutie,{x:-140,duration:1.4,ease:'power2.out',delay:.4});
+  addEventListener('hashchange',()=>{ const h=location.hash.match(/^#s(\d+)$/); if(h) go(Math.min(N,+h[1])-1); });
+  setTimeout(()=>{ const h=document.getElementById('hint'); if(h) h.style.opacity='0', h.style.transition='opacity 1s'; }, 6000);
+  window.__ready = true;
+})();
+</script>
+</body></html>
