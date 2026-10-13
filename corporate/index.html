@@ -427,21 +427,23 @@ const WARM=10;
 function size(){DPR=Math.min(innerWidth<860?2:1.5,devicePixelRatio||1);W=innerWidth;H=innerHeight;cv.width=Math.round(W*DPR);cv.height=Math.round(H*DPR);displayed=-1}
 /* never hand the canvas an undecoded frame (that is a synchronous 2K decode on the main thread): the nearest DECODED frame stands in, and warm() catches up within a tick or two */
 const ok=k=>decoded.has(k)||primed.has(k);
-function nearest(i){for(let d=0;d<FRAME_COUNT;d++){if(ok(i-d))return i-d;if(ok(i+d))return i+d}
- for(let d=0;d<FRAME_COUNT;d++){if(images[i-d]&&images[i-d].complete&&images[i-d].naturalWidth)return i-d;if(images[i+d]&&images[i+d].complete&&images[i+d].naturalWidth)return i+d}return -1}
+/* a decoded neighbour may stand in only within 12 frames; further than that, decode the real frame now (a wrong scene is worse than one short stall) */
+const ld=k=>images[k]&&images[k].complete&&images[k].naturalWidth;
+function nearest(i){for(let d=0;d<=12;d++){if(ok(i-d))return i-d;if(ok(i+d))return i+d}if(ld(i))return i;
+ for(let d=0;d<FRAME_COUNT;d++){if(ld(i-d))return i-d;if(ld(i+d))return i+d}return -1}
 function paint(im){const iw=im.naturalWidth,ih=im.naturalHeight,cw=cv.width,ch=cv.height;const sc=Math.max(cw/iw,ch/ih);const dw=iw*sc,dh=ih*sc;ctx.drawImage(im,(cw-dw)*0.5,(ch-dh)*0.5,dw,dh)}
 /* the opening frame is a real photograph (far sharper than any video frame); it dissolves into the film over the first 3% of scroll */
 const STILL=new Image();STILL.decoding='async';STILL.src=`film/${SET}/f_0000.webp`;let stillOk=false;STILL.onload=()=>{stillOk=true;STILL.decode().then(()=>{if(displayed<=1)draw(current,true)}).catch(()=>{})};
-const DISSOLVE=0.012;
+const DISSOLVE=0.004;
 /* one clean frame per draw; the nearest loaded frame stands in until the exact one arrives */
-function draw(f,force){const i=Math.max(0,Math.min(FRAME_COUNT-1,Math.round(f)));const mix=stillOk&&p<DISSOLVE?Math.max(0,Math.min(1,p/DISSOLVE)):1;const key=mix<1?-1:i;
+function draw(f,force){const i=Math.max(0,Math.min(FRAME_COUNT-1,Math.round(f)));const mix=stillOk&&p<DISSOLVE?0:1;const key=mix<1?-1:i;
  if(key===displayed&&!force)return;const n=nearest(i);if(n<0&&mix>0)return;
- if(mix<1){paint(STILL);if(mix>0.02&&n>=0){ctx.globalAlpha=mix;paint(images[n]);ctx.globalAlpha=1}}else paint(images[n]);
+ if(mix<1){paint(STILL);if(mix>0.02&&n>=0){ctx.globalAlpha=mix;paint(images[n]);ctx.globalAlpha=1}}else paint(images[n]);window.__painted=n;window.__wanted=i;
  displayed=key;hdr.classList.toggle('on-light',LUM[Math.max(0,n)]>138)}
 /* decode ahead in the direction of travel, a little behind, and FORGET frames far from the playhead: Chrome evicts decoded
    images beyond its cache budget, and a frame remembered as decoded but evicted would decode synchronously on draw */
 let lastCenter=0;
-function warm(center){if(center===warmAt)return;const dir=center>=lastCenter?1:-1;lastCenter=center;warmAt=center;
+function warm(center){const dir=center>=lastCenter?1:-1;lastCenter=center;warmAt=center;
  const lo=dir>0?center-4:center-WARM, hi=dir>0?center+WARM:center+4;
  for(const k of Array.from(decoded))if(k<center-24||k>center+24)decoded.delete(k);
  const want=[];for(let i=Math.max(0,lo);i<=Math.min(FRAME_COUNT-1,hi);i++){const im=images[i];if(im&&im.complete&&!decoded.has(i)&&!decoding.has(i))want.push(i)}
@@ -449,7 +451,7 @@ function warm(center){if(center===warmAt)return;const dir=center>=lastCenter?1:-
  for(const i of want){if(decoding.size>=3)break;decoding.add(i);images[i].decode().then(()=>{decoding.delete(i);decoded.add(i);if(i===displayed)draw(current,true);warmAt=-999}).catch(()=>decoding.delete(i))}}
 /* first contact with a frame (decode + upload) is the expensive part; pay it while idle, one frame per tick, never during a scroll */
 const primed=new Set();let lastScrollT=0,primeIdx=0;window.__primed=()=>primed.size;
-function prime(){if(performance.now()-lastScrollT<250||primed.size>=FRAME_COUNT||decoding.size>=3)return;for(let n=0;n<FRAME_COUNT;n++){const k=(primeIdx+n)%FRAME_COUNT;const im=images[k];if(primed.has(k)||decoding.has(k)||!im||!im.complete||!im.naturalWidth)continue;
+function prime(){if(performance.now()-lastScrollT<250||primed.size>=FRAME_COUNT||decoding.size>0)return;for(let n=0;n<FRAME_COUNT;n++){const k=(primeIdx+n)%FRAME_COUNT;const im=images[k];if(primed.has(k)||decoding.has(k)||!im||!im.complete||!im.naturalWidth)continue;
  decoding.add(k);primeIdx=k+1;im.decode().then(()=>{decoding.delete(k);primed.add(k);decoded.add(k)}).catch(()=>decoding.delete(k));return}}
 /* concurrency-capped loader; the first frame is drawn the moment it lands */
 let fq=[...Array(FRAME_COUNT).keys()], inflight=0; const CAP=6;
