@@ -1,0 +1,492 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="robots" content="noindex,nofollow"><meta name="description" content="Concept demo by Station Solutions for Cute as a Cupcake! Cupcakery and Bake Shop, Merrillville, Indiana. Not the live store."></head><body><title>Cute as a Cupcake · Corporate gifting · Concept demo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Schibsted+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Direction B: the film is the page. One shot, sprinkles to boardroom, then the corporate offer in the film's own light. */
+:root{
+  --ink:#231F22; --paper:#FFFFFF; --tint:#FBF5F7; --blush:#F9DDEB; --plum:#99227F; --pink:#F7A1E5; --walnut:#4A3128;
+  --seam:#B79C96; --muted:#6F6670; --rule:#ECE3E8; --hair:1px solid var(--rule); --good:#2F6B3A; --warn:#A15C00;
+  --f-d:"Fraunces",Georgia,serif; --f-t:"Schibsted Grotesk","Segoe UI",system-ui,sans-serif; --f-m:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  --gut:clamp(18px,4.5vw,72px); --max:1360px; color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-t);font-size:17px;line-height:1.55;letter-spacing:-.003em;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--plum);outline-offset:3px;border-radius:4px}
+.d{font-family:var(--f-d);font-variation-settings:"SOFT" 50,"WONK" 0;letter-spacing:-.025em;font-optical-sizing:auto;font-weight:360}
+.d em,h1 em,h2 em{font-style:italic;font-variation-settings:"SOFT" 100,"WONK" 1;color:inherit;font-weight:inherit}
+.m{font-family:var(--f-m);font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:500}
+.wrap{max-width:var(--max);margin:0 auto;padding-inline:var(--gut)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;border-radius:999px;padding:16px 30px;font-weight:500;font-size:15.5px;letter-spacing:.01em;text-decoration:none;background:var(--ink);color:#fff;transition:background .25s,color .25s;white-space:nowrap}
+.btn:hover{background:var(--plum)}
+.btn.plum{background:var(--plum)}
+.btn.plum:hover{background:var(--ink)}
+.btn.light{background:#fff;color:var(--ink)}
+.btn.light:hover{background:var(--blush)}
+.btn.ghost{background:transparent;color:inherit;box-shadow:inset 0 0 0 1px currentColor}
+.btn.ghost:hover{background:rgba(255,255,255,.12)}
+.btn.sm{padding:11px 20px;font-size:14.5px}
+.tlink{display:inline-flex;align-items:center;gap:8px;font-weight:500;text-decoration:none;color:inherit;border-bottom:1px solid currentColor;padding:4px 0}
+.tlink span{transition:transform .3s}
+.tlink:hover span{transform:translateX(4px)}
+h1,h2,h3{margin:0;text-wrap:balance}
+h2.big{font-size:clamp(34px,4.2vw,60px);line-height:1.04}
+.lede{color:var(--muted);font-size:clamp(17px,1.35vw,19px);line-height:1.6;max-width:56ch;margin:22px 0 0}
+.sec{padding-block:clamp(88px,11vw,160px)}
+
+/* header: fixed chrome over a changing film, colour flips with the frame */
+header.top{position:fixed;inset:0 0 auto 0;z-index:40;color:#fff;transition:color .35s,background .35s}
+header.top.on-light{color:var(--ink)}
+header.top.solid{background:rgba(255,255,255,.88);backdrop-filter:saturate(1.4) blur(12px);border-bottom:var(--hair)}
+.hd{display:flex;align-items:center;gap:28px;height:72px}
+.hd .logo{display:flex;align-items:center}
+.hd .logo img{height:42px;width:auto;transition:filter .35s}
+header.top:not(.on-light) .logo img{filter:brightness(0) invert(1)}
+.nav{display:flex;gap:2px;margin-left:auto}
+.nav a{text-decoration:none;font-size:14.5px;font-weight:450;padding:8px 13px;opacity:.78;border-radius:999px}
+.nav a:hover{opacity:1}
+.nav a.on{opacity:1;box-shadow:inset 0 -1px 0 currentColor;border-radius:0}
+.hd .cta{margin-left:8px}
+header.top:not(.on-light):not(.solid) .btn.sm{background:#fff;color:var(--ink)}
+.menu-btn{display:none;width:44px;height:44px;border:0;background:none;place-items:center;margin-left:auto}
+.menu-btn svg{width:24px;height:24px}
+@media (max-width:960px){.nav,.hd .cta{display:none}.menu-btn{display:grid}}
+.drawer{position:fixed;inset:0;z-index:60;background:rgba(35,31,34,.45);display:none}
+.drawer.open{display:block}
+.drawer nav{position:absolute;top:0;right:0;bottom:0;width:min(340px,86vw);background:#fff;padding:28px;display:grid;align-content:start;gap:4px;color:var(--ink)}
+.drawer a{text-decoration:none;font-family:var(--f-d);font-size:28px;font-weight:380;padding:10px 0;border-bottom:var(--hair)}
+
+/* the film */
+.film{position:relative;height:540vh;background:#f3dbe4}
+.stage{position:sticky;top:0;height:100vh;overflow:hidden;background:#f3dbe4}
+.stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.grain{position:absolute;inset:0;pointer-events:none;opacity:.08;mix-blend-mode:multiply;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .55 0'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>")}
+.vig{position:absolute;inset:0;pointer-events:none;background:radial-gradient(120% 90% at 50% 45%,transparent 55%,rgba(35,31,34,.22) 100%)}
+.fade{position:absolute;inset:auto 0 0 0;height:46%;pointer-events:none;opacity:0;background:linear-gradient(180deg,transparent,var(--seam))}
+.loader{position:absolute;inset:0;display:grid;place-items:center;background:#f3dbe4;z-index:5;transition:opacity .6s}
+.loader.off{opacity:0;pointer-events:none}
+.loader .bar{width:160px;height:1px;background:rgba(35,31,34,.18);position:relative;overflow:hidden}
+.loader .bar i{position:absolute;inset:0;background:var(--ink);transform-origin:left;transform:scaleX(0)}
+.beat{position:absolute;inset:0;display:grid;align-content:center;padding:0 var(--gut);opacity:0;pointer-events:none;will-change:opacity,transform}
+.beat.go{pointer-events:auto}
+.beat .in{max-width:min(620px,52vw);display:grid;gap:22px}
+.beat h1,.beat h2{font-size:clamp(40px,5vw,88px);line-height:.98;letter-spacing:-.035em;font-weight:340;color:var(--ink)}
+.beat p{margin:0;font-size:clamp(17px,1.3vw,19.5px);line-height:1.5;color:#4F4650;max-width:40ch}
+.beat .ctas{display:flex;flex-wrap:wrap;align-items:center;gap:26px;margin-top:4px}
+.beat.mid .in{max-width:min(560px,46vw)}
+.beat.mid h2{font-size:clamp(34px,4vw,68px)}
+.beat.end{align-content:end;padding-bottom:13vh}
+.beat.end .in{max-width:min(600px,48vw)}
+.beat.hero .in,.beat.end .in{position:relative;z-index:0}
+.beat.hero .in::before,.beat.end .in::before{content:"";position:absolute;inset:-16% -24%;z-index:-1;pointer-events:none;background:radial-gradient(62% 62% at 42% 50%,rgba(255,255,255,.78),rgba(255,255,255,.35) 55%,rgba(255,255,255,0) 78%)}
+.readout{position:absolute;left:var(--gut);bottom:28px;display:grid;gap:10px;color:var(--ink);font-family:var(--f-m);font-size:11px;letter-spacing:.14em;text-transform:uppercase;transition:color .35s}
+.readout .trk{width:160px;height:1px;background:rgba(35,31,34,.22);position:relative}
+.readout .trk i{position:absolute;inset:0;background:currentColor;transform-origin:left;transform:scaleX(0)}
+.readout.dark{color:#fff}.readout.dark .trk{background:rgba(255,255,255,.3)}
+.cap{position:absolute;right:var(--gut);bottom:28px;font-family:var(--f-m);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);background:rgba(255,255,255,.78);backdrop-filter:blur(6px);padding:5px 9px;border-radius:999px}
+@media (max-width:860px){
+  .film{height:460vh}
+  .beat{align-content:end;padding-bottom:110px}
+  .beat .in,.beat.mid .in,.beat.end .in{max-width:none}
+  .beat h1,.beat h2{font-size:clamp(36px,10vw,52px)}
+  .beat.mid h2{font-size:clamp(30px,8.6vw,44px)}
+  .beat .ctas{gap:16px}
+  .readout{bottom:22px}.readout .trk{width:110px}
+  .cap{display:none}
+}
+
+/* landing zone: the film's last colour melts into paper */
+.land{background:linear-gradient(180deg,var(--seam) 0,#D9C3BE 18%,var(--tint) 62%,var(--tint) 100%);padding-block:clamp(72px,9vw,128px) clamp(88px,11vw,160px)}
+.land .wrap{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(40px,6vw,96px);align-items:end}
+.land h2{color:var(--ink)}
+.facts{list-style:none;margin:0;padding:0;border-top:1px solid rgba(35,31,34,.28)}
+.facts li{display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:20px;padding:18px 0;border-bottom:1px solid rgba(35,31,34,.14)}
+.facts b{font-family:var(--f-d);font-size:clamp(30px,3vw,44px);font-weight:340;line-height:1}
+.facts span{color:#4F4650;font-size:15px;text-align:right;max-width:26ch}
+@media (max-width:860px){.land .wrap{grid-template-columns:1fr}}
+
+/* logos */
+.logos{background:var(--tint);border-bottom:var(--hair);padding-bottom:56px}
+.logos .wrap{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:48px}
+.logos .lab{color:var(--muted)}
+.lg{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));align-items:center;justify-items:center;gap:32px}
+.lg img{height:32px;width:100%;max-width:150px;object-fit:contain;filter:grayscale(1) contrast(1.1);opacity:.55}
+@media (max-width:860px){.logos .wrap{grid-template-columns:1fr;gap:20px;justify-items:center}.lg{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px 28px;width:100%}.lg img{height:26px}}
+
+/* how it ships */
+.ship .wrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(40px,6vw,110px);align-items:start}
+.steps{list-style:none;margin:0;padding:0;counter-reset:s}
+.steps li{display:grid;grid-template-columns:72px 1fr;gap:20px;padding:28px 0;border-top:var(--hair)}
+.steps li:last-child{border-bottom:var(--hair)}
+.steps b{font-family:var(--f-d);font-size:clamp(40px,4vw,56px);font-weight:300;line-height:.9;color:var(--plum)}
+.steps h3{font-family:var(--f-d);font-size:clamp(24px,2.2vw,30px);font-weight:380;line-height:1.1}
+.steps p{margin:10px 0 0;color:var(--muted);max-width:48ch}
+@media (max-width:860px){.ship .wrap{grid-template-columns:1fr}}
+
+/* quote: the room goes dark walnut, the estimate glows */
+.quote{background:var(--walnut);color:#F6ECE8}
+.quote .lede{color:#D8C4BD}
+.est{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:clamp(28px,4vw,56px);margin-top:48px;align-items:start}
+@media (max-width:960px){.est{grid-template-columns:1fr}}
+.estbox{display:grid;gap:24px;border-top:1px solid rgba(255,255,255,.22);padding-top:28px}
+.rng{display:grid;gap:10px}
+.rng .top{display:flex;justify-content:space-between;align-items:baseline}
+.rng b{font-family:var(--f-d);font-size:30px;font-weight:340}
+.rng label,.rng>span{font-weight:500;font-size:15px}
+input[type=range]{width:100%;accent-color:var(--pink)}
+.seg{display:flex;gap:8px;flex-wrap:wrap}
+.seg button{border:1px solid rgba(255,255,255,.3);background:transparent;color:inherit;border-radius:6px;padding:10px 16px;font-weight:500}
+.seg button.on{background:#fff;color:var(--walnut);border-color:#fff}
+.form{display:grid;gap:14px}
+.row2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:560px){.row2{grid-template-columns:1fr}}
+label.f{display:grid;gap:6px;font-size:14px;font-weight:500}
+label.f .req{color:var(--pink)}
+.f input,.f select,.f textarea{width:100%;border:1px solid rgba(255,255,255,.3);border-radius:6px;padding:13px 14px;font:inherit;font-size:16px;background:rgba(255,255,255,.06);color:#fff}
+.f input::placeholder{color:rgba(255,255,255,.4)}
+.f input:focus,.f select:focus,.f textarea:focus{border-color:var(--pink);outline:none}
+.f.bad input{border-color:#F28B9B}
+.err{color:#F9B7C2;font-size:14px;display:none}
+.err.show{display:block}
+.ok-msg{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:8px;padding:18px 20px;display:none;gap:6px}
+.ok-msg.show{display:grid}
+.result{background:var(--tint);color:var(--ink);border-radius:8px;padding:30px;display:grid;gap:16px;position:sticky;top:96px}
+.result .big{font-family:var(--f-d);font-size:clamp(46px,5vw,76px);font-weight:340;line-height:1}
+.result .rows div{display:flex;justify-content:space-between;padding:9px 0;border-bottom:var(--hair);font-size:15.5px}
+.result .warn{background:var(--blush);border-radius:6px;padding:10px 12px;font-size:14px}
+.result .small{font-size:14px;color:var(--muted)}
+
+/* flavours: a strip of her jars */
+.flav{background:var(--paper)}
+.strip{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(200px,calc((100% - 5*18px)/6));gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:40px 0 10px;scrollbar-width:none}
+.strip::-webkit-scrollbar{display:none}
+.strip figure{margin:0;scroll-snap-align:start;display:grid;gap:12px}
+.strip .ph{aspect-ratio:1/1;border-radius:4px;overflow:hidden;background:#F6DCE6}
+.strip img{width:100%;height:100%;object-fit:cover}
+.strip figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:15px}
+.strip figcaption b{font-family:var(--f-d);font-size:21px;font-weight:400}
+.strip figcaption span{font-size:12px;color:var(--muted);white-space:nowrap}
+.flav .foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:28px;color:var(--muted);font-size:14.5px}
+
+/* occasions */
+.occ{background:var(--tint);border-block:var(--hair)}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-top:34px}
+.tabs button{border:1px solid var(--rule);background:#fff;border-radius:999px;padding:10px 18px;font-weight:500;font-size:14.5px}
+.tabs button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.usecase{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(32px,5vw,72px);margin-top:40px;align-items:center}
+@media (max-width:860px){.usecase{grid-template-columns:1fr}}
+.usecase h3{font-family:var(--f-d);font-size:clamp(28px,3vw,42px);font-weight:380;line-height:1.08}
+.usecase ul{padding-left:18px;margin:16px 0 0;display:grid;gap:6px;color:#4F4650}
+.usecase .ph{border-radius:4px;overflow:hidden;aspect-ratio:4/3;position:relative}
+.usecase img{width:100%;height:100%;object-fit:cover}
+.tag{position:absolute;left:12px;bottom:12px;font-family:var(--f-m);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);background:rgba(255,255,255,.82);backdrop-filter:blur(6px);padding:5px 9px;border-radius:999px}
+
+/* proof */
+.proof .wrap{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(40px,6vw,96px);align-items:start}
+@media (max-width:860px){.proof .wrap{grid-template-columns:1fr}}
+.pull{font-family:var(--f-d);font-size:clamp(30px,3.4vw,50px);line-height:1.1;font-weight:340;font-style:italic;font-variation-settings:"SOFT" 100,"WONK" 1;margin:0}
+.cite{font-family:var(--f-m);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:16px;display:block}
+.press{display:grid}
+.press div{padding:20px 0;border-top:var(--hair);display:grid;gap:4px}
+.press div:last-child{border-bottom:var(--hair)}
+.press b{font-family:var(--f-d);font-size:22px;font-weight:400}
+.press span{color:var(--muted);font-size:15px}
+
+/* faq */
+.faq{background:var(--tint);border-top:var(--hair)}
+.faq .cols{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(32px,5vw,80px)}
+@media (max-width:860px){.faq .cols{grid-template-columns:1fr}}
+details.q{border-bottom:var(--hair);padding:20px 0}
+details.q:first-of-type{border-top:var(--hair)}
+details.q summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px;font-weight:500;font-size:18px}
+details.q summary::-webkit-details-marker{display:none}
+details.q summary::after{content:"+";font-family:var(--f-m);color:var(--plum);font-size:20px;transition:transform .25s}
+details.q[open] summary::after{transform:rotate(45deg)}
+details.q p{margin:12px 0 0;color:#4F4650;max-width:62ch}
+
+/* close */
+.close{background:var(--ink);color:#fff;text-align:center}
+.close h2{font-size:clamp(36px,5vw,76px);line-height:1}
+.close p{color:#CFC4CC;max-width:44ch;margin:20px auto 0}
+.close .ctas{display:flex;justify-content:center;gap:26px;align-items:center;flex-wrap:wrap;margin-top:36px}
+footer.ft{background:var(--ink);color:#CFC4CC;padding-block:0 64px;font-size:14.5px}
+footer.ft .wrap{border-top:1px solid rgba(255,255,255,.14);padding-top:40px;display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:32px}
+@media (max-width:760px){footer.ft .wrap{grid-template-columns:1fr}}
+footer.ft h4{font-family:var(--f-m);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#fff;margin:0 0 12px;font-weight:500}
+footer.ft a{display:block;text-decoration:none;color:#fff;padding:3px 0;opacity:.88}
+footer.ft .fine{grid-column:1/-1;margin-top:28px;padding-top:18px;border-top:1px solid rgba(255,255,255,.14);display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;font-size:13px}
+
+/* reveals: visible at rest, animated when JS marks them */
+.rv{opacity:1}
+.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,16px);background:var(--ink);color:#fff;padding:12px 18px;border-radius:999px;font-size:15px;z-index:95;opacity:0;transition:.35s;pointer-events:none}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.grain{display:none}}
+</style>
+
+<header class="top on-light" id="top">
+  <div class="wrap hd">
+    <a class="logo" href="#film" aria-label="Cute as a Cupcake"><img src="assets/logo.svg" alt="Cute as a Cupcake" width="120" height="53"></a>
+    <nav class="nav" aria-label="Main">
+      <a href="#offer" data-r="offer">Corporate gifting</a><a href="#ship" data-r="ship">How it ships</a><a href="#flavours" data-r="flavours">Flavours</a><a href="#occasions" data-r="occasions">Occasions</a><a href="#faq" data-r="faq">Questions</a>
+    </nav>
+    <a class="btn sm cta" href="#quote">Get a quote</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</header>
+<div class="drawer" id="drawer"><nav aria-label="Mobile"><a href="#offer">Corporate gifting</a><a href="#ship">How it ships</a><a href="#flavours">Flavours</a><a href="#occasions">Occasions</a><a href="#faq">Questions</a><a href="#quote">Get a quote</a></nav></div>
+
+<main>
+  <section class="film" id="film" aria-label="Film">
+    <div class="stage" id="stage">
+      <canvas id="cv" aria-hidden="true"></canvas>
+      <div class="grain" id="grain"></div><div class="vig" id="vig"></div><div class="fade" id="fade"></div>
+      <div class="loader" id="loader" aria-hidden="true"><div class="bar"><i id="lbar"></i></div></div>
+
+      <div class="beat hero" data-in="-0.1" data-peak="0" data-out="0.15"><div class="in">
+        <h1 class="d">The gift that gets opened <em>at the desk.</em></h1>
+        <p>Scratch-made Cupcakes in a Jar, sealed fresh and shipped to every name on your list.</p>
+        <div class="ctas"><a class="btn" href="#quote">Start a corporate order</a><a class="tlink" href="#ship">How it ships <span aria-hidden="true">→</span></a></div>
+      </div></div>
+      <div class="beat mid" data-in="0.2" data-peak="0.3" data-out="0.42"><div class="in">
+        <h2 class="d">Fresh for 30 days. <em>Shipped to all 50 states.</em></h2>
+        <p>Two layers of cake and icing in a sealed 8 oz jar. It arrives looking like it left the kitchen.</p>
+      </div></div>
+      <div class="beat mid" data-in="0.47" data-peak="0.57" data-out="0.7"><div class="in">
+        <h2 class="d">Six flavours. One note card. <em>Every address on your list.</em></h2>
+        <p>Boxes of 2, 4 or 6, packed and tracked to each recipient, with your words inside.</p>
+      </div></div>
+      <div class="beat end" data-in="0.8" data-peak="0.9" data-out="2"><div class="in">
+        <h2 class="d">Client gifts people <em>actually open.</em></h2>
+        <p>From one box to five hundred addresses, from a certified Minority and Women-owned supplier in Merrillville, Indiana.</p>
+        <div class="ctas"><a class="btn" href="#quote">Get a quote in 60 seconds</a></div>
+      </div></div>
+
+      <div class="readout" id="readout" aria-hidden="true"><span id="chap">The jar</span><div class="trk"><i id="prog"></i></div></div>
+      <span class="cap" id="cap">Concept film made from her real jars</span>
+    </div>
+  </section>
+
+  <section class="land" id="offer">
+    <div class="wrap">
+      <div><h2 class="big d">A thank-you that lands fresh, looks right on a desk, <em>and never ends up in a drawer.</em></h2></div>
+      <ul class="facts">
+        <li><b>30 days</b><span>fresh in the fridge on arrival, six months frozen</span></li>
+        <li><b>50 states</b><span>one office or hundreds of home addresses</span></li>
+        <li><b>2 to 4 days</b><span>from your approved quote to the kitchen door</span></li>
+        <li><b>M/WBE</b><span>counts toward your supplier-diversity goals</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="logos" aria-label="Companies that have ordered">
+    <div class="wrap"><span class="m lab">Gifted by teams at</span>
+      <div class="lg"><img src="assets/hellofresh-logo.png" alt="HelloFresh"><img src="assets/Chicago-Sky.svg" alt="Chicago Sky"><img src="assets/Countrycrocknew2.svg" alt="Country Crock"><img src="assets/university-of-notre-dame-logo.png" alt="University of Notre Dame"><img src="assets/dsd-ogo.svg" alt="Dept. of Superior Dishes"></div>
+    </div>
+  </section>
+
+  <section class="sec ship" id="ship">
+    <div class="wrap">
+      <div><h2 class="big d">Three steps, <em>one order.</em></h2><p class="lede">You send the list. We do the rest, and a real person answers every question the same day.</p></div>
+      <ol class="steps">
+        <li><b>1</b><div><h3>Send the list</h3><p>Names, addresses and a deadline. Pick the box size and flavours, or let us choose a mix.</p></div></li>
+        <li><b>2</b><div><h3>Approve the quote</h3><p>Exact pricing, flavour options and a ship date in your inbox the same business day.</p></div></li>
+        <li><b>3</b><div><h3>We ship to everyone</h3><p>Each box is packed, sealed, labelled with your note card and tracked to its own address.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sec quote" id="quote">
+    <div class="wrap">
+      <h2 class="big d">Your estimate <em>in 60 seconds.</em></h2>
+      <p class="lede">List price is $10 per 8 oz jar. Large orders get special pricing, quoted to your order.</p>
+      <div class="est">
+        <div class="estbox">
+          <div class="rng"><div class="top"><label for="qRec">People on your list</label><b id="qRecV">25</b></div><input type="range" id="qRec" min="1" max="500" value="25"></div>
+          <div class="rng"><span>Jars per person</span><div class="seg" id="qPer"><button data-v="1">1</button><button data-v="2" class="on">2</button><button data-v="4">4</button><button data-v="6">6</button></div></div>
+          <div class="rng"><span>Ship to</span><div class="seg" id="qShip"><button data-v="each" class="on">Each person's address</button><button data-v="one">One office</button></div></div>
+          <div class="rng"><span>Note cards</span><div class="seg" id="qCard"><button data-v="yes" class="on">Personal note in each box</button><button data-v="no">No cards</button></div></div>
+          <label class="f"><span>Needed by</span><input type="date" id="qDate"></label>
+          <form class="form" id="quoteForm" novalidate>
+            <div class="row2"><label class="f"><span>Your name <span class="req">*</span></span><input name="name" required autocomplete="name"></label><label class="f"><span>Company <span class="req">*</span></span><input name="company" required autocomplete="organization"></label></div>
+            <div class="row2"><label class="f"><span>Work email <span class="req">*</span></span><input name="email" type="email" required autocomplete="email"></label><label class="f"><span>Phone <span class="req">*</span></span><input name="phone" type="tel" required autocomplete="tel"></label></div>
+            <label class="f"><span>Anything else? (logo stickers, flavours, budget)</span><textarea name="notes" rows="3"></textarea></label>
+            <p class="err" id="qErr">Please fill in the starred fields so we can send your quote.</p>
+            <button class="btn light" type="submit">Send me the exact quote</button>
+            <div class="ok-msg" id="qOk"><b>Request received.</b><span>A real person replies today with exact pricing, flavour options and a ship date. (Demo: on the live site this goes straight into her follow-up pipeline.)</span></div>
+          </form>
+        </div>
+        <div class="result" id="qResult">
+          <span class="m" style="color:var(--plum)">Your estimate</span>
+          <div class="big" id="qJars">50 jars</div>
+          <div class="rows">
+            <div><span>Jars at list price</span><b id="qList">$500</b></div>
+            <div><span>Bulk pricing</span><b id="qVol">Quoted to your order</b></div>
+            <div><span>Delivery</span><b id="qDel">25 addresses</b></div>
+            <div><span>Note cards</span><b id="qCards">Included in quote</b></div>
+          </div>
+          <p class="small" style="margin:0">Shipping is quoted per address. Orders leave the kitchen in 2 to 4 business days.</p>
+          <div class="warn" id="qWarn" hidden></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec flav" id="flavours">
+    <div class="wrap">
+      <h2 class="big d">Twelve flavours, <em>baked from scratch.</em></h2>
+      <p class="lede">Every jar is two layers of cake and icing. Vegan and gluten-free options are available for mixed teams.</p>
+      <div class="strip" id="strip"></div>
+      <div class="foot"><span>Baked in a kitchen that also handles peanuts, tree nuts, wheat, soy, dairy and eggs.</span><a href="https://cuteasacupcake3.com/pages/cupcakes-in-a-jar-nutrition-facts-ingredients" target="_blank" rel="noopener">Nutrition and allergens</a></div>
+    </div>
+  </section>
+
+  <section class="sec occ" id="occasions">
+    <div class="wrap">
+      <h2 class="big d">Built for the <em>occasion.</em></h2>
+      <div class="tabs" id="tabs"><button class="on" data-u="0">Client thank-yous</button><button data-u="1">Employee welcome</button><button data-u="2">Holiday gifting</button><button data-u="3">Events and conferences</button></div>
+      <div class="usecase" id="useCase"></div>
+    </div>
+  </section>
+
+  <section class="sec proof" id="proof">
+    <div class="wrap">
+      <div>
+        <p class="pull d">Customer service was excellent.</p><span class="cite">Customer review, via Restaurantji, March 2026</span>
+        <p class="pull d" style="margin-top:40px">Love the vegan cakes in a jar.</p><span class="cite">Customer review, via Restaurantji, April 2025</span>
+      </div>
+      <div class="press">
+        <div><b>Chicago Sky Foundation pitch winner</b><span>Small Business Bootcamp, 2025. The win funded the vending machine rollout.</span></div>
+        <div><b>Featured on WISH-TV</b><span>"Indiana Grown", August 2026. Sold at the Indiana State Fair.</span></div>
+        <div><b>Goldman Sachs 10,000 Small Businesses alum</b><span>Certified Minority and Women-owned Business Enterprise.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec faq" id="faq">
+    <div class="wrap cols">
+      <div><h2 class="big d">Good to <em>know.</em></h2><p class="lede">Still wondering? Email cupcake@cuteasacupcake3.com or call (219) 472-0858, Tuesday to Saturday.</p></div>
+      <div id="faqList"></div>
+    </div>
+  </section>
+
+  <section class="sec close">
+    <div class="wrap">
+      <h2 class="d">Send something <em>they'll remember.</em></h2>
+      <p>Tell us the list today and the exact quote is in your inbox before you leave the office.</p>
+      <div class="ctas"><a class="btn light" href="#quote">Get a quote</a><a class="tlink" href="https://drive.google.com/file/d/15wyYoCAMrA-djI9NyMWElSViBfPLA1qN/view?usp=sharing" target="_blank" rel="noopener">Download the gifting guide <span aria-hidden="true">→</span></a></div>
+    </div>
+  </section>
+</main>
+
+<footer class="ft">
+  <div class="wrap">
+    <div><h4>Cute as a Cupcake! Cupcakery and Bake Shop</h4><p style="margin:0;line-height:1.7">2008 W. 81st Ave, Merrillville, IN 46410<br>Tuesday to Saturday, 10am to 7pm<br>(219) 472-0858<br>cupcake@cuteasacupcake3.com</p></div>
+    <div><h4>Orders</h4><a href="#quote">Corporate gifting</a><a href="https://cuteasacupcake3.com/pages/wholesale-products" target="_blank" rel="noopener">Wholesale</a><a href="https://cuteasacupcake3.com/collections/all" target="_blank" rel="noopener">Shop the jars</a></div>
+    <div><h4>Help</h4><a href="https://cuteasacupcake3.com/pages/cupcakes-in-a-jar-nutrition-facts-ingredients" target="_blank" rel="noopener">Nutrition and allergens</a><a href="https://cuteasacupcake3.com/pages/shipping-policy" target="_blank" rel="noopener">Shipping policy</a><a href="https://www.instagram.com/cuteasacupcake3/" target="_blank" rel="noopener">Instagram</a></div>
+    <div class="fine"><span>© 2026 Cute as a Cupcake! Cupcakery and Bake Shop</span><span>Concept demo. Film and gift-box scenes rendered from her real jars. Designed by Station.Solutions</span></div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+<script>
+(function(){
+"use strict";
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const JUMP=new URLSearchParams(location.search).get('jump');
+if(JUMP!==null)history.scrollRestoration='manual';
+
+/* ---------- scrub engine: canvas + pre-extracted frames, ImageBitmap window ---------- */
+const FRAME_COUNT=181, src=i=>`film/f_${String(i+1).padStart(4,'0')}.jpg`;
+const cv=$('#cv'), ctx=cv.getContext('2d',{alpha:false});
+const film=$('#film'), images=new Array(FRAME_COUNT), bitmaps=new Map(), decoding=new Set();
+let loaded=0, target=0, current=0, displayed=-1, bmpCenter=-999, W=0, H=0, DPR=1;
+const B_AHEAD=18, B_KEEP=28;
+function size(){DPR=Math.min(1.5,devicePixelRatio||1);W=innerWidth;H=innerHeight;cv.width=Math.round(W*DPR);cv.height=Math.round(H*DPR);displayed=-1}
+function nearest(i){for(let d=0;d<FRAME_COUNT;d++){if(images[i-d]&&images[i-d].complete)return i-d;if(images[i+d]&&images[i+d].complete)return i+d}return -1}
+function draw(i,force){if(i===displayed&&!force)return;const b=bitmaps.get(i);let im=b;if(!im){const n=nearest(i);if(n<0)return;im=images[n]}
+ const iw=im.width,ih=im.height,cw=cv.width,ch=cv.height;const s=Math.max(cw/iw,ch/ih);const dw=iw*s,dh=ih*s;
+ const fx=W<860?0.56:0.5;const dx=(cw-dw)*fx,dy=(ch-dh)*0.5;ctx.drawImage(im,dx,dy,dw,dh);displayed=i}
+function ensure(center){if(Math.abs(center-bmpCenter)<3)return;bmpCenter=center;const lo=Math.max(0,center-B_AHEAD),hi=Math.min(FRAME_COUNT-1,center+B_AHEAD);
+ for(let i=lo;i<=hi;i++){if(bitmaps.has(i)||decoding.has(i)||!images[i]||!images[i].complete)continue;decoding.add(i);
+  createImageBitmap(images[i]).then(b=>{decoding.delete(i);if(Math.abs(i-bmpCenter)>B_KEEP){b.close();return}bitmaps.set(i,b);if(i===displayed)draw(i,true)}).catch(()=>decoding.delete(i))}
+ for(const k of Array.from(bitmaps.keys()))if(k<center-B_KEEP||k>center+B_KEEP){bitmaps.get(k).close();bitmaps.delete(k)}}
+/* concurrency-capped pump; first frame first, then outward */
+let fq=[...Array(FRAME_COUNT).keys()], inflight=0; const CAP=10;
+function pump(){while(inflight<CAP&&fq.length){const i=fq.shift();const im=new Image();im.decoding='async';im.onload=im.onerror=()=>{inflight--;loaded++;$('#lbar').style.transform=`scaleX(${loaded/FRAME_COUNT})`;if(loaded===1){size();draw(0,true);ensure(0)}if(loaded>=8)$('#loader').classList.add('off');if(loaded===FRAME_COUNT)ready();pump()};im.src=src(i);images[i]=im;inflight++}}
+
+/* ---------- beats, readout, header, seam ---------- */
+const beats=$$('.beat').map(el=>({el,in:+el.dataset.in,peak:+el.dataset.peak,out:+el.dataset.out}));
+function beatAlpha(b,p){if(p<b.in||p>b.out)return 0;if(p<b.peak)return(p-b.in)/Math.max(1e-4,b.peak-b.in);if(b.out>1.5)return 1;return 1-(p-b.peak)/Math.max(1e-4,b.out-b.peak)}
+const CHAP=[[0,'The jar'],[.34,'The box'],[.68,'The table']];
+const hdr=$('#top'), readout=$('#readout'), fade=$('#fade'), grain=$('#grain'), vig=$('#vig'), cap=$('#cap');
+const lum=document.createElement('canvas');lum.width=16;lum.height=4;const lctx=lum.getContext('2d',{willReadFrequently:true});let lastLum=0;
+function sampleLum(){if(performance.now()-lastLum<180||displayed<0)return;lastLum=performance.now();try{lctx.drawImage(cv,0,0,cv.width,cv.height*0.12,0,0,16,4);const d=lctx.getImageData(0,0,16,4).data;let s=0;for(let i=0;i<d.length;i+=4)s+=d[i]*.299+d[i+1]*.587+d[i+2]*.114;const L=s/(d.length/4);hdr.classList.toggle('on-light',L>138)}catch(e){}}
+let p=0, filmDone=false;
+function progress(){const r=film.getBoundingClientRect();p=Math.max(0,Math.min(1,-r.top/(r.height-innerHeight)));filmDone=r.bottom<=innerHeight*0.5}
+function overlays(){beats.forEach(b=>{const a=beatAlpha(b,p);b.el.style.opacity=a;b.el.style.transform=`translateY(${(1-a)*14}px)`;b.el.classList.toggle('go',a>0.5)});
+ $('#prog').style.transform=`scaleX(${p})`;let c=CHAP[0][1];CHAP.forEach(([t,n])=>{if(p>=t)c=n});if($('#chap').textContent!==c)$('#chap').textContent=c;
+ const h=Math.max(0,Math.min(1,(p-0.9)/0.1));fade.style.opacity=h;grain.style.opacity=.08*(1-h);vig.style.opacity=1-h;cap.style.opacity=1-Math.min(1,p*6);
+ hdr.classList.toggle('solid',filmDone)}
+
+/* ---------- tick ---------- */
+let jank=[],lastT=0;
+function tick(t){if(lastT){const d=t-lastT;jank.push(d);if(jank.length>240)jank.shift()}lastT=t;
+ progress();target=p*(FRAME_COUNT-1);current+= RM?(target-current):(target-current)*0.14;if(Math.abs(target-current)<0.02)current=target;
+ const i=Math.round(current);ensure(i);draw(i);sampleLum();overlays();requestAnimationFrame(tick)}
+window.__jank=()=>{const s=[...jank].sort((a,b)=>a-b);return{max:Math.round(s[s.length-1]||0),p95:Math.round(s[Math.floor(s.length*.95)]||0),n:s.length}};
+
+/* ---------- smooth scroll (skipped under ?jump and reduced motion) ---------- */
+let lenis=null;
+if(JUMP===null&&!RM&&window.Lenis){try{lenis=new Lenis({lerp:0.09,smoothWheel:true});const raf=t=>{lenis.raf(t);requestAnimationFrame(raf)};requestAnimationFrame(raf)}catch(e){lenis=null}}
+$$('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const id=a.getAttribute('href').slice(1);const t=document.getElementById(id);if(!t)return;e.preventDefault();$('#drawer').classList.remove('open');const y=t.getBoundingClientRect().top+scrollY-(id==='film'?0:72);if(lenis)lenis.scrollTo(y,{duration:1.4});else scrollTo({top:y,behavior:RM?'auto':'smooth'})}));
+$('#menuBtn').onclick=()=>$('#drawer').classList.add('open');$('#drawer').onclick=e=>{if(e.target.id==='drawer'||e.target.closest('a'))$('#drawer').classList.remove('open')};
+
+/* ---------- scroll spy ---------- */
+const spy=$$('main section[id]');
+function spyUpdate(){let cur=null;spy.forEach(s=>{const r=s.getBoundingClientRect();if(r.top<innerHeight*0.4&&r.bottom>innerHeight*0.4)cur=s.id});$$('.nav a').forEach(a=>a.classList.toggle('on',a.dataset.r===cur))}
+addEventListener('scroll',spyUpdate,{passive:true});
+
+/* ---------- content ---------- */
+const F=[['birthday','Birthday Cake','Vegan or GF option'],['red-velvet','Red Velvet',''],['chocolate','Chocolate',''],['vanilla','Vanilla','Vegan option'],['oreo','Oreo','Vegan option'],['salted-caramel','Salted Caramel','GF option'],['lemon','Lemon',''],['strawberry','Strawberry',''],['turtle','Turtle','Contains nuts'],['peanut-butter','Peanut Butter','Contains nuts'],['mm','M&M',''],['toffee-caramel','Toffee Caramel','']];
+$('#strip').innerHTML=F.map(([k,n,t])=>`<figure><div class="ph"><img loading="lazy" src="assets/studio/${k}.webp" alt="${n} Cupcake in a Jar" width="1200" height="1200"></div><figcaption><b>${n}</b><span>${t}</span></figcaption></figure>`).join('');
+const USES=[
+ {t:'A thank-you on every client’s desk.',p:'Two or four jars and your note, shipped to each client. It arrives fresh and gets opened the same day.',li:['Box of 2 or 4 per client','Your note in every box','Ships to each address'],img:'assets/photo-bday-box.jpg',cap:'Her photo'},
+ {t:'Day one, with something sweet.',p:'A welcome box on a new hire’s desk, or shipped to their home before their first remote day.',li:['Box of 2 per new hire','Vegan and gluten-free options','One order, ongoing deliveries'],img:'assets/photo-jars-spoon.jpg',cap:'Her photo'},
+ {t:'One order. Every client. Before the holidays.',p:'Upload the list once. We ship a box to every name, so nobody waits in line at the post office.',li:['Holiday flavours and note cards','Bulk pricing on large lists','Order early for on-time delivery'],img:'assets/photo-jars-stack.jpg',cap:'Her photo'},
+ {t:'Swag people eat, or a truck at your booth.',p:'Jars for conference bags and speaker gifts, or the pink cupcake truck at your company event.',li:['Jars for swag bags','Truck or dessert cart on site','Northwest Indiana and Chicagoland'],img:'assets/photo-truck.jpg',cap:'Her photo'}];
+function useCase(i){const u=USES[i];$('#useCase').innerHTML=`<div><h3>${u.t}</h3><p class="lede" style="margin-top:14px">${u.p}</p><ul>${u.li.map(x=>`<li>${x}</li>`).join('')}</ul><a class="btn" href="#quote" style="margin-top:24px">Quote this</a></div><div class="ph"><img src="${u.img}" alt=""><span class="tag">${u.cap}</span></div>`;$$('#useCase a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const t=$('#quote');const y=t.getBoundingClientRect().top+scrollY-72;if(lenis)lenis.scrollTo(y,{duration:1.4});else scrollTo({top:y,behavior:'smooth'})}))}
+$('#tabs').addEventListener('click',e=>{const b=e.target.closest('[data-u]');if(!b)return;$$('#tabs button').forEach(x=>x.classList.toggle('on',x===b));useCase(+b.dataset.u)});useCase(0);
+const FAQB=[['Is there a minimum order?','No minimum to ask for a quote. Large orders get bulk pricing. For resale, our wholesale program starts at 36 jars with Net 30 terms for approved accounts.'],['Can you ship to each person on our list?','Yes. Send us the list and we ship and track each box to its own address anywhere in the country.'],['Can we add a note or our logo?','Every box can carry a personal note card. Ask about logo stickers and custom packaging in your quote.'],['Are you a certified diverse supplier?','Yes, a certified Minority/Women-owned Business Enterprise (M/WBE), which counts toward supplier-diversity goals.'],['How far ahead should we order?','Orders ship within 2 to 4 business days. For the holidays, order early so every box lands on time.'],['What about allergens?','Our kitchen also handles milk, egg, wheat, soy, peanuts, tree nuts and coconut. Full nutrition panels are on the Nutrition and Allergens page.']];
+$('#faqList').innerHTML=FAQB.map(([q,a])=>`<details class="q"><summary>${q}</summary><p>${a}</p></details>`).join('');
+
+/* estimator + form */
+const money=n=>'$'+Math.round(n).toLocaleString('en-US');
+const q={rec:25,per:2,ship:'each',card:'yes'};
+function seg(id,key){$('#'+id).addEventListener('click',e=>{const b=e.target.closest('[data-v]');if(!b)return;$$('#'+id+' button').forEach(x=>x.classList.toggle('on',x===b));q[key]=isNaN(+b.dataset.v)?b.dataset.v:+b.dataset.v;est()})}
+seg('qPer','per');seg('qShip','ship');seg('qCard','card');
+$('#qRec').addEventListener('input',e=>{q.rec=+e.target.value;est()});$('#qDate').addEventListener('change',est);
+function bizDays(from,to){let d=new Date(from),n=0;while(d<to){d.setDate(d.getDate()+1);const w=d.getDay();if(w&&w<6)n++}return n}
+function est(){const j=q.rec*q.per;$('#qRecV').textContent=q.rec;$('#qJars').textContent=j.toLocaleString()+' jar'+(j>1?'s':'');$('#qList').textContent=money(j*10);$('#qVol').textContent=j>=50?'Large-order pricing in your quote':'Quoted to your order';$('#qDel').textContent=q.ship==='each'?q.rec+' address'+(q.rec>1?'es':''):'1 address';$('#qCards').textContent=q.card==='yes'?'Included in quote':'None';
+ const w=$('#qWarn'),v=$('#qDate').value;if(v){const need=new Date(v+'T12:00'),bd=bizDays(new Date(),need);if(bd<4){w.hidden=false;w.textContent=`That's ${bd} business day${bd===1?'':'s'} away. Orders ship in 2 to 4 business days, so we'll call to see what's possible.`}else if(bd<8){w.hidden=false;w.textContent=`Doable. That's ${bd} business days away. Send the request today to lock it in.`}else w.hidden=true}else w.hidden=true}
+est();
+const toastEl=$('#toast');let tt;function toast(t){toastEl.textContent=t;toastEl.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>toastEl.classList.remove('on'),2600)}
+$('#quoteForm').addEventListener('submit',e=>{e.preventDefault();const f=e.target;let bad=false;$$('[required]',f).forEach(i=>{const ok=i.checkValidity()&&String(i.value).trim();i.closest('.f').classList.toggle('bad',!ok);if(!ok)bad=true});$('#qErr').classList.toggle('show',bad);if(bad){f.querySelector('.bad input')?.focus();return}$('#qOk').classList.add('show');f.querySelector('button[type=submit]').disabled=true;toast('Quote request sent')});
+
+/* ---------- boot + dev contract ---------- */
+addEventListener('resize',()=>{size();draw(Math.round(current),true)});
+size();pump();
+let readyFired=false;
+function ready(){if(readyFired)return;readyFired=true;
+ if(JUMP!==null){scrollTo(0,+JUMP||0);progress();current=target=p*(FRAME_COUNT-1);ensure(Math.round(current));draw(Math.round(current),true);overlays();spyUpdate()}
+ setTimeout(()=>{window.__ready=true},JUMP!==null?400:0)}
+requestAnimationFrame(tick);spyUpdate();
+})();
+</script>
+</body></html>
