@@ -1,0 +1,1056 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Concept demo by Station Solutions for Cute as a Cupcake! Cupcakery & Bake Shop, Merrillville, Indiana. Not the live store.">
+<title>Cute as a Cupcake · Concept demo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Schibsted+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a real bakery storefront. Pink seamless set for the hero, white product floors, plum bands for business buyers. One pinned story, one builder, everything else plain and fast. */
+:root{
+  --pink:#F7A1E5; --hot:#F47CDA; --plum:#99227F; --plum-deep:#7A1A66; --ink:#252525;
+  --paper:#FFFFFF; --blush:#FDF0FA; --set-top:#F7C8DB; --set-bot:#FEE2F0; --mist:#F7F4F7;
+  --muted:#6E6475; --rule:#EADFE8; --good:#2F6B3A; --warn:#A15C00;
+  --f-d:"Fraunces",Georgia,serif; --f-t:"Schibsted Grotesk","Segoe UI",system-ui,sans-serif; --f-m:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  --gut:clamp(16px,4vw,56px); --max:1320px; --r:14px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-t);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,video{max-width:100%;height:auto;display:block}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--hot);outline-offset:3px;border-radius:6px}
+.d{font-family:var(--f-d);font-variation-settings:"SOFT" 100,"WONK" 0;letter-spacing:-.015em;font-optical-sizing:auto}
+.m{font-family:var(--f-m);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:500}
+.wrap{max-width:var(--max);margin:0 auto;padding-inline:var(--gut)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;border-radius:999px;padding:15px 26px;font-weight:600;font-size:16.5px;text-decoration:none;background:var(--plum);color:#fff;transition:transform .25s cubic-bezier(.2,.8,.2,1),background .2s,box-shadow .25s;white-space:nowrap}
+.btn:hover{background:var(--plum-deep);box-shadow:0 10px 24px -10px rgba(122,26,102,.55)}
+.btn.ghost{background:transparent;color:var(--plum);box-shadow:inset 0 0 0 1.5px var(--plum)}
+.btn.ghost:hover{background:var(--blush)}
+.btn.light{background:#fff;color:var(--plum)}
+.btn.light:hover{background:var(--blush)}
+.btn.sm{padding:10px 18px;font-size:15px}
+.chip{display:inline-flex;align-items:center;gap:6px;font-family:var(--f-m);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;padding:4px 9px;border-radius:999px;background:var(--blush);color:var(--plum);font-weight:500;white-space:nowrap}
+.chip.nut{background:#FFF2DC;color:var(--warn)}
+.chip.vg{background:#E9F4EA;color:var(--good)}
+
+/* announcement + header */
+.ann{background:var(--pink);color:var(--ink);font-size:14px;text-align:center;padding:8px var(--gut);position:relative;z-index:30;min-height:37px}
+.ann span{display:inline-block;transition:opacity .4s}
+.ann b{font-weight:600}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(255,255,255,.92);backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid var(--rule)}
+.hd{display:flex;align-items:center;gap:24px;height:74px}
+.hd .logo img{height:46px;width:auto}
+.nav{display:flex;gap:4px;margin-left:12px}
+.nav a{text-decoration:none;font-size:15.5px;font-weight:500;padding:8px 12px;border-radius:999px;color:#3c3640}
+.nav a:hover{background:var(--mist)}
+.nav a.on{color:var(--plum);background:var(--blush)}
+.hd .right{margin-left:auto;display:flex;align-items:center;gap:10px}
+.iconbtn{position:relative;width:44px;height:44px;border-radius:50%;border:0;background:transparent;display:grid;place-items:center}
+.iconbtn:hover{background:var(--mist)}
+.iconbtn svg{width:22px;height:22px}
+.count{position:absolute;top:3px;right:2px;min-width:19px;height:19px;border-radius:999px;background:var(--plum);color:#fff;font-size:11px;font-weight:700;display:grid;place-items:center;padding:0 5px;transform:scale(0);transition:transform .3s cubic-bezier(.3,1.6,.5,1)}
+.count.has{transform:scale(1)}
+.menu-btn{display:none}
+.walk{position:absolute;left:0;bottom:-1px;height:2px;background:var(--plum);width:0;transition:width .1s linear}
+.walker{position:absolute;bottom:-1px;width:30px;height:30px;color:var(--plum);transform:translate(-50%,0);pointer-events:none;transition:left .1s linear;left:0}
+.walker svg{width:100%;height:100%}
+@media (max-width:980px){.nav{display:none}.menu-btn{display:grid}.hd .btn.sm{display:none}}
+.drawer-nav{position:fixed;inset:0;z-index:60;background:rgba(37,37,37,.4);display:none}
+.drawer-nav.open{display:block}
+.drawer-nav nav{position:absolute;top:0;left:0;bottom:0;width:min(340px,86vw);background:#fff;padding:24px;display:grid;align-content:start;gap:6px}
+.drawer-nav a{text-decoration:none;font-family:var(--f-d);font-variation-settings:"SOFT" 100;font-size:28px;font-weight:600;padding:8px 0;border-bottom:1px solid var(--rule)}
+
+/* pages */
+main[data-page]{display:none}
+main[data-page].on{display:block}
+section{position:relative}
+.sec{padding-block:clamp(64px,9vw,128px)}
+.kicker{color:var(--plum);margin-bottom:14px;display:block}
+h1,h2,h3{margin:0;text-wrap:balance}
+h2.big{font-size:clamp(34px,4.6vw,62px);line-height:1.02;font-weight:700}
+h2.big em{font-style:normal;color:var(--plum)}
+.lede{font-size:clamp(17px,1.5vw,20px);color:var(--muted);max-width:58ch;margin:18px 0 0}
+
+/* hero */
+.hero{background:linear-gradient(180deg,var(--set-top),var(--set-bot));overflow:hidden;position:relative}
+.hero .media{position:absolute;inset:0 0 0 auto;width:min(60%,1300px);-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 20%);mask-image:linear-gradient(90deg,transparent 0,#000 20%)}
+.hero .media video,.hero .media img{width:100%;height:100%;object-fit:cover;object-position:72% 50%}
+.hero .in{position:relative;min-height:min(84vh,820px);display:grid;align-content:center;padding-block:52px 44px}
+.hero .copy{max-width:min(560px,44vw);display:grid;gap:18px}
+@media (max-width:860px){.hero .copy{max-width:none}}
+.hero h1{font-size:clamp(44px,5vw,92px);line-height:.96;font-weight:750;color:var(--ink)}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.06em}
+.hero h1 .ln>span{display:block}
+.hero h1 em{font-style:normal;color:var(--plum)}
+.hero p.sub{font-size:clamp(17px,1.45vw,20px);line-height:1.5;color:#4a3f4d;max-width:46ch;margin:0}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px}
+.intent{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.intent a{text-decoration:none;font-size:14.5px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.7);border:1px solid rgba(153,34,127,.18);transition:background .2s,transform .2s}
+.intent a:hover{background:#fff;transform:translateY(-1px)}
+.intent .m{font-size:11.5px;color:var(--plum);margin-right:4px;align-self:center}
+.proofrow{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:14px;color:#4a3f4d;margin-top:4px}
+.proofrow b{color:var(--ink)}
+.hero .badge{position:absolute;right:var(--gut);bottom:26px;background:rgba(37,37,37,.62);color:#fff;font-family:var(--f-m);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:5px 9px;border-radius:6px}
+@media (max-width:860px){
+  .hero .media{position:relative;inset:auto;width:auto;height:58vw;min-height:280px;-webkit-mask-image:linear-gradient(180deg,#000 70%,transparent);mask-image:linear-gradient(180deg,#000 70%,transparent);margin-inline:calc(var(--gut)*-1)}
+  .hero .in{min-height:0;padding-block:8px 48px}
+  .hero .badge{top:12px;bottom:auto}
+}
+
+/* marquee */
+.logos{border-block:1px solid var(--rule);padding-block:22px;overflow:hidden;background:#fff}
+.logos .row{display:flex;align-items:center;gap:20px}
+.logos .lab{flex:0 0 auto;padding-left:var(--gut);color:var(--muted)}
+.track{display:flex;gap:72px;align-items:center;animation:mq 34s linear infinite;flex:0 0 auto;padding-right:72px}
+.logos .viewport{overflow:hidden;flex:1;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);display:flex}
+.track img{height:42px;width:auto;max-width:180px;object-fit:contain;filter:saturate(.9)}
+.track .t{font-family:var(--f-d);font-variation-settings:"SOFT" 100;font-size:21px;font-weight:600;color:#4a3f4d;white-space:nowrap}
+@keyframes mq{to{transform:translateX(-100%)}}
+
+/* flavour rail */
+.rail-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap}
+.filters{display:flex;flex-wrap:wrap;gap:8px}
+.filters button{border:1px solid var(--rule);background:#fff;border-radius:999px;padding:8px 15px;font-size:14.5px;font-weight:500}
+.filters button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;margin-top:36px}
+@media (max-width:1080px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:760px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}}
+.card{display:grid;gap:10px;align-content:start;min-width:0}
+.card .ph{border-radius:var(--r);overflow:hidden;aspect-ratio:1/1;position:relative;background:#f3c8d3}
+.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.card:hover .ph img{transform:scale(1.045)}
+.card .quick{position:absolute;left:10px;right:10px;bottom:10px;opacity:0;transform:translateY(8px);transition:.25s}
+.card:hover .quick,.card:focus-within .quick{opacity:1;transform:none}
+@media (hover:none){.card .quick{opacity:1;transform:none}}
+.card .quick .btn{width:100%;padding:12px}
+.card .nm{font-family:var(--f-d);font-variation-settings:"SOFT" 100;font-size:21px;font-weight:650;line-height:1.15}
+.card .ds{font-size:14.5px;color:var(--muted);line-height:1.45;margin:0}
+.card .pr{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.card .pr b{font-size:16px}
+.card .tags{display:flex;gap:6px;flex-wrap:wrap}
+
+/* story (pinned) */
+.story{background:var(--ink);color:#fff}
+.story .pin{position:sticky;top:74px;height:calc(100vh - 74px);overflow:hidden;display:grid;grid-template-columns:1.05fr 1fr;align-items:center}
+.story .vis{position:relative;height:100%}
+.story .vis figure{position:absolute;inset:0;margin:0;opacity:0;transition:opacity .7s ease}
+.story .vis figure.on{opacity:1}
+.story .vis img{width:100%;height:100%;object-fit:cover}
+.story .vis figcaption{position:absolute;left:20px;bottom:20px;background:rgba(37,37,37,.6);font-family:var(--f-m);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:5px 9px;border-radius:6px}
+.story .txt{padding:0 clamp(24px,6vw,96px);position:relative;height:100%}
+.story .step{position:absolute;inset:0 clamp(24px,6vw,96px);display:grid;align-content:center;gap:16px;opacity:0;transform:translateY(24px);transition:opacity .6s,transform .6s cubic-bezier(.2,.8,.2,1);pointer-events:none}
+.story .step.on{opacity:1;transform:none;pointer-events:auto}
+.story .num{font-family:var(--f-d);font-variation-settings:"SOFT" 100;font-weight:700;font-size:clamp(84px,11vw,168px);line-height:.85;color:var(--pink)}
+.story .num small{font-size:.32em;color:#fff;margin-left:8px;font-weight:600}
+.story h3{font-family:var(--f-d);font-variation-settings:"SOFT" 100;font-size:clamp(30px,3vw,44px);line-height:1.08;font-weight:700}
+.story p{color:#d9cfdc;font-size:18px;max-width:42ch;margin:0}
+.story .dots{position:absolute;right:clamp(24px,4vw,56px);top:50%;transform:translateY(-50%);display:grid;gap:10px;z-index:2}
+.story .dots i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.3);transition:.3s}
+.story .dots i.on{background:var(--pink);transform:scale(1.4)}
+.story-wrap{position:relative;height:330vh}
+@media (max-width:860px){.story .pin{grid-template-columns:1fr;grid-template-rows:44% 1fr}.story .step{inset:0 24px}.story .dots{right:14px}}
+
+/* builder */
+.builder{background:var(--blush)}
+.bwrap{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:40px;margin-top:40px;align-items:start}
+.bwrap>*{min-width:0}
+@media (max-width:980px){.bwrap{grid-template-columns:1fr}}
+.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+@media (max-width:560px){.tiles{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.tile{border:0;background:#fff;border-radius:12px;padding:8px;display:grid;gap:6px;text-align:left;box-shadow:0 1px 0 var(--rule);transition:transform .2s,box-shadow .2s}
+.tile:hover{transform:translateY(-3px);box-shadow:0 12px 24px -16px rgba(122,26,102,.5)}
+.tile img{border-radius:8px;aspect-ratio:1/1;object-fit:cover;width:100%}
+.tile span{font-size:13.5px;font-weight:600;line-height:1.2}
+.panel{background:#fff;border-radius:18px;padding:26px;position:sticky;top:96px;display:grid;gap:18px;box-shadow:0 30px 60px -40px rgba(122,26,102,.45)}
+.sizes{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.sizes button{border:1.5px solid var(--rule);background:#fff;border-radius:12px;padding:10px 6px;display:grid;gap:2px;font-weight:600}
+.sizes button small{font-weight:400;color:var(--muted);font-size:12.5px}
+.sizes button.on{border-color:var(--plum);background:var(--blush);color:var(--plum)}
+.box{background:linear-gradient(180deg,#fff,#fbf3f8);border:1.5px dashed #E9C7DF;border-radius:16px;padding:14px;display:grid;gap:10px}
+.box.n12{grid-template-columns:repeat(6,1fr)} .box.n6{grid-template-columns:repeat(3,1fr)} .box.n4{grid-template-columns:repeat(4,1fr)} .box.n2{grid-template-columns:repeat(2,1fr)}
+.slot{aspect-ratio:1/1;border-radius:10px;background:#F6E4F0;border:0;padding:0;position:relative;overflow:hidden;display:grid;place-items:center;color:#d8a9cb}
+.slot img{width:100%;height:100%;object-fit:cover}
+.slot .x{position:absolute;top:4px;right:4px;width:20px;height:20px;border-radius:50%;background:rgba(37,37,37,.7);color:#fff;font-size:12px;display:grid;place-items:center;opacity:0;transition:.2s}
+.slot:hover .x{opacity:1}
+.flyer{position:fixed;z-index:90;border-radius:10px;pointer-events:none;object-fit:cover}
+.note{display:grid;gap:8px}
+.note textarea{width:100%;min-height:76px;border:1.5px solid var(--rule);border-radius:12px;padding:12px;font:inherit;font-size:15.5px;resize:vertical}
+.cardprev{background:#FFFDF8;border:1px solid #efe4d8;border-radius:6px;padding:16px 18px;font-family:var(--f-d);font-variation-settings:"SOFT" 100,"WONK" 1;font-style:italic;font-size:19px;line-height:1.35;color:#5a3550;min-height:64px;box-shadow:0 8px 18px -12px rgba(0,0,0,.25);transform:rotate(-1deg)}
+.tot{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--rule);padding-top:14px}
+.tot b{font-family:var(--f-d);font-variation-settings:"SOFT" 100;font-size:34px;font-weight:700}
+.small{font-size:14px;color:var(--muted)}
+.linkish{background:none;border:0;padding:0;color:var(--plum);text-decoration:underline;font-weight:600}
+
+/* 3pm */
+.tpm{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);min-height:88vh}
+.tpm .ph{position:relative;overflow:hidden}
+.tpm .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 70%}
+.tpm .tx{background:var(--set-bot);display:grid;align-content:center;gap:20px;padding:clamp(40px,7vw,110px)}
+.tpm .clock{font-family:var(--f-d);font-variation-settings:"SOFT" 100;font-size:clamp(84px,10vw,150px);font-weight:700;line-height:.85;color:var(--plum)}
+.tpm .mini{display:grid;grid-template-columns:110px 1fr;gap:16px;align-items:center;background:#fff;border-radius:14px;padding:10px;max-width:460px}
+.tpm .mini img{border-radius:10px;aspect-ratio:1/1;object-fit:cover}
+@media (max-width:860px){.tpm{grid-template-columns:1fr}.tpm .ph{height:70vw}}
+
+/* plum business band */
+.biz{background:var(--plum);color:#fff;overflow:hidden}
+.biz .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:56px;align-items:center}
+.biz h2 em{color:var(--pink)}
+.biz .lede{color:#F4D5EC}
+.biz .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:34px 0}
+.biz .stats b{display:block;font-family:var(--f-d);font-variation-settings:"SOFT" 100;font-size:clamp(40px,4vw,58px);font-weight:700;line-height:1}
+.biz .stats span{font-size:14.5px;color:#F4D5EC}
+.biz .ph{border-radius:18px;overflow:hidden;box-shadow:0 40px 80px -40px rgba(0,0,0,.6)}
+@media (max-width:860px){.biz .wrap{grid-template-columns:1fr}}
+
+/* events */
+.ev2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:36px}
+@media (max-width:760px){.ev2{grid-template-columns:1fr}}
+.evc{border-radius:18px;overflow:hidden;background:var(--mist);display:grid}
+.evc .ph{aspect-ratio:4/3;overflow:hidden}
+.evc .ph img{width:100%;height:100%;object-fit:cover}
+.evc .bd{padding:24px;display:grid;gap:10px}
+.evc h3{font-family:var(--f-d);font-variation-settings:"SOFT" 100;font-size:30px;font-weight:700}
+
+/* reviews */
+.rv{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:56px;align-items:start}
+@media (max-width:860px){.rv{grid-template-columns:1fr}}
+.quote{font-family:var(--f-d);font-variation-settings:"SOFT" 100;font-size:clamp(30px,3.6vw,52px);line-height:1.08;font-weight:600;margin:0 0 10px}
+.quote::before{content:"\201C";color:var(--pink)}
+.quote::after{content:"\201D";color:var(--pink)}
+.cite{font-family:var(--f-m);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.press{display:grid;gap:0}
+.press div{padding:18px 0;border-bottom:1px solid var(--rule);display:grid;gap:4px}
+.press b{font-family:var(--f-d);font-variation-settings:"SOFT" 100;font-size:22px}
+
+/* founder */
+.founder{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center}
+@media (max-width:860px){.founder{grid-template-columns:1fr}}
+.founder .ph{border-radius:18px;overflow:hidden}
+.tl{display:grid;gap:0;margin-top:26px}
+.tl div{display:grid;grid-template-columns:72px 1fr;gap:16px;padding:12px 0;border-top:1px solid var(--rule)}
+.tl b{font-family:var(--f-d);font-variation-settings:"SOFT" 100;color:var(--plum);font-size:22px}
+
+/* faq */
+.faq{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:56px}
+@media (max-width:860px){.faq{grid-template-columns:1fr}}
+details.q{border-bottom:1px solid var(--rule);padding:20px 0}
+details.q summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px;font-weight:600;font-size:18px}
+details.q summary::-webkit-details-marker{display:none}
+details.q summary::after{content:"+";font-family:var(--f-m);color:var(--plum);font-size:20px;transition:transform .25s}
+details.q[open] summary::after{transform:rotate(45deg)}
+details.q p{margin:12px 0 0;color:#4a3f4d;max-width:62ch}
+
+/* forms */
+.form{display:grid;gap:14px}
+.row2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:560px){.row2{grid-template-columns:1fr}}
+label.f{display:grid;gap:6px;font-size:14px;font-weight:600}
+label.f span.req{color:var(--plum)}
+.f input,.f select,.f textarea{width:100%;border:1.5px solid var(--rule);border-radius:12px;padding:13px 14px;font:inherit;font-size:16px;background:#fff;color:var(--ink)}
+.f input:focus,.f select:focus,.f textarea:focus{border-color:var(--plum);outline:none;box-shadow:0 0 0 4px rgba(153,34,127,.12)}
+.f.bad input,.f.bad select{border-color:#c0392b}
+.ok-msg{background:#E9F4EA;color:#1f4f28;border-radius:14px;padding:18px 20px;display:none;gap:6px}
+.ok-msg.show{display:grid}
+.err{color:#b3261e;font-size:14px;display:none}
+.err.show{display:block}
+
+/* newsletter + footer */
+.news{background:var(--set-bot)}
+.news .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center}
+@media (max-width:860px){.news .wrap{grid-template-columns:1fr}}
+.inline{display:flex;gap:10px;flex-wrap:wrap}
+.inline input{flex:1 1 220px;border:1.5px solid #e7c6dc;border-radius:999px;padding:15px 20px;font:inherit;font-size:16px}
+footer.ft{background:var(--plum);color:#fff;padding-block:64px 110px}
+footer.ft .cols{display:grid;grid-template-columns:1.3fr 1fr 1fr 1.2fr;gap:36px}
+footer.ft .cols>div{min-width:0;overflow-wrap:anywhere}
+@media (max-width:860px){footer.ft .cols{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){footer.ft .cols{grid-template-columns:1fr}}
+footer.ft h4{font-family:var(--f-m);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--pink);margin:0 0 12px;font-weight:500}
+footer.ft a{display:block;text-decoration:none;color:#fff;padding:3px 0;opacity:.92}
+footer.ft a:hover{opacity:1;text-decoration:underline}
+footer.ft .badges{max-width:300px;margin-top:16px}
+footer.ft .fine{margin-top:44px;padding-top:20px;border-top:1px solid rgba(255,255,255,.2);display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;font-size:13.5px;color:#F4D5EC}
+
+/* subpage hero */
+.ph-hero{background:linear-gradient(180deg,var(--set-top),var(--set-bot));padding-block:clamp(48px,7vw,96px)}
+.ph-hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center}
+@media (max-width:860px){.ph-hero .wrap{grid-template-columns:1fr}}
+.ph-hero h1{font-size:clamp(42px,5.4vw,80px);line-height:.98;font-weight:750}
+.ph-hero h1 em{font-style:normal;color:var(--plum)}
+.ph-hero .ph{border-radius:20px;overflow:hidden;box-shadow:0 40px 70px -40px rgba(122,26,102,.55);position:relative}
+.ph-hero .ph .badge{position:absolute;left:12px;bottom:12px;background:rgba(37,37,37,.62);color:#fff;font-family:var(--f-m);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:5px 9px;border-radius:6px}
+.tag{position:absolute;left:12px;bottom:12px;background:rgba(37,37,37,.62);color:#fff;font-family:var(--f-m);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:5px 9px;border-radius:6px}
+
+/* corporate */
+.uses{display:flex;gap:8px;flex-wrap:wrap;margin-top:28px}
+.uses button{border:1.5px solid var(--rule);background:#fff;border-radius:999px;padding:10px 18px;font-weight:600}
+.uses button.on{background:var(--plum);border-color:var(--plum);color:#fff}
+.usecase{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:36px;margin-top:28px;align-items:center}
+@media (max-width:860px){.usecase{grid-template-columns:1fr}}
+.usecase h3{font-family:var(--f-d);font-variation-settings:"SOFT" 100;font-size:clamp(28px,3vw,40px);font-weight:700}
+.usecase ul{padding-left:20px;margin:14px 0 0;display:grid;gap:6px}
+.est{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:28px;margin-top:36px;align-items:start}
+@media (max-width:980px){.est{grid-template-columns:1fr}}
+.estbox{background:#fff;border-radius:18px;padding:28px;display:grid;gap:22px;box-shadow:0 30px 60px -44px rgba(122,26,102,.5)}
+.rng{display:grid;gap:8px}
+.rng .top{display:flex;justify-content:space-between;align-items:baseline}
+.rng b{font-family:var(--f-d);font-variation-settings:"SOFT" 100;font-size:30px}
+input[type=range]{width:100%;accent-color:var(--plum)}
+.seg{display:flex;gap:6px;flex-wrap:wrap}
+.seg button{border:1.5px solid var(--rule);background:#fff;border-radius:10px;padding:9px 14px;font-weight:600}
+.seg button.on{border-color:var(--plum);background:var(--blush);color:var(--plum)}
+.result{background:var(--ink);color:#fff;border-radius:18px;padding:28px;display:grid;gap:14px;position:sticky;top:96px}
+.result .big{font-family:var(--f-d);font-variation-settings:"SOFT" 100;font-size:clamp(46px,5vw,72px);font-weight:700;line-height:1}
+.result .rows div{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.14);font-size:15.5px}
+.result .warn{background:rgba(247,161,229,.16);border-radius:10px;padding:10px 12px;font-size:14px;color:#ffd9f2}
+.countdown{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.countdown b{font-family:var(--f-d);font-variation-settings:"SOFT" 100;font-size:40px;color:var(--plum)}
+.steps3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:30px}
+@media (max-width:760px){.steps3{grid-template-columns:1fr}}
+.steps3 div{border-top:2px solid var(--plum);padding-top:16px;display:grid;gap:6px}
+.steps3 b{font-family:var(--f-d);font-variation-settings:"SOFT" 100;font-size:24px}
+
+/* multistep host form */
+.ms{background:#fff;border-radius:20px;padding:30px;box-shadow:0 30px 60px -44px rgba(122,26,102,.5);display:grid;gap:20px}
+.ms .prog{display:flex;gap:6px}
+.ms .prog i{flex:1;height:4px;border-radius:4px;background:var(--rule)}
+.ms .prog i.on{background:var(--plum)}
+.ms .stepq{display:none;gap:14px}
+.ms .stepq.on{display:grid}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.opts button{border:1.5px solid var(--rule);background:#fff;border-radius:14px;padding:16px;text-align:left;font-weight:600;display:grid;gap:4px}
+.opts button small{font-weight:400;color:var(--muted)}
+.opts button.on{border-color:var(--plum);background:var(--blush)}
+.offer{display:grid;gap:0}
+.offer div{display:grid;grid-template-columns:200px 1fr;gap:18px;padding:16px 0;border-top:1px solid var(--rule)}
+@media (max-width:560px){.offer div{grid-template-columns:1fr;gap:4px}}
+
+/* machine page (phone first) */
+.mach{max-width:560px;margin:0 auto;padding:28px var(--gut) 60px;display:grid;gap:18px}
+.mcard{background:#fff;border-radius:18px;padding:20px;display:grid;gap:12px;box-shadow:0 1px 0 var(--rule),0 20px 40px -32px rgba(122,26,102,.4)}
+.stars{display:flex;gap:6px}
+.stars button{border:0;background:none;padding:2px;font-size:34px;line-height:1;color:#e5cfe0}
+.stars button.on{color:var(--hot)}
+.fl{display:flex;gap:8px;flex-wrap:wrap}
+
+/* cart drawer */
+.scrim{position:fixed;inset:0;background:rgba(37,37,37,.38);z-index:70;opacity:0;pointer-events:none;transition:opacity .3s}
+.scrim.on{opacity:1;pointer-events:auto}
+.cart{position:fixed;top:0;right:0;bottom:0;width:min(440px,100vw);background:#fff;z-index:80;transform:translateX(102%);transition:transform .45s cubic-bezier(.2,.8,.2,1);display:grid;grid-template-rows:auto 1fr auto}
+.cart.on{transform:none}
+.cart .ch{display:flex;justify-content:space-between;align-items:center;padding:20px 22px;border-bottom:1px solid var(--rule)}
+.cart .items{overflow:auto;padding:12px 22px;display:grid;align-content:start;gap:14px}
+.ci{display:grid;grid-template-columns:64px 1fr auto;gap:12px;align-items:center}
+.ci img{width:64px;height:64px;border-radius:10px;object-fit:cover}
+.ci .t{font-weight:600;font-size:15px;line-height:1.25}
+.ci .s{font-size:13px;color:var(--muted)}
+.qty{display:inline-flex;align-items:center;border:1px solid var(--rule);border-radius:999px;margin-top:6px}
+.qty button{border:0;background:none;width:28px;height:28px}
+.cart .cf{padding:18px 22px;border-top:1px solid var(--rule);display:grid;gap:12px;background:var(--mist)}
+.cart .empty{padding:40px 0;text-align:center;color:var(--muted);display:grid;gap:14px;justify-items:center}
+.xsell{display:grid;grid-template-columns:48px 1fr auto;gap:10px;align-items:center;background:#fff;border-radius:12px;padding:8px;border:1px solid var(--rule)}
+.xsell img{border-radius:8px;width:48px;height:48px;object-fit:cover}
+
+/* toast */
+.toast{position:fixed;left:50%;bottom:96px;transform:translate(-50%,20px);background:var(--ink);color:#fff;padding:12px 18px;border-radius:999px;font-size:15px;z-index:95;opacity:0;transition:.35s;pointer-events:none;max-width:90vw;text-align:center}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+/* mobile action bar */
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:50;display:none;grid-template-columns:repeat(3,1fr);gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-top:1px solid var(--rule)}
+.mbar a{text-decoration:none;text-align:center;font-size:13.5px;font-weight:600;padding:10px 4px;border-radius:12px;background:var(--mist)}
+.mbar a.p{background:var(--plum);color:#fff}
+@media (max-width:760px){.mbar{display:grid}}
+
+/* chat (Greet demo) */
+.chat-btn{position:fixed;right:20px;bottom:20px;z-index:55;display:flex;align-items:center;gap:10px;background:#fff;border:0;border-radius:999px;padding:8px 16px 8px 8px;box-shadow:0 14px 34px -14px rgba(122,26,102,.6);font-weight:600}
+.chat-btn .av{width:40px;height:40px;border-radius:50%;background:var(--blush);display:grid;place-items:center;color:var(--plum)}
+.chat-btn .av svg{width:28px;height:28px}
+@media (max-width:760px){.chat-btn{bottom:84px;right:12px;padding:6px}.chat-btn .lbl{display:none}}
+.chat{position:fixed;right:20px;bottom:86px;width:min(370px,calc(100vw - 24px));max-height:min(560px,70vh);background:#fff;border-radius:20px;box-shadow:0 30px 80px -30px rgba(37,37,37,.5);z-index:56;display:none;grid-template-rows:auto 1fr auto;overflow:hidden}
+.chat.on{display:grid}
+@media (max-width:760px){.chat{right:12px;bottom:146px}}
+.chat .chh{background:var(--plum);color:#fff;padding:14px 16px;display:flex;align-items:center;gap:10px}
+.chat .chh small{display:block;color:#F4D5EC;font-size:12.5px}
+.chat .msgs{overflow:auto;padding:14px;display:grid;align-content:start;gap:10px;background:var(--mist)}
+.bub{max-width:86%;padding:10px 13px;border-radius:16px;font-size:14.5px;line-height:1.45}
+.bub.bot{background:#fff;border-bottom-left-radius:4px}
+.bub.me{background:var(--plum);color:#fff;justify-self:end;border-bottom-right-radius:4px}
+.qr{display:flex;flex-wrap:wrap;gap:6px}
+.qr button{border:1px solid #E9C7DF;background:#fff;color:var(--plum);border-radius:999px;padding:6px 11px;font-size:13px;font-weight:600}
+.chat form{display:flex;gap:8px;padding:10px;border-top:1px solid var(--rule)}
+.chat form input{flex:1;border:1px solid var(--rule);border-radius:999px;padding:10px 14px;font:inherit;font-size:15px}
+
+/* strategy view */
+.strat-btn{position:fixed;left:20px;bottom:20px;z-index:55;border:0;border-radius:999px;background:var(--ink);color:#fff;padding:11px 16px;font-family:var(--f-m);font-size:12px;letter-spacing:.08em;text-transform:uppercase;box-shadow:0 12px 30px -14px rgba(0,0,0,.6)}
+.strat-btn.on{background:var(--hot);color:var(--ink)}
+@media (max-width:760px){.strat-btn{display:none}.strat-btn.on{display:block;bottom:84px;left:12px;padding:9px 12px}}
+.pin-why{position:absolute;z-index:45;top:16px;left:16px;width:34px;height:34px;border-radius:50%;background:var(--hot);color:var(--ink);border:3px solid #fff;font-weight:700;font-size:14px;display:none;place-items:center;box-shadow:0 8px 20px -6px rgba(0,0,0,.4);animation:pulse 2s infinite}
+body.strategy .pin-why{display:grid}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(244,124,218,.55)}50%{box-shadow:0 0 0 10px rgba(244,124,218,0)}}
+.why-pop{position:fixed;z-index:96;width:min(380px,92vw);background:#fff;border-radius:16px;box-shadow:0 30px 70px -20px rgba(37,37,37,.5);padding:20px;display:none;gap:10px}
+.why-pop.on{display:grid}
+.why-pop dl{display:grid;grid-template-columns:96px 1fr;gap:6px 12px;margin:0;font-size:14.5px}
+.why-pop dt{font-family:var(--f-m);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--plum);padding-top:3px}
+.why-pop dd{margin:0}
+.funnel{position:fixed;left:20px;bottom:70px;z-index:55;background:#fff;border-radius:16px;padding:16px 18px;box-shadow:0 24px 60px -24px rgba(37,37,37,.5);display:none;gap:8px;width:250px}
+body.strategy .funnel{display:grid}
+@media (max-width:760px){.funnel{left:12px;bottom:128px}}
+.funnel div{display:flex;justify-content:space-between;font-size:14px}
+.funnel b{font-family:var(--f-m)}
+.demo-tag{position:fixed;right:20px;top:120px;z-index:35;background:rgba(37,37,37,.7);color:#fff;font-family:var(--f-m);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;padding:5px 9px;border-radius:6px;pointer-events:none}
+@media (max-width:760px){.demo-tag{display:none}}
+
+/* reveal: visible at rest, animated in when JS marks it */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.track{animation:none}}
+
+.walker{opacity:0;transition:opacity .3s,left .1s linear}
+.walker.on{opacity:1}
+@media (max-width:980px){
+  .bwrap>.panel{order:-1;position:static}
+  .tiles{grid-auto-flow:column;grid-template-rows:repeat(2,auto);grid-template-columns:none;grid-auto-columns:42%;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;-webkit-overflow-scrolling:touch}
+  .tile{scroll-snap-align:start}
+}
+@media (min-width:561px) and (max-width:980px){.tiles{grid-auto-columns:24%}}
+
+@media (max-width:560px){.cardprev{display:none}}
+
+/* ===== one continuous page ===== */
+main [id]{scroll-margin-top:84px}
+.more-rail{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(230px,calc((100% - 5*18px)/6));gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:24px 0 10px;-webkit-overflow-scrolling:touch}
+.more-rail .card{scroll-snap-align:start}
+.more-rail .card .nm{font-size:18px}
+@media (max-width:1080px){.more-rail{grid-auto-columns:minmax(220px,38%)}}
+@media (max-width:560px){.more-rail{grid-auto-columns:64%}}
+.locs{display:grid;gap:0;margin-top:6px;max-width:520px}
+.locs div{display:grid;gap:4px;padding:14px 0;border-top:1px solid #efc9e3}
+.locs b{font-family:var(--f-d);font-variation-settings:"SOFT" 100;font-size:21px}
+.locs .chip{justify-self:start}
+.scan{background:var(--blush)}
+.scanwrap{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:64px;align-items:center}
+@media (max-width:900px){.scanwrap{grid-template-columns:minmax(0,1fr)}}
+.scanwrap>*{min-width:0}
+.phone .inline input{flex:1 1 140px;min-width:0}
+.ticks{list-style:none;padding:0;margin:26px 0 0;display:grid;gap:12px}
+.ticks li{padding-left:30px;position:relative;font-size:17px}
+.ticks li::before{content:"";position:absolute;left:0;top:6px;width:16px;height:9px;border-left:2.5px solid var(--plum);border-bottom:2.5px solid var(--plum);transform:rotate(-45deg)}
+.phone{border-radius:46px;background:#151014;padding:12px;box-shadow:0 40px 80px -36px rgba(122,26,102,.6);max-width:400px;justify-self:center;width:100%}
+.phone-in{border-radius:36px;overflow:auto;height:min(760px,80vh);background:var(--blush);scrollbar-width:none}
+.phone-in::-webkit-scrollbar{display:none}
+.phone .mach{max-width:none;padding:18px 14px 24px;gap:12px}
+.phone .mcard{padding:16px}
+.phone .stars button{font-size:30px}
+.biz .uses-wrap{display:block;margin-top:72px}
+.biz .uses button{background:transparent;color:#fff;border-color:rgba(255,255,255,.35)}
+.biz .uses button.on{background:#fff;color:var(--plum);border-color:#fff}
+.biz .usecase .lede,.biz .usecase li{color:#F4D5EC}
+.biz .usecase .btn{background:#fff;color:var(--plum)}
+.countdown.light{margin-top:6px;color:#F4D5EC;font-size:14.5px}
+.countdown.light b{color:var(--pink)}
+.evc.pick{border:2px solid transparent;text-align:left;padding:0;font:inherit;color:inherit;cursor:pointer;transition:border-color .2s,transform .2s}
+.evc.pick:hover{transform:translateY(-2px)}
+.evc.pick.on{border-color:var(--plum);background:var(--blush)}
+.evc .bd span{color:#4a3f4d}
+.host-ph{aspect-ratio:16/9;border-radius:14px;overflow:hidden;position:relative}
+.host-ph img{width:100%;height:100%;object-fit:cover}
+.faq2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:56px}
+@media (max-width:860px){.faq2{grid-template-columns:1fr;gap:0}}
+
+@media (max-width:860px){.hero .media{margin-inline:0;width:100%}}
+
+@media (max-width:860px){.story-wrap{height:250vh!important}}
+
+.prop{display:none}
+body.strategy .prop{display:inline-flex}
+
+</style>
+<style>[hidden]{display:none!important}</style>
+</head>
+<body>
+
+<div class="ann" role="status" aria-live="polite"><span id="annText"><b>Holiday gifting is open.</b> Corporate orders ship to every address on your list.</span></div>
+
+<header class="top">
+  <div class="wrap hd">
+    <button class="iconbtn menu-btn" id="menuBtn" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <a class="logo" href="#top" aria-label="Back to the top"><img src="assets/logo.svg" alt="Cute as a Cupcake" width="120" height="53"></a>
+    <nav class="nav" aria-label="Main">
+      <a href="#shop" data-r="shop">Shop</a>
+      <a href="#giftbox" data-r="giftbox">Build a gift box</a>
+      <a href="#find" data-r="find">Find a machine</a>
+      <a href="#corporate" data-r="corporate">Corporate gifts</a>
+      <a href="#events" data-r="events">Truck &amp; cart</a>
+    </nav>
+    <div class="right">
+      <a class="btn sm" href="#quote">Get a gifting quote</a>
+      <button class="iconbtn" id="cartBtn" aria-label="Open cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg><span class="count" id="cartCount">0</span></button>
+    </div>
+  </div>
+  <div class="walk" id="walk"></div>
+  <div class="walker" id="walker" aria-hidden="true"><svg fill="none" viewBox="0 0 140 136" xmlns="http://www.w3.org/2000/svg"> <g clip-path="url(#cutclip1)"> <path fill="currentColor" d="M68.2695 92.6155C65.2236 92.6155 61.4542 91.6183 57.3407 88.3047C56.091 87.2975 55.9038 85.4796 56.9106 84.2357C57.9226 82.9968 59.7491 82.8055 60.9988 83.8076C67.6016 89.1256 72.2514 85.7767 72.297 85.7414C73.5821 84.7846 75.4036 85.0414 76.3649 86.3206C77.3263 87.5997 77.0682 89.4126 75.7831 90.3694C75.5857 90.5205 72.6916 92.6155 68.2746 92.6155H68.2695Z"></path> <path fill="currentColor" d="M54.6035 75.6547C53.5764 75.6547 52.5746 75.131 52.013 74.1943C51.168 72.7792 51.6284 70.9562 53.0451 70.1051C55.8482 68.4281 61.7072 66.5649 65.8713 70.1907C67.121 71.2785 67.2475 73.1669 66.1546 74.4108C65.0618 75.6547 63.1644 75.7806 61.9147 74.6928C60.0527 73.0713 56.1619 75.2166 56.1264 75.2417C55.6458 75.5238 55.1246 75.6547 54.6035 75.6547Z"></path> <path fill="currentColor" d="M75.2571 72.7186C74.23 72.7186 73.2281 72.1949 72.6665 71.2582C71.8216 69.8431 72.282 68.0201 73.6987 67.1691C76.5017 65.4921 82.3608 63.6288 86.5249 67.2547C87.7746 68.3424 87.9011 70.2309 86.8082 71.4748C85.7153 72.7186 83.818 72.8446 82.5682 71.7568C80.7063 70.1352 76.8154 72.2805 76.78 72.3057C76.2993 72.5877 75.7782 72.7186 75.2571 72.7186Z"></path> <path fill="currentColor" d="M139.98 61.3677C139.302 51.2958 128.707 53.8591 128.601 53.8843C128.606 53.7735 129.157 42.9413 119.084 44.1599C109.374 45.3384 110.665 61.4029 111.848 69.0877L111.429 70.3115C109.683 75.4028 104.866 78.7567 99.6244 78.8675L103.961 54.267C108.256 51.5779 111.241 45.0614 110.381 39.114C109.84 35.3672 107.74 32.25 104.623 30.568C102.407 29.3695 98.8705 28.4479 93.7451 29.8025C93.2695 26.8565 92.0603 23.2307 89.1409 20.5616C85.8875 17.5904 81.4097 16.5732 75.8239 17.5401C74.0834 17.8422 70.9717 18.089 69.7372 16.3365C68.5988 14.7149 68.9377 11.5171 70.5467 8.72723C71.8976 6.38049 71.6851 3.65606 70.0053 1.78773C68.4065 0.00501546 65.8615 -0.49354 63.5239 0.513643C56.3595 3.6057 47.2066 9.89052 43.1437 22.4098C36.1311 23.8451 26.022 29.1982 24.4687 42.0298C21.1242 42.1859 16.1304 43.0017 12.4267 46.1139C9.52756 48.5462 7.868 52.016 7.62008 56.1505C7.37722 60.1742 8.83439 63.8957 11.6121 66.3683C12.452 67.1137 13.4134 67.6827 14.4202 68.1561L17.0411 82.1056C9.37577 84.2962 2.9551 90.0523 0.187484 98.1047C-0.424731 99.8925 0.531539 101.831 2.32771 102.446C2.69706 102.572 3.07147 102.632 3.43577 102.632C4.86258 102.632 6.19833 101.736 6.68405 100.321C8.61683 94.6853 13.0086 90.5861 18.306 88.8588L20.7195 101.726C21.8528 107.764 26.9276 111.767 33.0042 111.767C33.8087 111.767 34.6233 111.697 35.4531 111.556L47.8593 109.405L38.7267 124.171C37.735 125.777 38.2359 127.877 39.8449 128.869L50.6168 135.496C51.1683 135.834 51.7957 136.005 52.4231 136.005C52.9443 136.005 53.4603 135.889 53.941 135.653C55.0035 135.129 55.7169 134.101 55.8384 132.928C56.1217 130.118 54.7961 124.563 48.2489 121.804L56.8908 107.829L71.4119 105.311L82.5127 126.507C83.125 127.676 84.319 128.345 85.5586 128.345C86.0899 128.345 86.6313 128.219 87.1372 127.963L98.3797 122.156C99.4321 121.612 100.125 120.57 100.221 119.397C100.318 118.223 99.7964 117.085 98.8452 116.38C96.5684 114.693 91.0939 112.986 85.3613 117.161L78.5106 104.087L84.1824 103.105C90.8561 101.947 96.5633 96.2263 97.7473 89.5034L98.4202 85.6811C98.7238 85.6962 99.0324 85.7214 99.336 85.7214C107.371 85.7214 114.818 80.7308 117.713 73.0712C125.808 72.6784 140.602 70.6942 139.97 61.3778L139.98 61.3677ZM63.2052 8.28407C61.6165 12.6502 61.9049 17.1171 64.1159 20.2544C65.5782 22.3343 69.2059 25.6227 77.0028 24.2681C80.3624 23.6839 82.877 24.1271 84.4809 25.5774C86.3834 27.2997 86.9956 30.3565 87.1322 32.4867C78.4448 36.7219 70.5619 37.855 63.6707 35.8054C55.7878 33.4637 51.1987 27.5062 49.5695 25.0184C52.2561 16.3214 57.9432 11.2099 63.2052 8.28407ZM38.3422 31.6104C40.4723 30.3011 42.6277 29.6112 44.1405 29.2436C46.5337 32.7637 52.1347 39.4715 61.5962 42.3269C64.5257 43.2132 67.5716 43.6513 70.7137 43.6513C77.3823 43.6513 84.5113 41.642 92.0147 37.6888C95.9916 35.8658 99.3057 35.468 101.345 36.5708C102.979 37.4571 103.449 39.1542 103.586 40.0909C103.991 42.8808 102.827 45.711 101.552 47.3376L49.4835 56.367C40.877 56.4224 36.3588 54.3879 34.001 52.2728C31.7191 50.2232 31.2283 47.8613 31.1322 46.6477V45.4945C31.1322 39.2197 33.5557 34.5514 38.3371 31.6155L38.3422 31.6104ZM16.8387 51.3512C18.9081 49.6038 22.1007 49.0095 24.5395 48.8685C25.01 51.2606 26.2193 54.4131 29.2196 57.1879C30.1051 58.0037 31.1119 58.7188 32.1947 59.3684L17.2182 61.967C16.8438 61.7806 16.4947 61.554 16.181 61.272C14.9565 60.1842 14.3494 58.5123 14.4658 56.5634C14.6024 54.2872 15.3765 52.585 16.8337 51.3563L16.8387 51.3512ZM83.0136 96.3623L34.2793 104.813C30.859 105.402 28.066 103.619 27.4741 100.467L25.1315 87.9976C26.1889 88.0631 27.2565 88.2091 28.3241 88.466L38.7318 90.9537C40.5785 91.3969 42.4303 90.2638 42.8705 88.4257C43.3158 86.5926 42.1774 84.7444 40.3357 84.3063L29.928 81.8185C27.889 81.3301 25.8499 81.1286 23.8463 81.1387L21.6049 69.1985C21.7263 69.1834 21.8427 69.1734 21.9591 69.1532L96.6544 56.2008L90.9927 88.3199C90.3046 92.2379 86.8741 95.6975 83.0136 96.3673V96.3623Z"></path> </g> <defs> <clipPath id="cutclip1"> <rect fill="white" height="136" width="140"></rect> </clipPath> </defs> </svg> </div>
+</header>
+
+<div class="drawer-nav" id="drawerNav"><nav aria-label="Mobile">
+  <a href="#shop">Shop</a><a href="#giftbox">Build a gift box</a><a href="#find">Find a machine</a><a href="#corporate">Corporate gifts</a><a href="#events">Truck &amp; cart</a><a href="#host">Host a machine</a><a href="#faq">Questions</a>
+  <button class="btn sm ghost" id="stratMobile" style="margin-top:16px;justify-self:start">Show the strategy</button>
+</nav></div>
+
+<main id="top">
+
+  <!-- 1 · HERO -->
+  <section class="hero" data-why="Everyone who lands|Show the product and every next step in one screen|Clicks on the two buttons and the four intent links|Station-built page; every click tracked">
+    <div class="media" aria-hidden="true">
+      <video id="heroVid" muted playsinline preload="auto" poster="assets/hero-start.jpg"><source src="assets/hero.mp4" type="video/mp4"></video>
+    </div>
+    <div class="wrap in">
+      <div class="copy">
+        <span class="m" style="color:var(--plum)">Merrillville, Indiana · Since 2015</span>
+        <h1 class="d" id="heroH"><span class="ln"><span>A bakery moment,</span></span><span class="ln"><span><em>wherever you are.</em></span></span></h1>
+        <p class="sub">Scratch-made Cupcakes in a Jar. Two layers of cake and icing, fresh for 30 days in the fridge, shipped to all 50 states.</p>
+        <div class="ctas">
+          <a class="btn" href="#giftbox" data-mag>Build a gift box</a>
+          <a class="btn ghost" href="#corporate" data-mag>Send to your clients</a>
+        </div>
+        <div class="intent"><span class="m">I'm shopping for</span>
+          <a href="#shop">myself</a><a href="#giftbox">a gift</a><a href="#corporate">my company</a><a href="#events">an event</a>
+        </div>
+        <div class="proofrow"><span><b>64</b> reviews on Yelp</span><span>As seen on <b>WISH-TV</b></span><span>Certified <b>M/WBE</b></span></div>
+      </div>
+    </div>
+    <span class="badge">Concept film from her real jars</span>
+  </section>
+
+  <section class="logos" aria-label="Companies that have ordered">
+    <div class="row"><span class="m lab">Gifted by teams at</span>
+      <div class="viewport"><div class="track">
+        <img src="assets/hellofresh-logo.png" alt="HelloFresh"><img src="assets/Chicago-Sky.svg" alt="Chicago Sky"><img src="assets/Countrycrocknew2.svg" alt="Country Crock"><img src="assets/university-of-notre-dame-logo.png" alt="University of Notre Dame"><img src="assets/dsd-ogo.svg" alt="Dept. of Superior Dishes"><span class="t">Indiana Grown</span><span class="t">Chicago Sky Foundation pitch winner</span>
+      </div><div class="track" aria-hidden="true">
+        <img src="assets/hellofresh-logo.png" alt=""><img src="assets/Chicago-Sky.svg" alt=""><img src="assets/Countrycrocknew2.svg" alt=""><img src="assets/university-of-notre-dame-logo.png" alt=""><img src="assets/dsd-ogo.svg" alt=""><span class="t">Indiana Grown</span><span class="t">Chicago Sky Foundation pitch winner</span>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- 2 · SHOP -->
+  <section class="sec" id="shop" data-nav="shop" data-why="Self-buyers and gifters|Let people buy one jar in two taps|Add-to-cart rate from the grid|Shopify store, fixed by Station">
+    <div class="wrap">
+      <div class="rail-head">
+        <div><span class="m kicker">The jars</span><h2 class="big d">Twelve flavours. <em>One jar at a time.</em></h2></div>
+        <div class="filters" id="homeFilters" aria-label="Filter flavours"><button class="on" data-f="all">All</button><button data-f="vegan">Vegan option</button><button data-f="gf">Gluten-free option</button><button data-f="nutfree">No nuts in the jar</button></div>
+      </div>
+      <div class="grid" id="homeGrid"></div>
+      <p class="small" style="margin-top:22px">8 oz jar $10 · 4 oz jar from $6. Baked in a kitchen that also handles peanuts, tree nuts, wheat, soy, dairy and eggs. <a href="https://cuteasacupcake3.com/pages/cupcakes-in-a-jar-nutrition-facts-ingredients" target="_blank" rel="noopener">Nutrition and allergens</a></p>
+      <div class="rail-head" style="margin-top:72px"><h3 class="d" style="font-size:clamp(26px,2.6vw,36px);font-weight:700">More from the bake shop</h3><span class="small">Swipe for more</span></div>
+      <div class="more-rail" id="moreGrid"></div>
+    </div>
+  </section>
+
+  <!-- 3 · WHY THE JAR -->
+  <section class="story" id="story" data-why="Anyone deciding if $10 is worth it|Earn the price by showing why the jar is different|Scroll depth past the story; add-to-cart after it|Content Station produces">
+    <div class="story-wrap" id="storyWrap">
+      <div class="pin" id="storyPin">
+        <div class="vis">
+          <figure class="on"><img src="assets/photo-jars-spoon.jpg" alt="Two Cupcakes in a Jar, one with a spoon in it"><figcaption>Her photo</figcaption></figure>
+          <figure><img src="assets/f-red-velvet-lg.webp" alt="Red Velvet Cupcake in a Jar"><figcaption>Her photo</figcaption></figure>
+          <figure><img src="assets/mock-gift-box.jpg" alt="Concept render: gift box of six jars on an office desk"><figcaption>Concept render</figcaption></figure>
+          <figure><img src="assets/mock-machine-cowork.jpg" alt="Concept render: Cute as a Cupcake machine in a break room"><figcaption>Concept render</figcaption></figure>
+        </div>
+        <div class="txt">
+          <div class="step on"><span class="num">2<small>layers</small></span><h3>Cake, icing, cake, icing. Made from scratch.</h3><p>A real cupcake, built in a jar so it never gets crushed, smeared or stale on the way to you.</p></div>
+          <div class="step"><span class="num">30<small>days</small></span><h3>Sealed fresh for a month in the fridge.</h3><p>Six months in the freezer. Ten days once you open it, if it lasts that long.</p></div>
+          <div class="step"><span class="num">50<small>states</small></span><h3>It travels where a cupcake can't.</h3><p>Ship one to a friend, or a dozen to every client on your list. Orders leave the kitchen in 2–4 business days.</p></div>
+          <div class="step"><span class="num">24<small>/7</small></span><h3>Or it waits down the hall.</h3><p>Cupcake in a Jar machines bring the bakery to break rooms, campuses and hospitals. Tap, take, back to work.</p></div>
+        </div>
+        <div class="dots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 · GIFT BOX -->
+  <section class="sec builder" id="giftbox" data-nav="giftbox" data-why="Gift buyers, the highest-intent visitors|Turn browsing into a box in under a minute|Boxes built, boxes added to cart, average order value|Shopify bundle, rebuilt by Station">
+    <div class="wrap">
+      <span class="m kicker">Build a gift box</span>
+      <h2 class="big d">Pick the flavours. <em>We'll write the card.</em></h2>
+      <p class="lede">Choose a box, tap the jars you want, and add a note. We pack it, seal it and ship it anywhere in the country.</p>
+      <div class="bwrap">
+        <div>
+          <div class="tiles" id="tiles"></div>
+          <p class="small" style="margin-top:14px">Tap a jar to add it. Tap a jar in the box to take it out. <button class="linkish" id="surprise">Surprise me</button></p>
+        </div>
+        <div class="panel" id="panel">
+          <div><span class="m" style="color:var(--plum)">Box size</span>
+            <div class="sizes" id="sizes" style="margin-top:8px"><button data-n="2">2<small>jars</small></button><button data-n="4" class="on">4<small>jars</small></button><button data-n="6">6<small>jars</small></button><button data-n="12">12<small>jars</small></button></div>
+          </div>
+          <div class="box n4" id="box" aria-live="polite"></div>
+          <div class="note"><label class="m" for="noteIn" style="color:var(--plum)">Gift note (optional)</label><textarea id="noteIn" maxlength="180" placeholder="Happy birthday, Jess. Save me the red velvet."></textarea><div class="cardprev" id="cardPrev" aria-hidden="true">Your note appears here, handwritten-style, on a card in the box.</div></div>
+          <div class="tot"><span><span id="boxCount">0 of 4 jars</span><br><span class="small">Shipping calculated at checkout</span></span><b id="boxPrice">$0</b></div>
+          <button class="btn" id="addBox" disabled>Add box to cart</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · MACHINES -->
+  <section class="tpm" id="find" data-nav="find" data-why="People who work near a machine|Make the machine a daily habit and a referral source|QR scans, directions taps, host referrals|Find-a-Machine section by Station">
+    <div class="ph"><img src="assets/three-pm.jpg" alt="Someone at a desk eating a Red Velvet Cupcake in a Jar"><span class="tag">Concept render</span></div>
+    <div class="tx">
+      <span class="clock d">3:00</span>
+      <h2 class="big d">The slump has <em>a cure.</em></h2>
+      <p class="lede" style="margin:0">Cupcake in a Jar machines put fresh jars in break rooms, campus lobbies and hospital halls. No line, no drive, back at your desk in two minutes.</p>
+      <div class="locs">
+        <div><span class="chip">Proposed pilot</span><b>realSPACE Merrillville</b><span class="small">5164 E 81st Ave · coworking · opening date to come</span></div>
+        <div><span class="chip vg">Open now</span><b>The bake shop</b><span class="small">2008 W. 81st Ave · Tue–Sat 10am–7pm</span></div>
+        <div><span class="chip">Coming</span><b>Your building?</b><span class="small"><a href="#host">Coworking, campus, hospital or office: host one</a></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec scan" id="m" data-why="Someone holding a jar right now|Turn one jar into a review, a sign-up or a corporate lead|Scans, honest reviews, sign-ups, gift requests per machine|Repute, Dispatch and Pursuit, all by Station">
+    <div class="wrap scanwrap">
+      <div>
+        <span class="m kicker">The QR code on every machine</span>
+        <h2 class="big d">Scan a machine, <em>and the jar keeps working.</em></h2>
+        <p class="lede">Every machine carries a code that opens its own page: what's inside this week, a one-tap review, the flavour list, and a way to send a dozen to a client.</p>
+        <ul class="ticks"><li>Every rating gets the same honest ask for a Google review</li><li>New flavours and openings go to the email list</li><li>"Send a dozen" turns a 3 PM treat into a corporate order</li><li>"Want one here?" turns fans into host leads</li></ul>
+      </div>
+      <div class="phone"><div class="phone-in">
+        <div class="mach">
+          <div class="mcard" style="background:var(--plum);color:#fff"><span class="m" style="color:var(--pink)">You found a Cutie machine</span><b class="d" style="font-size:28px;line-height:1.05">realSPACE Merrillville</b><span style="color:#F4D5EC;font-size:14.5px">Restocked every week from our kitchen on 81st Ave.</span></div>
+          <div class="mcard"><b>In this machine this week</b><div class="fl" id="mFlav"></div></div>
+          <div class="mcard"><b>How was your jar?</b><div class="stars" id="stars" role="radiogroup" aria-label="Rate your jar"></div><div id="rateOut" class="small"></div></div>
+          <div class="mcard"><b>Loved it? Send a dozen to your clients.</b><a class="btn sm" href="#quote">Start a gift order</a></div>
+          <div class="mcard"><b>Get new flavours first</b><form class="inline" data-demo-form="You're in. New flavours land in your inbox first. (Demo only.)"><label class="sr" for="mE">Email</label><input id="mE" type="email" required placeholder="you@email.com"><button class="btn sm" type="submit">Join</button><p class="ok-msg" style="flex-basis:100%"></p></form></div>
+        </div>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- 6 · CORPORATE -->
+  <section class="biz sec" id="corporate" data-nav="corporate" data-why="Office managers, HR, sales leaders|Move a business buyer to a quote in one click|Quote requests per week; quote-to-order rate|Follow Up (Pursuit) answers every quote fast">
+    <div class="wrap">
+      <div>
+        <span class="m kicker" style="color:var(--pink)">Corporate gifting</span>
+        <h2 class="big d">Client gifts people <em>actually open.</em></h2>
+        <p class="lede">A thank-you that arrives fresh, looks beautiful on a desk and doesn't end up in a drawer. From one box to five hundred addresses, from a certified Minority and Women-owned supplier.</p>
+        <div class="stats"><div><b>30</b><span>days fresh on arrival</span></div><div><b>50</b><span>states, one address or hundreds</span></div><div><b>M/WBE</b><span>counts toward supplier diversity</span></div></div>
+        <div class="countdown light"><span>Holiday orders close in</span><b id="cdDays">–</b><span>days · Dec 11, for delivery before the holidays</span><span class="chip prop">Proposed cutoff · confirm with Michelle</span></div>
+        <div class="ctas" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:22px"><a class="btn light" href="#quote">Get a quote in 60 seconds</a><a class="btn ghost" style="color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.6)" href="https://drive.google.com/file/d/15wyYoCAMrA-djI9NyMWElSViBfPLA1qN/view?usp=sharing" target="_blank" rel="noopener">Gifting guide (PDF)</a></div>
+      </div>
+      <div class="ph"><img src="assets/mock-gift-box.jpg" alt="Concept render: a white gift box of six Cupcakes in a Jar on a desk"></div>
+    </div>
+    <div class="wrap uses-wrap" data-why="Buyers who know the occasion, not the product|Match their occasion to a ready-made answer|Use-case clicks that lead to a quote|Content plus Dispatch nurture by Station">
+      <div class="uses" id="uses"><button class="on" data-u="0">Client thank-yous</button><button data-u="1">Employee welcome</button><button data-u="2">Holiday gifting</button><button data-u="3">Events &amp; conferences</button></div>
+      <div class="usecase" id="useCase"></div>
+    </div>
+  </section>
+
+  <section class="sec builder" id="quote" data-nav="corporate" data-why="Buyers ready to talk numbers|A real estimate first, then a lead with full details|Estimates started vs. quote requests sent|Pursuit follows up every request automatically">
+    <div class="wrap">
+      <span class="m kicker">Quote builder</span>
+      <h2 class="big d">Your estimate <em>in 60 seconds.</em></h2>
+      <div class="est">
+        <div class="estbox">
+          <div class="rng"><div class="top"><label for="qRec" style="font-weight:600">People on your list</label><b id="qRecV">25</b></div><input type="range" id="qRec" min="1" max="500" value="25"></div>
+          <div class="rng"><span style="font-weight:600">Jars per person</span><div class="seg" id="qPer"><button data-v="1">1</button><button data-v="2" class="on">2</button><button data-v="4">4</button><button data-v="6">6</button></div></div>
+          <div class="rng"><span style="font-weight:600">Ship to</span><div class="seg" id="qShip"><button data-v="each" class="on">Each person's address</button><button data-v="one">One office</button></div></div>
+          <div class="rng"><span style="font-weight:600">Note cards</span><div class="seg" id="qCard"><button data-v="yes" class="on">Personal note in each box</button><button data-v="no">No cards</button></div></div>
+          <label class="f"><span>Needed by</span><input type="date" id="qDate"></label>
+          <form class="form" id="quoteForm" novalidate>
+            <div class="row2"><label class="f"><span>Your name <span class="req">*</span></span><input name="name" required autocomplete="name"></label><label class="f"><span>Company <span class="req">*</span></span><input name="company" required autocomplete="organization"></label></div>
+            <div class="row2"><label class="f"><span>Work email <span class="req">*</span></span><input name="email" type="email" required autocomplete="email"></label><label class="f"><span>Phone <span class="req">*</span></span><input name="phone" type="tel" required autocomplete="tel"></label></div>
+            <label class="f"><span>Anything else? (logo stickers, flavours, budget)</span><textarea name="notes" rows="3"></textarea></label>
+            <p class="err" id="qErr">Please fill in the starred fields so we can send your quote.</p>
+            <button class="btn" type="submit">Send me the exact quote</button>
+            <div class="ok-msg" id="qOk"><b>Request received.</b><span>A real person replies today with exact pricing, flavour options and a ship date. (Demo: on the live site this goes straight into her follow-up pipeline.)</span></div>
+          </form>
+        </div>
+        <div class="result" id="qResult">
+          <span class="m" style="color:var(--pink)">Your estimate</span>
+          <div class="big" id="qJars">50 jars</div>
+          <div class="rows">
+            <div><span>Jars at list price</span><b id="qList">$500</b></div>
+            <div><span>Bulk pricing</span><b id="qVol">Quoted to your order</b></div>
+            <div><span>Delivery</span><b id="qDel">25 addresses</b></div>
+            <div><span>Note cards</span><b id="qCards">Included in quote</b></div>
+          </div>
+          <p class="small" style="color:#d9cfdc;margin:0">List price is $10 per 8 oz jar. Large orders get special pricing. Shipping is quoted per address. Orders leave the kitchen in 2–4 business days.</p>
+          <div class="warn" id="qWarn" hidden></div>
+        </div>
+      </div>
+      <div class="steps3"><div><b>1 · Tell us the list</b><span class="small">Size, flavours, note, deadline.</span></div><div><b>2 · Approve the quote</b><span class="small">Exact price and ship date, same day.</span></div><div><b>3 · We ship to everyone</b><span class="small">Sealed, packed and tracked to each address.</span></div></div>
+    </div>
+  </section>
+
+  <!-- 7 · EVENTS -->
+  <section class="sec" id="events" data-nav="events" data-why="Event planners, HR, schools|Book a date with every detail captured|Booking requests with full contact details (was optional)|Slate booking calendar plus Greet chat">
+    <div class="wrap">
+      <span class="m kicker">Truck &amp; dessert cart</span>
+      <h2 class="big d">Bring the bakery <em>to the party.</em></h2>
+      <p class="lede">Serving Northwest Indiana and Chicagoland: corporate events, weddings, schools, festivals, grand openings and private parties.</p>
+      <div class="ev2">
+        <button class="evc pick on" data-ev="truck"><div class="ph"><img src="assets/photo-truck.jpg" alt="Cutie the pink cupcake truck: a baker hands a jar to a guest through the window" style="object-position:50% 45%"></div><div class="bd"><h3>Cutie the Cupcake Truck</h3><span>A pink bakery on wheels: signature cupcakes, jars and seasonal specials, grab-and-go or served by our team.</span></div></button>
+        <button class="evc pick" data-ev="cart"><div class="ph"><img src="assets/photo-cart.jpg" alt="The white mobile dessert cart with a fringed umbrella and a pink Cute as a Cupcake sign" style="object-position:50% 55%"></div><div class="bd"><h3>The mobile dessert cart</h3><span>A polished indoor-outdoor setup: cupcakes, scoop cookies, small cakes, banana pudding and jars.</span></div></button>
+      </div>
+      <div class="est" style="margin-top:28px">
+        <div class="estbox">
+          <span class="m" style="color:var(--plum)">Request a date · <span id="evPicked">Cupcake truck</span></span>
+          <form class="form" id="evForm" novalidate>
+            <div class="row2"><label class="f"><span>Event date <span class="req">*</span></span><input name="date" type="date" required></label><label class="f"><span>Start time <span class="req">*</span></span><input name="time" type="time" required></label></div>
+            <div class="row2"><label class="f"><span>Guests <span class="req">*</span></span><input name="guests" type="number" min="10" required placeholder="e.g. 120"></label><label class="f"><span>Event type</span><select name="kind"><option>Corporate event</option><option>Wedding</option><option>School</option><option>Festival</option><option>Grand opening</option><option>Private party</option></select></label></div>
+            <label class="f"><span>Event address <span class="req">*</span></span><input name="addr" required autocomplete="street-address"></label>
+            <div class="row2"><label class="f"><span>Your name <span class="req">*</span></span><input name="name" required autocomplete="name"></label><label class="f"><span>Phone <span class="req">*</span></span><input name="phone" type="tel" required autocomplete="tel"></label></div>
+            <label class="f"><span>Email <span class="req">*</span></span><input name="email" type="email" required autocomplete="email"></label>
+            <p class="err" id="evErr">Please fill in the starred fields. We need a way to reach you to confirm.</p>
+            <button class="btn" type="submit">Request this date</button>
+            <div class="ok-msg" id="evOk"><b>Date requested.</b><span>We confirm availability within 24–48 hours by phone or email. (Demo: on the live site this lands on her booking calendar.)</span></div>
+          </form>
+        </div>
+        <div class="result" style="background:var(--plum)">
+          <span class="m" style="color:var(--pink)">What's on the menu</span>
+          <div class="rows" id="evMenu"></div>
+          <p class="small" style="color:#F4D5EC;margin:0">Every event is quoted to the headcount and the menu. Fully licensed truck, friendly team, setup and clean-up handled.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 · HOST -->
+  <section class="sec" id="host" style="background:var(--mist)" data-why="Coworking, campus, hospital and office operators|Make hosting a yes with no work attached|Host applications; applications to signed hosts|Radar finds operators; Follow Up works them">
+    <div class="wrap est" style="margin-top:0;align-items:start">
+      <div>
+        <span class="m kicker">Host a machine</span><h2 class="big d">A perk your people notice, <em>with nothing to manage.</em></h2>
+        <div class="offer" style="margin-top:28px">
+          <div><b>Cost to you</b><span>Nothing. No fee, no lease, no purchase.</span></div>
+          <div><b>Restocking</b><span>Weekly, by our team. A 30-day shelf life makes it simple.</span></div>
+          <div><b>Payments</b><span>Card and tap only. No cash for your staff to handle.</span></div>
+          <div><b>What we need</b><span>Floor space near a standard outlet.</span></div>
+          <div><b>Launch</b><span>A free tasting for your members or staff in week one.</span></div>
+          <div><b>Revenue share</b><span>Available for hosts. Ask us for the numbers.</span></div>
+        </div>
+      </div>
+      <div class="ms" id="hostForm">
+        <div class="ph host-ph"><img src="assets/mock-machine-campus.jpg" alt="Concept render: the machine in a university student center"><span class="tag">Concept render</span></div>
+        <div class="prog"><i class="on"></i><i></i><i></i></div>
+        <div class="stepq on" data-s="0"><b class="d" style="font-size:26px">What kind of building?</b><div class="opts" id="hType"><button data-v="Coworking">Coworking<small>members on site</small></button><button data-v="Campus">Campus<small>students and staff</small></button><button data-v="Hospital">Hospital<small>shifts around the clock</small></button><button data-v="Office">Office<small>one company</small></button></div></div>
+        <div class="stepq" data-s="1"><b class="d" style="font-size:26px">How many people are there on a normal day?</b><div class="opts" id="hPeople"><button data-v="Under 50">Under 50</button><button data-v="50–200">50–200</button><button data-v="200–1,000">200–1,000</button><button data-v="1,000+">1,000+</button></div></div>
+        <form class="stepq form" data-s="2" id="hForm" novalidate><b class="d" style="font-size:26px">Where should we send the details?</b>
+          <div class="row2"><label class="f"><span>Your name <span class="req">*</span></span><input name="name" required></label><label class="f"><span>Organisation <span class="req">*</span></span><input name="org" required></label></div>
+          <div class="row2"><label class="f"><span>Email <span class="req">*</span></span><input name="email" type="email" required></label><label class="f"><span>Phone <span class="req">*</span></span><input name="phone" type="tel" required></label></div>
+          <p class="err" id="hErr">Please fill in the starred fields.</p>
+          <button class="btn" type="submit">Send my application</button>
+          <div class="ok-msg" id="hOk"><b>Application received.</b><span>We'll call within two business days to plan a site visit and a launch tasting. (Demo only.)</span></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9 · PROOF -->
+  <section class="sec" id="reviews" data-why="Anyone still unsure|Borrow trust from real customers and real press|Scroll-through to checkout or quote|Repute review requests grow this every week">
+    <div class="wrap rv">
+      <div>
+        <span class="m kicker">What people say</span>
+        <p class="quote d">LOVE the vegan cakes in a jar.</p><p class="cite">Customer review · via Restaurantji · Apr 2025</p>
+        <p class="quote d" style="margin-top:34px">Customer service was EXCELLENT.</p><p class="cite">Customer review · via Restaurantji · Mar 2026</p>
+        <a class="btn ghost sm" style="margin-top:26px" href="https://www.yelp.com/biz/cute-as-a-cupcake-merrillville-2" target="_blank" rel="noopener">Read all 64 reviews on Yelp</a>
+      </div>
+      <div class="press">
+        <div><span class="m" style="color:var(--plum)">WISH-TV · Aug 2026</span><b>Featured on "Indiana Grown"</b><span class="small">Sold at the Indiana State Fair's Indiana Grown pavilion.</span></div>
+        <div><span class="m" style="color:var(--plum)">Chicago Sky Foundation · 2025</span><b>Small Business Bootcamp pitch winner</b><span class="small">The win funded the vending machine rollout.</span></div>
+        <div><span class="m" style="color:var(--plum)">Goldman Sachs</span><b>10,000 Small Businesses alum</b><span class="small">Certified Minority / Women-owned Business Enterprise.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 · STORY -->
+  <section class="sec" id="about" style="padding-top:0" data-why="Locals and buyers who care who they buy from|Make the brand a person|Time on page; returning visitors|Content Station writes with Michelle">
+    <div class="wrap founder">
+      <div class="ph"><img src="assets/photo-storefront.jpg" alt="Cute as a Cupcake storefront on 81st Avenue in Merrillville"></div>
+      <div>
+        <span class="m kicker">Our story</span>
+        <h2 class="big d">A life without cupcakes <em>is a life without love.</em></h2>
+        <p class="lede">Michelle Wainwright left the pharmaceutical world to bake. Ten years later Cute as a Cupcake is a Merrillville storefront, a pink truck, a dessert cart, a line of jars that ship nationwide, and a nonprofit, Cutie Cares, that fights food insecurity at home.</p>
+        <div class="tl">
+          <div><b>2015</b><span>A kiosk at Southlake Mall and the farmers markets.</span></div>
+          <div><b>2016</b><span>The storefront opens on US Route 30.</span></div>
+          <div><b>2020</b><span>The shop closes for the pandemic. The jar keeps the business alive.</span></div>
+          <div><b>2025</b><span>Wins the Chicago Sky Foundation pitch. Machines roll out.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11 · FAQ -->
+  <section class="sec" id="faq" style="background:var(--mist)" data-why="Shoppers and buyers with one last question|Answer objections before they become drop-offs|Fewer support emails; FAQ-to-cart clicks|Greet answers the same questions in chat, 24/7">
+    <div class="wrap">
+      <span class="m kicker">Questions</span><h2 class="big d">Good to <em>know.</em></h2>
+      <p class="lede">Still wondering? <button class="linkish" data-open-chat>Ask Cutie in chat</button> or call (219) 472-0858.</p>
+      <div class="faq2"><div><h3 class="m" style="color:var(--plum);margin:34px 0 4px">Jars, shipping &amp; allergens</h3><div id="faqList"></div></div><div><h3 class="m" style="color:var(--plum);margin:34px 0 4px">For businesses</h3><div id="faqBiz"></div></div></div>
+    </div>
+  </section>
+
+  <!-- 12 · LIST -->
+  <section class="news sec" style="padding-block:72px" data-why="Visitors not ready to buy today|Capture the email so the sale happens later|Sign-up rate; revenue per subscriber|Dispatch email campaigns by Station">
+    <div class="wrap">
+      <div><span class="m kicker">The flavour list</span><h2 class="big d" style="font-size:clamp(30px,3.6vw,48px)">New flavours, machine openings and <em>holiday dates first.</em></h2></div>
+      <form class="inline" data-demo-form="Thanks — you're on the list. (Demo: on the live site this joins her email list.)"><label class="sr" for="nlE">Email</label><input id="nlE" type="email" required placeholder="you@email.com"><button class="btn" type="submit">Join the list</button><p class="ok-msg" style="flex-basis:100%"></p></form>
+    </div>
+  </section>
+</main>
+
+<footer class="ft">
+  <div class="wrap">
+    <div class="cols">
+      <div><img src="assets/logo.svg" alt="Cute as a Cupcake" style="height:56px;width:auto;filter:brightness(0) invert(1)"><p style="color:#F4D5EC;max-width:32ch">Scratch-made in Merrillville, Indiana since 2015. A life without cupcakes is a life without love.</p><img class="badges" src="assets/footer-img.webp" alt="M/WBE certified, Women Owned, Goldman Sachs 10,000 Small Businesses"></div>
+      <div><h4>Shop</h4><a href="#shop">Cupcakes in a Jar</a><a href="#giftbox">Build a gift box</a><a href="#corporate">Corporate gifts</a><a href="https://cuteasacupcake3.com/pages/wholesale-products" target="_blank" rel="noopener">Wholesale</a><a href="#events">Truck &amp; cart</a></div>
+      <div><h4>Help</h4><a href="https://cuteasacupcake3.com/pages/cupcakes-in-a-jar-nutrition-facts-ingredients" target="_blank" rel="noopener">Nutrition &amp; allergens</a><a href="https://cuteasacupcake3.com/pages/shipping-policy" target="_blank" rel="noopener">Shipping</a><a href="#faq">FAQ</a><a href="#about">Our story &amp; Cutie Cares</a><a href="#host">Host a machine</a></div>
+      <div><h4>Visit</h4><p style="margin:0;line-height:1.7">2008 W. 81st Ave<br>Merrillville, IN 46410<br>Tue–Sat 10am–7pm<br>(219) 472-0858<br>cupcake@cuteasacupcake3.com</p><p style="margin:14px 0 0"><a href="https://www.instagram.com/cuteasacupcake3/" target="_blank" rel="noopener" style="display:inline">Instagram</a> · <a href="https://www.facebook.com/cuteasacupcake3" target="_blank" rel="noopener" style="display:inline">Facebook</a> · <a href="https://www.tiktok.com/@cuteasacupcake3in" target="_blank" rel="noopener" style="display:inline">TikTok</a></p></div>
+    </div>
+    <div class="fine"><span>© 2026 Cute as a Cupcake! Cupcakery &amp; Bake Shop</span><span>Concept demo · Designed by Station.Solutions</span></div>
+  </div>
+</footer>
+
+<div class="mbar" aria-label="Quick actions"><a href="#shop">Shop jars</a><a href="#giftbox">Gift box</a><a class="p" href="#quote">Get a quote</a></div>
+
+<div class="scrim" id="scrim"></div>
+<aside class="cart" id="cart" aria-label="Cart" aria-hidden="true">
+  <div class="ch"><b class="d" style="font-size:24px">Your cart</b><button class="iconbtn" id="cartClose" aria-label="Close cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="items" id="cartItems"></div>
+  <div class="cf" id="cartFoot"></div>
+</aside>
+
+<button class="chat-btn" id="chatBtn" aria-label="Chat with Cutie"><span class="av"><svg fill="none" viewBox="0 0 140 136" xmlns="http://www.w3.org/2000/svg"> <g clip-path="url(#cutclip2)"> <path fill="currentColor" d="M68.2695 92.6155C65.2236 92.6155 61.4542 91.6183 57.3407 88.3047C56.091 87.2975 55.9038 85.4796 56.9106 84.2357C57.9226 82.9968 59.7491 82.8055 60.9988 83.8076C67.6016 89.1256 72.2514 85.7767 72.297 85.7414C73.5821 84.7846 75.4036 85.0414 76.3649 86.3206C77.3263 87.5997 77.0682 89.4126 75.7831 90.3694C75.5857 90.5205 72.6916 92.6155 68.2746 92.6155H68.2695Z"></path> <path fill="currentColor" d="M54.6035 75.6547C53.5764 75.6547 52.5746 75.131 52.013 74.1943C51.168 72.7792 51.6284 70.9562 53.0451 70.1051C55.8482 68.4281 61.7072 66.5649 65.8713 70.1907C67.121 71.2785 67.2475 73.1669 66.1546 74.4108C65.0618 75.6547 63.1644 75.7806 61.9147 74.6928C60.0527 73.0713 56.1619 75.2166 56.1264 75.2417C55.6458 75.5238 55.1246 75.6547 54.6035 75.6547Z"></path> <path fill="currentColor" d="M75.2571 72.7186C74.23 72.7186 73.2281 72.1949 72.6665 71.2582C71.8216 69.8431 72.282 68.0201 73.6987 67.1691C76.5017 65.4921 82.3608 63.6288 86.5249 67.2547C87.7746 68.3424 87.9011 70.2309 86.8082 71.4748C85.7153 72.7186 83.818 72.8446 82.5682 71.7568C80.7063 70.1352 76.8154 72.2805 76.78 72.3057C76.2993 72.5877 75.7782 72.7186 75.2571 72.7186Z"></path> <path fill="currentColor" d="M139.98 61.3677C139.302 51.2958 128.707 53.8591 128.601 53.8843C128.606 53.7735 129.157 42.9413 119.084 44.1599C109.374 45.3384 110.665 61.4029 111.848 69.0877L111.429 70.3115C109.683 75.4028 104.866 78.7567 99.6244 78.8675L103.961 54.267C108.256 51.5779 111.241 45.0614 110.381 39.114C109.84 35.3672 107.74 32.25 104.623 30.568C102.407 29.3695 98.8705 28.4479 93.7451 29.8025C93.2695 26.8565 92.0603 23.2307 89.1409 20.5616C85.8875 17.5904 81.4097 16.5732 75.8239 17.5401C74.0834 17.8422 70.9717 18.089 69.7372 16.3365C68.5988 14.7149 68.9377 11.5171 70.5467 8.72723C71.8976 6.38049 71.6851 3.65606 70.0053 1.78773C68.4065 0.00501546 65.8615 -0.49354 63.5239 0.513643C56.3595 3.6057 47.2066 9.89052 43.1437 22.4098C36.1311 23.8451 26.022 29.1982 24.4687 42.0298C21.1242 42.1859 16.1304 43.0017 12.4267 46.1139C9.52756 48.5462 7.868 52.016 7.62008 56.1505C7.37722 60.1742 8.83439 63.8957 11.6121 66.3683C12.452 67.1137 13.4134 67.6827 14.4202 68.1561L17.0411 82.1056C9.37577 84.2962 2.9551 90.0523 0.187484 98.1047C-0.424731 99.8925 0.531539 101.831 2.32771 102.446C2.69706 102.572 3.07147 102.632 3.43577 102.632C4.86258 102.632 6.19833 101.736 6.68405 100.321C8.61683 94.6853 13.0086 90.5861 18.306 88.8588L20.7195 101.726C21.8528 107.764 26.9276 111.767 33.0042 111.767C33.8087 111.767 34.6233 111.697 35.4531 111.556L47.8593 109.405L38.7267 124.171C37.735 125.777 38.2359 127.877 39.8449 128.869L50.6168 135.496C51.1683 135.834 51.7957 136.005 52.4231 136.005C52.9443 136.005 53.4603 135.889 53.941 135.653C55.0035 135.129 55.7169 134.101 55.8384 132.928C56.1217 130.118 54.7961 124.563 48.2489 121.804L56.8908 107.829L71.4119 105.311L82.5127 126.507C83.125 127.676 84.319 128.345 85.5586 128.345C86.0899 128.345 86.6313 128.219 87.1372 127.963L98.3797 122.156C99.4321 121.612 100.125 120.57 100.221 119.397C100.318 118.223 99.7964 117.085 98.8452 116.38C96.5684 114.693 91.0939 112.986 85.3613 117.161L78.5106 104.087L84.1824 103.105C90.8561 101.947 96.5633 96.2263 97.7473 89.5034L98.4202 85.6811C98.7238 85.6962 99.0324 85.7214 99.336 85.7214C107.371 85.7214 114.818 80.7308 117.713 73.0712C125.808 72.6784 140.602 70.6942 139.97 61.3778L139.98 61.3677ZM63.2052 8.28407C61.6165 12.6502 61.9049 17.1171 64.1159 20.2544C65.5782 22.3343 69.2059 25.6227 77.0028 24.2681C80.3624 23.6839 82.877 24.1271 84.4809 25.5774C86.3834 27.2997 86.9956 30.3565 87.1322 32.4867C78.4448 36.7219 70.5619 37.855 63.6707 35.8054C55.7878 33.4637 51.1987 27.5062 49.5695 25.0184C52.2561 16.3214 57.9432 11.2099 63.2052 8.28407ZM38.3422 31.6104C40.4723 30.3011 42.6277 29.6112 44.1405 29.2436C46.5337 32.7637 52.1347 39.4715 61.5962 42.3269C64.5257 43.2132 67.5716 43.6513 70.7137 43.6513C77.3823 43.6513 84.5113 41.642 92.0147 37.6888C95.9916 35.8658 99.3057 35.468 101.345 36.5708C102.979 37.4571 103.449 39.1542 103.586 40.0909C103.991 42.8808 102.827 45.711 101.552 47.3376L49.4835 56.367C40.877 56.4224 36.3588 54.3879 34.001 52.2728C31.7191 50.2232 31.2283 47.8613 31.1322 46.6477V45.4945C31.1322 39.2197 33.5557 34.5514 38.3371 31.6155L38.3422 31.6104ZM16.8387 51.3512C18.9081 49.6038 22.1007 49.0095 24.5395 48.8685C25.01 51.2606 26.2193 54.4131 29.2196 57.1879C30.1051 58.0037 31.1119 58.7188 32.1947 59.3684L17.2182 61.967C16.8438 61.7806 16.4947 61.554 16.181 61.272C14.9565 60.1842 14.3494 58.5123 14.4658 56.5634C14.6024 54.2872 15.3765 52.585 16.8337 51.3563L16.8387 51.3512ZM83.0136 96.3623L34.2793 104.813C30.859 105.402 28.066 103.619 27.4741 100.467L25.1315 87.9976C26.1889 88.0631 27.2565 88.2091 28.3241 88.466L38.7318 90.9537C40.5785 91.3969 42.4303 90.2638 42.8705 88.4257C43.3158 86.5926 42.1774 84.7444 40.3357 84.3063L29.928 81.8185C27.889 81.3301 25.8499 81.1286 23.8463 81.1387L21.6049 69.1985C21.7263 69.1834 21.8427 69.1734 21.9591 69.1532L96.6544 56.2008L90.9927 88.3199C90.3046 92.2379 86.8741 95.6975 83.0136 96.3673V96.3623Z"></path> </g> <defs> <clipPath id="cutclip2"> <rect fill="white" height="136" width="140"></rect> </clipPath> </defs> </svg> </span><span class="lbl">Questions? Ask Cutie</span></button>
+<div class="chat" id="chat" role="dialog" aria-label="Chat">
+  <div class="chh"><span class="av" style="width:36px;height:36px;border-radius:50%;background:#fff;color:var(--plum);display:grid;place-items:center"><svg fill="none" viewBox="0 0 140 136" xmlns="http://www.w3.org/2000/svg"> <g clip-path="url(#cutclip3)"> <path fill="currentColor" d="M68.2695 92.6155C65.2236 92.6155 61.4542 91.6183 57.3407 88.3047C56.091 87.2975 55.9038 85.4796 56.9106 84.2357C57.9226 82.9968 59.7491 82.8055 60.9988 83.8076C67.6016 89.1256 72.2514 85.7767 72.297 85.7414C73.5821 84.7846 75.4036 85.0414 76.3649 86.3206C77.3263 87.5997 77.0682 89.4126 75.7831 90.3694C75.5857 90.5205 72.6916 92.6155 68.2746 92.6155H68.2695Z"></path> <path fill="currentColor" d="M54.6035 75.6547C53.5764 75.6547 52.5746 75.131 52.013 74.1943C51.168 72.7792 51.6284 70.9562 53.0451 70.1051C55.8482 68.4281 61.7072 66.5649 65.8713 70.1907C67.121 71.2785 67.2475 73.1669 66.1546 74.4108C65.0618 75.6547 63.1644 75.7806 61.9147 74.6928C60.0527 73.0713 56.1619 75.2166 56.1264 75.2417C55.6458 75.5238 55.1246 75.6547 54.6035 75.6547Z"></path> <path fill="currentColor" d="M75.2571 72.7186C74.23 72.7186 73.2281 72.1949 72.6665 71.2582C71.8216 69.8431 72.282 68.0201 73.6987 67.1691C76.5017 65.4921 82.3608 63.6288 86.5249 67.2547C87.7746 68.3424 87.9011 70.2309 86.8082 71.4748C85.7153 72.7186 83.818 72.8446 82.5682 71.7568C80.7063 70.1352 76.8154 72.2805 76.78 72.3057C76.2993 72.5877 75.7782 72.7186 75.2571 72.7186Z"></path> <path fill="currentColor" d="M139.98 61.3677C139.302 51.2958 128.707 53.8591 128.601 53.8843C128.606 53.7735 129.157 42.9413 119.084 44.1599C109.374 45.3384 110.665 61.4029 111.848 69.0877L111.429 70.3115C109.683 75.4028 104.866 78.7567 99.6244 78.8675L103.961 54.267C108.256 51.5779 111.241 45.0614 110.381 39.114C109.84 35.3672 107.74 32.25 104.623 30.568C102.407 29.3695 98.8705 28.4479 93.7451 29.8025C93.2695 26.8565 92.0603 23.2307 89.1409 20.5616C85.8875 17.5904 81.4097 16.5732 75.8239 17.5401C74.0834 17.8422 70.9717 18.089 69.7372 16.3365C68.5988 14.7149 68.9377 11.5171 70.5467 8.72723C71.8976 6.38049 71.6851 3.65606 70.0053 1.78773C68.4065 0.00501546 65.8615 -0.49354 63.5239 0.513643C56.3595 3.6057 47.2066 9.89052 43.1437 22.4098C36.1311 23.8451 26.022 29.1982 24.4687 42.0298C21.1242 42.1859 16.1304 43.0017 12.4267 46.1139C9.52756 48.5462 7.868 52.016 7.62008 56.1505C7.37722 60.1742 8.83439 63.8957 11.6121 66.3683C12.452 67.1137 13.4134 67.6827 14.4202 68.1561L17.0411 82.1056C9.37577 84.2962 2.9551 90.0523 0.187484 98.1047C-0.424731 99.8925 0.531539 101.831 2.32771 102.446C2.69706 102.572 3.07147 102.632 3.43577 102.632C4.86258 102.632 6.19833 101.736 6.68405 100.321C8.61683 94.6853 13.0086 90.5861 18.306 88.8588L20.7195 101.726C21.8528 107.764 26.9276 111.767 33.0042 111.767C33.8087 111.767 34.6233 111.697 35.4531 111.556L47.8593 109.405L38.7267 124.171C37.735 125.777 38.2359 127.877 39.8449 128.869L50.6168 135.496C51.1683 135.834 51.7957 136.005 52.4231 136.005C52.9443 136.005 53.4603 135.889 53.941 135.653C55.0035 135.129 55.7169 134.101 55.8384 132.928C56.1217 130.118 54.7961 124.563 48.2489 121.804L56.8908 107.829L71.4119 105.311L82.5127 126.507C83.125 127.676 84.319 128.345 85.5586 128.345C86.0899 128.345 86.6313 128.219 87.1372 127.963L98.3797 122.156C99.4321 121.612 100.125 120.57 100.221 119.397C100.318 118.223 99.7964 117.085 98.8452 116.38C96.5684 114.693 91.0939 112.986 85.3613 117.161L78.5106 104.087L84.1824 103.105C90.8561 101.947 96.5633 96.2263 97.7473 89.5034L98.4202 85.6811C98.7238 85.6962 99.0324 85.7214 99.336 85.7214C107.371 85.7214 114.818 80.7308 117.713 73.0712C125.808 72.6784 140.602 70.6942 139.97 61.3778L139.98 61.3677ZM63.2052 8.28407C61.6165 12.6502 61.9049 17.1171 64.1159 20.2544C65.5782 22.3343 69.2059 25.6227 77.0028 24.2681C80.3624 23.6839 82.877 24.1271 84.4809 25.5774C86.3834 27.2997 86.9956 30.3565 87.1322 32.4867C78.4448 36.7219 70.5619 37.855 63.6707 35.8054C55.7878 33.4637 51.1987 27.5062 49.5695 25.0184C52.2561 16.3214 57.9432 11.2099 63.2052 8.28407ZM38.3422 31.6104C40.4723 30.3011 42.6277 29.6112 44.1405 29.2436C46.5337 32.7637 52.1347 39.4715 61.5962 42.3269C64.5257 43.2132 67.5716 43.6513 70.7137 43.6513C77.3823 43.6513 84.5113 41.642 92.0147 37.6888C95.9916 35.8658 99.3057 35.468 101.345 36.5708C102.979 37.4571 103.449 39.1542 103.586 40.0909C103.991 42.8808 102.827 45.711 101.552 47.3376L49.4835 56.367C40.877 56.4224 36.3588 54.3879 34.001 52.2728C31.7191 50.2232 31.2283 47.8613 31.1322 46.6477V45.4945C31.1322 39.2197 33.5557 34.5514 38.3371 31.6155L38.3422 31.6104ZM16.8387 51.3512C18.9081 49.6038 22.1007 49.0095 24.5395 48.8685C25.01 51.2606 26.2193 54.4131 29.2196 57.1879C30.1051 58.0037 31.1119 58.7188 32.1947 59.3684L17.2182 61.967C16.8438 61.7806 16.4947 61.554 16.181 61.272C14.9565 60.1842 14.3494 58.5123 14.4658 56.5634C14.6024 54.2872 15.3765 52.585 16.8337 51.3563L16.8387 51.3512ZM83.0136 96.3623L34.2793 104.813C30.859 105.402 28.066 103.619 27.4741 100.467L25.1315 87.9976C26.1889 88.0631 27.2565 88.2091 28.3241 88.466L38.7318 90.9537C40.5785 91.3969 42.4303 90.2638 42.8705 88.4257C43.3158 86.5926 42.1774 84.7444 40.3357 84.3063L29.928 81.8185C27.889 81.3301 25.8499 81.1286 23.8463 81.1387L21.6049 69.1985C21.7263 69.1834 21.8427 69.1734 21.9591 69.1532L96.6544 56.2008L90.9927 88.3199C90.3046 92.2379 86.8741 95.6975 83.0136 96.3673V96.3623Z"></path> </g> <defs> <clipPath id="cutclip3"> <rect fill="white" height="136" width="140"></rect> </clipPath> </defs> </svg> </span><div><b>Cutie</b><small>Cute as a Cupcake · replies in minutes</small></div><button class="iconbtn" id="chatClose" style="margin-left:auto;color:#fff" aria-label="Close chat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="msgs" id="msgs"></div>
+  <form id="chatForm"><label class="sr" for="chatIn">Message</label><input id="chatIn" placeholder="Type a question" autocomplete="off"><button class="btn sm" type="submit">Send</button></form>
+</div>
+
+<button class="strat-btn" id="stratBtn" aria-pressed="false">Show the strategy</button>
+<div class="funnel" id="funnel" aria-live="polite"><span class="m" style="color:var(--plum)">This visit, measured</span><div><span>Sections seen</span><b id="fn-pv">0</b></div><div><span>Jars added</span><b id="fn-add">0</b></div><div><span>Boxes built</span><b id="fn-box">0</b></div><div><span>Quotes / bookings</span><b id="fn-lead">0</b></div><div><span>Email sign-ups</span><b id="fn-em">0</b></div><span class="small">Every one of these is an event her dashboard would count.</span></div>
+<div class="why-pop" id="whyPop" role="dialog" aria-label="Why this section exists"><b class="d" style="font-size:22px" id="whyT">Why this is here</b><dl><dt>Audience</dt><dd id="w1"></dd><dt>Job</dt><dd id="w2"></dd><dt>Measured by</dt><dd id="w3"></dd><dt>Powered by</dt><dd id="w4"></dd></dl><button class="btn sm ghost" id="whyClose" style="justify-self:start">Close</button></div>
+<div class="toast" id="toast" role="status"></div>
+<span class="demo-tag">Concept demo by Station Solutions</span>
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Bakery", "name": "Cute as a Cupcake! Cupcakery & Bake Shop", "url": "https://cuteasacupcake3.com/", "telephone": "+1-219-472-0858", "email": "cupcake@cuteasacupcake3.com", "address": {"@type": "PostalAddress", "streetAddress": "2008 W. 81st Ave", "addressLocality": "Merrillville", "addressRegion": "IN", "postalCode": "46410", "addressCountry": "US"}, "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], "opens": "10:00", "closes": "19:00"}], "foundingDate": "2015", "founder": {"@type": "Person", "name": "Michelle Wainwright"}, "sameAs": ["https://www.instagram.com/cuteasacupcake3/", "https://www.facebook.com/cuteasacupcake3", "https://www.tiktok.com/@cuteasacupcake3in"]}, {"@type": "Product", "name": "Cupcake in a Jar, 8 oz", "brand": {"@type": "Brand", "name": "Cute as a Cupcake"}, "description": "Scratch-made cupcake in a sealed jar: two layers of cake and icing. Fresh 30 days refrigerated, 6 months frozen. Ships nationwide.", "offers": {"@type": "Offer", "price": "10.00", "priceCurrency": "USD", "availability": "https://schema.org/InStock"}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How long do the jars stay fresh?", "acceptedAnswer": {"@type": "Answer", "text": "Thirty days in the fridge, six months in the freezer, and ten days once you open the jar."}}, {"@type": "Question", "name": "Do you ship? How fast?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, to all 50 states. Orders leave our kitchen in 2\u20134 business days, and you get a tracking number by email."}}]}</script>
+<script>
+(function(){
+"use strict";
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const money=n=>'$'+(Math.round(n*100)/100).toLocaleString('en-US',{minimumFractionDigits:n%1?2:0,maximumFractionDigits:2});
+const store={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+
+/* ---------- data (her real flavours, prices and facts) ---------- */
+const F=[
+ {k:'birthday',n:'Birthday Cake',d:'Sprinkle-packed vanilla cake and vanilla icing.',v:1,g:1},
+ {k:'red-velvet',n:'Red Velvet',d:'Velvety red cake layered with creamy vanilla icing.'},
+ {k:'chocolate',n:'Chocolate',d:'Chocolate cake, creamy vanilla icing and a touch of rainbow sprinkles.'},
+ {k:'vanilla',n:'Vanilla',d:'Fluffy vanilla cake, smooth vanilla icing, rainbow sprinkles.',v:1},
+ {k:'oreo',n:'Oreo',d:'Chocolate cake and vanilla icing layered with crushed Oreo cookies.',v:1},
+ {k:'salted-caramel',n:'Salted Caramel',d:'Vanilla cake and icing with golden caramel and a hint of sea salt.',g:1},
+ {k:'lemon',n:'Lemon',d:'Bright lemon cake with tangy, creamy lemon icing.'},
+ {k:'strawberry',n:'Strawberry',d:'Strawberry cake, vanilla icing and strawberry crumble.'},
+ {k:'turtle',n:'Turtle',d:'Chocolate cake, vanilla icing, caramel, chocolate and pecans.',nut:1},
+ {k:'peanut-butter',n:'Peanut Butter',d:'For peanut butter people. Cake and icing, layered from scratch.',nut:1},
+ {k:'mm',n:'M&M',d:'Cake and icing finished with a crown of M&M’s.'},
+ {k:'toffee-caramel',n:'Toffee Caramel',d:'Toffee and caramel layered with cake and icing.'}
+];
+const img=k=>`assets/f-${k}.webp`;
+const MORE=[
+ {k:'p-4oz',n:'4 oz Cupcakes in a Jar',d:'The same jar, party-favour size. Vegan and gluten-free options.',p:6,from:1,url:'https://cuteasacupcake3.com/products/4oz-cupcakes-in-a-jar'},
+ {k:'p-occasion',n:'Occasion boxes',d:'Birthday, baby shower, graduation or just because. Jars, a card and a candle.',p:23,from:1,url:'https://cuteasacupcake3.com/collections/occasion-boxes'},
+ {k:'p-snack',n:'Dessert snack packs',d:'24, 48 or 72 cookies, brownies, cake pops and minis for meetings and parties.',p:55,from:1,url:'https://cuteasacupcake3.com/collections/dessert-snack-packs'},
+ {k:'p-signature',n:'Signature cupcakes',d:'Classic frosted cupcakes in packs of 4, 6 or 12.',p:16,from:1,url:'https://cuteasacupcake3.com/products/signature-cupcakes'},
+ {k:'p-cupcakecake',n:'Cupcake cakes',d:'Pull-apart, letter and number cakes made of 12 or 24 cupcakes.',p:50,from:1,url:'https://cuteasacupcake3.com/products/cupcake-cakes'},
+ {k:'p-cakepops',n:'Cake pops',d:'Chocolate, red velvet or vanilla, dipped in chocolate or white.',p:2.95,url:'https://cuteasacupcake3.com/products/cake-pops'}
+];
+const FAQ=[
+ ['How long do the jars stay fresh?','Thirty days in the fridge, six months in the freezer, and ten days once you open the jar.'],
+ ['Do you ship? How fast?','Yes, to all 50 states. Orders leave our kitchen in 2–4 business days, and you get a tracking number by email.'],
+ ['Do you have vegan or gluten-free jars?','Yes. Vegan: Vanilla, Oreo, Chocolate Strawberry and Birthday Cake. Gluten-free: Coconut, Caramel Crunch, Birthday Cake and Salted Caramel Vanilla. Everything is made in one shared kitchen, so we can’t promise any jar is free of an allergen.'],
+ ['What about allergens?','Our kitchen also handles milk, egg, wheat, soy, peanuts, tree nuts (almonds, walnuts, pecans) and coconut. Full nutrition panels and ingredient lists are on our Nutrition & Allergens page.'],
+ ['Can I buy jars in person?','Come see us at 2008 W. 81st Ave in Merrillville, Tuesday to Saturday, 10am to 7pm. Or find a Cupcake in a Jar machine near you.'],
+ ['Can you cater my event?','Our pink cupcake truck and our mobile dessert cart serve Northwest Indiana and Chicagoland. Request a date and we confirm within 24–48 hours.']
+];
+const FAQB=[
+ ['Is there a minimum order?','No minimum to ask for a quote. Large orders get bulk pricing. For resale, our wholesale program starts at 36 jars with Net 30 terms for approved accounts.'],
+ ['Can you ship to each person on our list?','Yes. Send us the list and we ship and track each box to its own address anywhere in the country.'],
+ ['Can we add a note or our logo?','Every box can carry a personal note card. Ask about logo stickers and custom packaging in your quote.'],
+ ['Are you a certified diverse supplier?','Yes, a certified Minority/Women-owned Business Enterprise (M/WBE), which counts toward supplier-diversity goals.'],
+ ['How far ahead should we order?','Orders ship within 2–4 business days. For the holidays, order early so every box lands on time.']
+];
+const USES=[
+ {t:'A thank-you on every client’s desk.',p:'Two or four jars and your note, shipped to each client. It arrives fresh and gets opened the same day.',li:['Box of 2 or 4 per client','Your note in every box','Ships to each address'],img:'assets/photo-bday-box.jpg',cap:'Her photo'},
+ {t:'Day one, with something sweet.',p:'A welcome box on a new hire’s desk, or shipped to their home before their first remote day.',li:['Box of 2 per new hire','Vegan and gluten-free options','One order, ongoing deliveries'],img:'assets/photo-jars-spoon.jpg',cap:'Her photo'},
+ {t:'One order. Every client. Before the holidays.',p:'Upload the list once. We ship a box to every name, so nobody waits in line at the post office.',li:['Holiday flavours and note cards','Bulk pricing on large lists','Order early for on-time delivery'],img:'assets/photo-jars-stack.jpg',cap:'Her photo'},
+ {t:'Swag people eat, or a truck at your booth.',p:'Jars for conference bags and speaker gifts, or the pink cupcake truck at your company event.',li:['Jars for swag bags','Truck or dessert cart on site','NWI and Chicagoland events'],img:'assets/photo-truck.jpg',cap:'Her photo'}
+];
+
+/* ---------- toast + funnel ---------- */
+const toastEl=$('#toast'); let tt;
+function toast(t){toastEl.textContent=t;toastEl.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>toastEl.classList.remove('on'),2600)}
+const fn={pv:0,add:0,box:0,lead:0,em:0};
+function bump(k,n=1){fn[k]+=n;const e=$('#fn-'+k);if(e)e.textContent=fn[k]}
+
+/* ---------- product cards ---------- */
+function tagsFor(f){let t='';if(f.v)t+='<span class="chip vg">Vegan option</span>';if(f.g)t+='<span class="chip vg">GF option</span>';if(f.nut)t+='<span class="chip nut">Contains nuts</span>';return t}
+function card(f){return `<article class="card rv-in" data-k="${f.k}"><div class="ph"><img loading="lazy" src="${img(f.k)}" alt="${f.n} Cupcake in a Jar" width="640" height="640"><div class="quick"><button class="btn sm" data-add="${f.k}">Add 8 oz jar · $10</button></div></div><div class="pr"><span class="nm">${f.n}</span><b>$10</b></div><p class="ds">${f.d}</p><div class="tags">${tagsFor(f)}</div></article>`}
+function filt(list,f){return list.filter(x=>f==='all'||(f==='vegan'&&x.v)||(f==='gf'&&x.g)||(f==='nutfree'&&!x.nut))}
+function renderGrid(el,f,limit){const l=filt(F,f).slice(0,limit||99);el.innerHTML=l.map(card).join('');reveal()}
+renderGrid($('#homeGrid'),'all');
+$('#moreGrid').innerHTML=MORE.map(m=>`<article class="card rv-in"><div class="ph"><img loading="lazy" src="assets/${m.k}.webp" alt="${m.n}" width="640" height="640"><div class="quick">${m.from?`<a class="btn sm" href="${m.url}" target="_blank" rel="noopener">Choose options</a>`:`<button class="btn sm" data-add-more="${m.k}">Add · ${money(m.p)}</button>`}</div></div><div class="pr"><span class="nm">${m.n}</span><b>${m.from?'from ':''}${money(m.p)}</b></div><p class="ds">${m.d}</p></article>`).join('');
+$$('.filters').forEach(fl=>fl.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;$$('button',fl).forEach(x=>x.classList.toggle('on',x===b));renderGrid($('#homeGrid'),b.dataset.f)}));
+
+/* ---------- cart ---------- */
+let cart=store.get('cac-cart',[]);
+const cartEl=$('#cart'),scrim=$('#scrim');
+function saveCart(){store.set('cac-cart',cart);renderCart()}
+function addItem(it,fromEl){const ex=cart.find(c=>c.id===it.id&&!it.unique);if(ex)ex.qty+=it.qty||1;else cart.push({...it,qty:it.qty||1});saveCart();flyToCart(fromEl);bump('add',it.jars||1);toast(it.toast||`${it.name} added`)}
+function flyToCart(el){const im=el&&(el.tagName==='IMG'?el:el.closest('.card,.tile,.panel')?.querySelector('img'));if(!im||RM)return;const a=im.getBoundingClientRect(),b=$('#cartBtn').getBoundingClientRect();const f=document.createElement('img');f.src=im.currentSrc||im.src;f.className='flyer';Object.assign(f.style,{left:a.left+'px',top:a.top+'px',width:a.width+'px',height:a.height+'px'});document.body.appendChild(f);f.animate([{transform:'translate(0,0) scale(1)',opacity:1},{transform:`translate(${b.left-a.left+b.width/2-a.width/2}px,${b.top-a.top+b.height/2-a.height/2}px) scale(.12)`,opacity:.6}],{duration:750,easing:'cubic-bezier(.6,-0.1,.3,1)'}).onfinish=()=>{f.remove();const c=$('#cartCount');c.animate([{transform:'scale(1)'},{transform:'scale(1.5)'},{transform:'scale(1)'}],{duration:350})}}
+function renderCart(){
+ const n=cart.reduce((s,c)=>s+c.qty,0),sub=cart.reduce((s,c)=>s+c.qty*c.price,0);
+ const cc=$('#cartCount');cc.textContent=n;cc.classList.toggle('has',n>0);
+ const items=$('#cartItems'),foot=$('#cartFoot');
+ if(!n){items.innerHTML=`<div class="empty"><span class="d" style="font-size:26px">Nothing in here yet.</span><span>Start with a jar, or build a box for someone.</span><a class="btn" href="#giftbox" data-close-cart>Build a gift box</a></div>`;foot.innerHTML='';return}
+ items.innerHTML=cart.map((c,i)=>`<div class="ci"><img src="${c.img}" alt=""><div><div class="t">${c.name}</div>${c.meta?`<div class="s">${c.meta}</div>`:''}<div class="qty"><button data-q="${i}" data-d="-1" aria-label="One fewer">−</button><span>${c.qty}</span><button data-q="${i}" data-d="1" aria-label="One more">+</button></div></div><b>${money(c.qty*c.price)}</b></div>`).join('');
+ const has4=cart.some(c=>c.id==='p-4oz-xs');
+ foot.innerHTML=`${has4?'':`<div class="xsell"><img src="assets/p-4oz.webp" alt=""><span class="small"><b style="color:var(--ink)">Add a 4 oz jar?</b><br>A little one for later. $6.50</span><button class="btn sm ghost" data-xsell>Add</button></div>`}<div class="tot" style="border:0;padding:0"><span>Subtotal</span><b style="font-size:28px">${money(sub)}</b></div><span class="small">Shipping and tax calculated at checkout. Ships in 2–4 business days.</span><button class="btn" data-checkout>Check out</button>`;
+}
+$('#cartItems').addEventListener('click',e=>{const b=e.target.closest('[data-q]');if(!b)return;const i=+b.dataset.q;cart[i].qty+=+b.dataset.d;if(cart[i].qty<=0)cart.splice(i,1);saveCart()});
+document.addEventListener('click',e=>{
+ const a=e.target.closest('[data-add]');if(a){const f=F.find(x=>x.k===a.dataset.add);addItem({id:'j-'+f.k,name:`${f.n} · 8 oz jar`,price:10,img:img(f.k)},a);return}
+ const m=e.target.closest('[data-add-more]');if(m){const it=MORE.find(x=>x.k===m.dataset.addMore);addItem({id:it.k,name:it.n,price:it.p,img:`assets/${it.k}.webp`},m);return}
+ if(e.target.closest('[data-xsell]')){addItem({id:'p-4oz-xs',name:'4 oz Cupcake in a Jar',price:6.5,img:'assets/p-4oz.webp'},null);return}
+ if(e.target.closest('[data-checkout]')){toast('Demo: this opens her Shopify checkout with Shop Pay.');return}
+ if(e.target.closest('[data-close-cart]')){closeCart()}
+ if(e.target.closest('[data-open-chat]')){openChat()}
+});
+function openCart(){cartEl.classList.add('on');cartEl.setAttribute('aria-hidden','false');scrim.classList.add('on')}
+function closeCart(){cartEl.classList.remove('on');cartEl.setAttribute('aria-hidden','true');scrim.classList.remove('on');$('#drawerNav').classList.remove('open')}
+$('#cartBtn').onclick=openCart;$('#cartClose').onclick=closeCart;scrim.onclick=closeCart;
+addEventListener('keydown',e=>{if(e.key==='Escape'){closeCart();$('#chat').classList.remove('on');$('#whyPop').classList.remove('on')}});
+renderCart();
+
+/* ---------- gift box builder ---------- */
+let size=4, slots=[];
+const tiles=$('#tiles'),box=$('#box');
+tiles.innerHTML=F.map(f=>`<button class="tile" data-t="${f.k}" aria-label="Add ${f.n} to the box"><img loading="lazy" src="${img(f.k)}" alt="" width="640" height="640"><span>${f.n}</span></button>`).join('');
+function drawBox(){
+ box.className='box n'+size;
+ box.innerHTML=Array.from({length:size},(_,i)=>{const k=slots[i];const f=k&&F.find(x=>x.k===k);return `<button class="slot" data-i="${i}" ${f?`aria-label="Remove ${f.n}"`:'aria-label="Empty spot" tabindex="-1"'}>${f?`<img src="${img(k)}" alt=""><span class="x">×</span>`:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 5v14M5 12h14"/></svg>'}</button>`}).join('');
+ const n=slots.filter(Boolean).length;$('#boxCount').textContent=`${n} of ${size} jars`;$('#boxPrice').textContent=money(n*10);
+ const btn=$('#addBox');btn.disabled=n<size;btn.textContent=n<size?`Add ${size-n} more jar${size-n>1?'s':''}`:`Add box to cart · ${money(size*10)}`;
+}
+function addToBox(k,fromImg){const i=slots.findIndex((s,j)=>j<size&&!s);const idx=i<0?(slots.length<size?slots.length:-1):i;if(idx<0){toast('The box is full. Tap a jar in the box to swap it.');return}
+ slots[idx]=k;drawBox();
+ const target=box.querySelector(`[data-i="${idx}"]`);if(fromImg&&target&&!RM){const a=fromImg.getBoundingClientRect(),b=target.getBoundingClientRect();const fl=document.createElement('img');fl.src=fromImg.src;fl.className='flyer';Object.assign(fl.style,{left:a.left+'px',top:a.top+'px',width:a.width+'px',height:a.height+'px'});document.body.appendChild(fl);target.style.opacity=0;
+ fl.animate([{transform:'translate(0,0) scale(1) rotate(0)'},{transform:`translate(${(b.left-a.left)*.55}px,${(b.top-a.top)*.55-60}px) scale(.85) rotate(-6deg)`,offset:.55},{transform:`translate(${b.left-a.left}px,${b.top-a.top}px) scale(${b.width/a.width}) rotate(0)`}],{duration:620,easing:'cubic-bezier(.5,0,.2,1)'}).onfinish=()=>{fl.remove();target.style.opacity=1;target.animate([{transform:'scale(.9)'},{transform:'scale(1.06)'},{transform:'scale(1)'}],{duration:280})}}}
+tiles.addEventListener('click',e=>{const t=e.target.closest('[data-t]');if(t)addToBox(t.dataset.t,t.querySelector('img'))});
+box.addEventListener('click',e=>{const s=e.target.closest('[data-i]');if(!s||!slots[+s.dataset.i])return;slots[+s.dataset.i]=null;drawBox()});
+$('#sizes').addEventListener('click',e=>{const b=e.target.closest('[data-n]');if(!b)return;size=+b.dataset.n;$$('#sizes button').forEach(x=>x.classList.toggle('on',x===b));slots=slots.slice(0,size);drawBox()});
+$('#surprise').onclick=()=>{slots=Array.from({length:size},()=>F[Math.floor(Math.random()*F.length)].k);drawBox();box.animate([{transform:'rotate(-1deg)'},{transform:'rotate(1deg)'},{transform:'rotate(0)'}],{duration:300})};
+$('#noteIn').addEventListener('input',e=>{$('#cardPrev').textContent=e.target.value||'Your note appears here, handwritten-style, on a card in the box.'});
+$('#addBox').onclick=e=>{const fl=slots.slice(0,size).map(k=>F.find(x=>x.k===k).n);const counts={};fl.forEach(n=>counts[n]=(counts[n]||0)+1);const note=$('#noteIn').value.trim();
+ addItem({id:'box-'+Date.now(),unique:1,name:`Gift box of ${size}`,price:size*10,img:img(slots[0]),jars:size,meta:Object.entries(counts).map(([n,c])=>c>1?`${c}× ${n}`:n).join(', ')+(note?' · with a note':''),toast:`Box of ${size} added. Lovely choice.`},$('#box img'));
+ bump('box');slots=[];$('#noteIn').value='';$('#cardPrev').textContent='Your note appears here, handwritten-style, on a card in the box.';drawBox();setTimeout(openCart,700)};
+drawBox();
+
+/* ---------- FAQ ---------- */
+const faqHTML=l=>l.map(([q,a])=>`<details class="q"><summary>${q}</summary><p>${a}</p></details>`).join('');
+$('#faqList').innerHTML=faqHTML(FAQ);$('#faqBiz').innerHTML=faqHTML(FAQB);
+
+/* ---------- corporate: use cases + estimator + countdown ---------- */
+function useCase(i){const u=USES[i];$('#useCase').innerHTML=`<div><h3>${u.t}</h3><p class="lede">${u.p}</p><ul>${u.li.map(x=>`<li>${x}</li>`).join('')}</ul><a class="btn" href="#quote" style="margin-top:20px">Quote this</a></div><div class="ph" style="border-radius:18px;overflow:hidden;position:relative"><img src="${u.img}" alt=""><span class="tag">${u.cap}</span></div>`}
+$('#uses').addEventListener('click',e=>{const b=e.target.closest('[data-u]');if(!b)return;$$('#uses button').forEach(x=>x.classList.toggle('on',x===b));useCase(+b.dataset.u)});useCase(0);
+const q={rec:25,per:2,ship:'each',card:'yes'};
+function seg(id,key){$('#'+id).addEventListener('click',e=>{const b=e.target.closest('[data-v]');if(!b)return;$$('#'+id+' button').forEach(x=>x.classList.toggle('on',x===b));q[key]=isNaN(+b.dataset.v)?b.dataset.v:+b.dataset.v;est()})}
+seg('qPer','per');seg('qShip','ship');seg('qCard','card');
+$('#qRec').addEventListener('input',e=>{q.rec=+e.target.value;est()});$('#qDate').addEventListener('change',est);
+function bizDays(from,to){let d=new Date(from),n=0;while(d<to){d.setDate(d.getDate()+1);const w=d.getDay();if(w&&w<6)n++}return n}
+function est(){const j=q.rec*q.per;$('#qRecV').textContent=q.rec;$('#qJars').textContent=j.toLocaleString()+' jar'+(j>1?'s':'');$('#qList').textContent=money(j*10);$('#qVol').textContent=j>=50?'Large-order pricing in your quote':'Quoted to your order';$('#qDel').textContent=q.ship==='each'?q.rec+' address'+(q.rec>1?'es':''):'1 address';$('#qCards').textContent=q.card==='yes'?'Included in quote':'None';
+ const w=$('#qWarn'),v=$('#qDate').value;if(v){const need=new Date(v+'T12:00'),bd=bizDays(new Date(),need);if(bd<4){w.hidden=false;w.textContent=`That's ${bd} business day${bd===1?'':'s'} away. Orders ship in 2–4 business days, so we'll call to see what's possible.`}else if(bd<8){w.hidden=false;w.textContent=`Doable. That's ${bd} business days away. Send the request today to lock it in.`}else w.hidden=true}else w.hidden=true}
+est();
+const DEADLINE=new Date('2026-12-11T23:59:00');function cd(){const d=Math.ceil((DEADLINE-new Date())/864e5);$('#cdDays').textContent=d>0?d:'0'}cd();
+
+/* ---------- forms (demo, but real validation) ---------- */
+function wire(form,okId,errId,onOk){form.addEventListener('submit',e=>{e.preventDefault();let bad=false;$$('[required]',form).forEach(i=>{const lab=i.closest('.f');const ok=i.checkValidity()&&String(i.value).trim();if(lab)lab.classList.toggle('bad',!ok);if(!ok)bad=true});$('#'+errId).classList.toggle('show',bad);if(bad){form.querySelector('.bad input,.bad select')?.focus();return}$('#'+okId).classList.add('show');form.querySelector('button[type=submit]').disabled=true;onOk&&onOk()})}
+wire($('#quoteForm'),'qOk','qErr',()=>{bump('lead');toast('Quote request sent')});
+wire($('#evForm'),'evOk','evErr',()=>{bump('lead');toast('Date requested')});
+wire($('#hForm'),'hOk','hErr',()=>{bump('lead');toast('Application sent')});
+$$('[data-demo-form]').forEach(f=>f.addEventListener('submit',e=>{e.preventDefault();const i=f.querySelector('input');if(!i.checkValidity()){i.focus();i.reportValidity&&i.reportValidity();return}const o=f.querySelector('.ok-msg');o.textContent=f.dataset.demoForm;o.classList.add('show');bump('em')}));
+const EVM={truck:['Signature made-from-scratch cupcakes','Cupcakes in a Jar','Seasonal specialties','Grab-and-go or served by our team'],cart:['Made-from-scratch cupcakes','Scoop cookies','Small cakes','Banana pudding','Cupcakes in a Jar']};
+function evMenu(t){$('#evMenu').innerHTML=EVM[t].map(x=>`<div><span>${x}</span><b>✓</b></div>`).join('')}
+$$('.evc.pick').forEach(c=>c.addEventListener('click',()=>{$$('.evc.pick').forEach(x=>x.classList.toggle('on',x===c));evMenu(c.dataset.ev);$('#evPicked').textContent=c.dataset.ev==='truck'?'Cupcake truck':'Dessert cart';$('#evForm [name=date]').focus({preventScroll:true})}));evMenu('truck');
+const dIn=$('#evForm [name=date]');const t0=new Date();t0.setDate(t0.getDate()+7);dIn.min=t0.toISOString().slice(0,10);
+
+/* host multi-step */
+const hs={};function hStep(n){$$('#hostForm .stepq').forEach(s=>s.classList.toggle('on',+s.dataset.s===n));$$('#hostForm .prog i').forEach((p,i)=>p.classList.toggle('on',i<=n))}
+['hType','hPeople'].forEach((id,i)=>$('#'+id).addEventListener('click',e=>{const b=e.target.closest('[data-v]');if(!b)return;$$('#'+id+' button').forEach(x=>x.classList.toggle('on',x===b));hs[id]=b.dataset.v;setTimeout(()=>hStep(i+1),220)}));
+
+/* machine page */
+$('#mFlav').innerHTML=['birthday','red-velvet','chocolate','oreo','salted-caramel','lemon'].map(k=>`<span class="chip">${F.find(f=>f.k===k).n}</span>`).join('');
+const stars=$('#stars');stars.innerHTML=[1,2,3,4,5].map(n=>`<button role="radio" aria-checked="false" aria-label="${n} star${n>1?'s':''}" data-s="${n}">★</button>`).join('');
+stars.addEventListener('click',e=>{const b=e.target.closest('[data-s]');if(!b)return;const n=+b.dataset.s;$$('button',stars).forEach(x=>{const on=+x.dataset.s<=n;x.classList.toggle('on',on);x.setAttribute('aria-checked',+x.dataset.s===n)});
+ $('#rateOut').innerHTML=`Thank you. Would you share that on Google? It helps a small bakery more than you'd think.<br><a class="btn sm" style="margin-top:10px" href="https://www.google.com/search?q=Cute+as+a+Cupcake+Merrillville+reviews" target="_blank" rel="noopener">Review us on Google</a>${n<=3?' <button class="linkish" style="margin-left:10px" data-open-chat>Tell us what to fix</button>':''}`});
+
+/* ---------- chat (Greet demo) ---------- */
+const msgs=$('#msgs');let chatStarted=false;
+const A={fresh:FAQ[0][1],ship:FAQ[1][1],vegan:FAQ[2][1],allergen:FAQ[3][1],corp:'We ship gift boxes to every address on your list, with a note in each. Try the 60-second quote builder and a real person replies the same day.',truck:'The truck and the dessert cart serve NWI and Chicagoland. Pick a date in the Truck & cart section and we confirm within 24–48 hours.',human:'Of course. Leave your email or call (219) 472-0858, Tue–Sat 10am–7pm. (Demo: on the live site this goes to the team’s inbox.)'};
+const QR=[['How long do jars last?','fresh'],['Do you ship?','ship'],['Vegan or gluten-free?','vegan'],['Allergens','allergen'],['Corporate gifts','corp'],['Book the truck','truck'],['Talk to a person','human']];
+function say(t,me){const b=document.createElement('div');b.className='bub '+(me?'me':'bot');b.textContent=t;msgs.appendChild(b);msgs.scrollTop=1e6}
+function chips(){const d=document.createElement('div');d.className='qr';d.innerHTML=QR.map(([l,k])=>`<button data-a="${k}">${l}</button>`).join('');msgs.appendChild(d);msgs.scrollTop=1e6}
+function openChat(){$('#chat').classList.add('on');if(!chatStarted){chatStarted=true;say('Hi, I’m Cutie! I can answer questions about jars, shipping, gifts and events. What can I help with?');chips()}$('#chatIn').focus()}
+$('#chatBtn').onclick=()=>$('#chat').classList.contains('on')?$('#chat').classList.remove('on'):openChat();$('#chatClose').onclick=()=>$('#chat').classList.remove('on');
+msgs.addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(!b)return;say(b.textContent,1);setTimeout(()=>{say(A[b.dataset.a]);if(b.dataset.a==='corp'){const l=document.createElement('a');l.className='btn sm';l.href='#quote';l.textContent='Open the quote builder';msgs.appendChild(l)}chips()},450)});
+$('#chatForm').addEventListener('submit',e=>{e.preventDefault();const v=$('#chatIn').value.trim();if(!v)return;say(v,1);$('#chatIn').value='';const l=v.toLowerCase();const k=/fresh|last|long/.test(l)?'fresh':/ship|deliver/.test(l)?'ship':/vegan|gluten|gf/.test(l)?'vegan':/allerg|nut|peanut|dairy/.test(l)?'allergen':/corporate|client|bulk|company/.test(l)?'corp':/truck|cart|event|wedding/.test(l)?'truck':'human';setTimeout(()=>{say(A[k]);chips()},500)});
+
+/* ---------- strategy view ---------- */
+let pinN=0;$$('[data-why]').forEach(sec=>{const b=document.createElement('button');b.className='pin-why';b.textContent=++pinN;b.setAttribute('aria-label','Why this section exists');b.dataset.why=sec.dataset.why;if(getComputedStyle(sec).position==='static')sec.style.position='relative';sec.prepend(b)});
+document.addEventListener('click',e=>{const p=e.target.closest('.pin-why');if(!p)return;const [a,b,c,d]=p.dataset.why.split('|');$('#w1').textContent=a;$('#w2').textContent=b;$('#w3').textContent=c;$('#w4').textContent=d;$('#whyT').textContent='Why section '+p.textContent+' is here';const pop=$('#whyPop'),r=p.getBoundingClientRect();pop.classList.add('on');const w=pop.offsetWidth,h=pop.offsetHeight;pop.style.left=Math.min(innerWidth-w-12,Math.max(12,r.left))+'px';pop.style.top=Math.min(innerHeight-h-12,Math.max(12,r.bottom+10))+'px'});
+$('#whyClose').onclick=()=>$('#whyPop').classList.remove('on');
+function setStrat(on){document.body.classList.toggle('strategy',on);const b=$('#stratBtn');b.classList.toggle('on',on);b.setAttribute('aria-pressed',on);b.textContent=on?'Hide the strategy':'Show the strategy';$('#stratMobile').textContent=on?'Hide the strategy':'Show the strategy';if(!on)$('#whyPop').classList.remove('on');else toast('Tap a pink number to see why each section exists.')}
+$('#stratBtn').onclick=()=>setStrat(!document.body.classList.contains('strategy'));$('#stratMobile').onclick=()=>{setStrat(!document.body.classList.contains('strategy'));$('#drawerNav').classList.remove('open')};
+
+/* ---------- announcement rotation ---------- */
+const ANN=['<b>Holiday gifting is open.</b> Corporate orders ship to every address on your list.','<b>Fresh for 30 days.</b> Shipped to all 50 states.','<b>Certified M/WBE supplier.</b> Count your gifts toward supplier diversity.'];let ai=0;
+setInterval(()=>{const s=$('#annText');s.style.opacity=0;setTimeout(()=>{ai=(ai+1)%ANN.length;s.innerHTML=ANN[ai];s.style.opacity=1},400)},5200);
+
+/* ---------- one page: anchors + scroll spy ---------- */
+function closeNav(){$('#drawerNav').classList.remove('open')}
+addEventListener('hashchange',()=>{closeCart();closeNav()});
+$('#menuBtn').onclick=()=>$('#drawerNav').classList.add('open');$('#drawerNav').onclick=e=>{if(e.target.id==='drawerNav'||e.target.closest('a'))closeNav()};
+const spy=$$('[data-nav]');const seen=new Set();
+function spyUpdate(){let cur=null;spy.forEach(sec=>{const r=sec.getBoundingClientRect();if(r.top<innerHeight*0.4&&r.bottom>innerHeight*0.4)cur=sec.dataset.nav});$$('.nav a').forEach(a=>a.classList.toggle('on',a.dataset.r===cur));
+ $$('[data-why]').forEach(sec=>{if(seen.has(sec))return;const r=sec.getBoundingClientRect();if(r.top<innerHeight*0.6&&r.bottom>0){seen.add(sec);bump('pv')}})}
+/* ---------- hero film + headline ---------- */
+const vid=$('#heroVid');
+function playHero(){if(!vid||RM)return;try{vid.currentTime=0;const p=vid.play();p&&p.catch(()=>{})}catch(e){}}
+if(!RM){$$('#heroH .ln>span').forEach((s,i)=>s.animate([{transform:'translateY(105%)'},{transform:'none'}],{duration:900,delay:120+i*140,easing:'cubic-bezier(.2,.8,.2,1)',fill:'backwards'}))}
+
+/* magnetic buttons */
+if(!RM&&matchMedia('(hover:hover)').matches)$$('[data-mag]').forEach(b=>{b.addEventListener('mousemove',e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.18}px,${(e.clientY-r.top-r.height/2)*.28}px)`});b.addEventListener('mouseleave',()=>b.style.transform='')});
+
+/* ---------- scroll: progress walker, pinned story, reveals ---------- */
+const walk=$('#walk'),walker=$('#walker');
+const sw=$('#storyWrap'),figs=$$('#storyPin figure'),steps=$$('#storyPin .step'),dots=$$('#storyPin .dots i');let curStep=0;
+function onScroll(){const max=document.documentElement.scrollHeight-innerHeight;const p=max>0?scrollY/max:0;walk.style.width=(p*100)+'%';walker.style.left=`calc(18px + ${p} * (100% - 36px))`;walker.classList.toggle('on',scrollY>40);
+ if(sw){const r=sw.getBoundingClientRect();const total=sw.offsetHeight-innerHeight;const prog=Math.min(1,Math.max(0,-r.top/Math.max(1,total)));const s=Math.min(3,Math.floor(prog*4));if(s!==curStep){curStep=s;figs.forEach((f,i)=>f.classList.toggle('on',i===s));steps.forEach((f,i)=>f.classList.toggle('on',i===s));dots.forEach((f,i)=>f.classList.toggle('on',i===s))}}
+ reveal();spyUpdate()}
+let ticking=false;addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(()=>{onScroll();ticking=false})}},{passive:true});
+function reveal(){if(RM)return;$$('.rv-in').forEach(el=>{if(el.dataset.done)return;const r=el.getBoundingClientRect();if(!r.height)return;if(!el.dataset.seen){el.dataset.seen=r.top>innerHeight*0.92?'below':'above';if(el.dataset.seen==='above'){el.dataset.done=1;return}}if(r.top<innerHeight*0.92&&r.bottom>0){el.dataset.done=1;el.animate([{opacity:0,transform:'translateY(26px)'},{opacity:1,transform:'none'}],{duration:800,easing:'cubic-bezier(.2,.8,.2,1)'})}})}
+$$('h2.big,.evc,.press div,.tl div,.steps3 div,.locs div').forEach(el=>el.classList.add('rv-in'));
+
+playHero();onScroll();if(location.hash.length>1){const t=document.getElementById(location.hash.slice(1));t&&setTimeout(()=>t.scrollIntoView({block:'start'}),80)}
+})();
+
+</script>
+
+</body>
+</html>
