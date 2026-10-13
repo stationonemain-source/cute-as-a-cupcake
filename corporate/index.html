@@ -404,38 +404,34 @@ const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const JUMP=new URLSearchParams(location.search).get('jump');
 if(JUMP!==null)history.scrollRestoration='manual';
 
-/* ---------- scrub engine: canvas + pre-extracted frames, ImageBitmap window ---------- */
+/* ---------- scrub engine: canvas + pre-extracted frames ---------- */
 /* scroll → frame through a motion map, so every stretch of scroll shows about the same amount of movement (no sudden lurches, no slow dead zones) */
 const MAP=[0.0,1.99,3.84,5.58,7.25,8.85,10.32,11.73,13.08,14.37,15.62,16.81,17.98,19.1,20.19,21.27,22.34,23.41,24.48,25.56,26.65,27.76,28.88,30.04,31.24,32.48,33.77,35.15,36.66,38.3,40.05,41.95,44.09,46.52,49.47,51.48,52.31,53.11,53.9,54.69,55.49,56.3,57.1,57.91,58.73,59.6,60.51,61.46,62.43,63.42,64.4,65.35,66.29,67.2,68.09,68.98,69.86,70.72,71.59,72.46,73.36,74.27,75.21,76.16,77.12,78.07,79.02,79.95,80.95,82.01,83.13,84.31,85.56,86.89,88.3,89.81,91.38,92.97,94.59,96.33,98.22,100.29,102.63,105.35,108.56,112.03,114.43,116.54,118.28,119.83,121.29,122.71,124.04,125.32,126.61,127.92,129.24,130.55,131.89,133.26,134.6,135.91,137.21,138.46,139.69,140.91,142.13,143.4,144.71,146.1,147.57,149.07,150.61,152.17,153.78,155.55,157.63,160.16,163.33,166.95,171.0];
 function frameAt(q){const x=Math.max(0,Math.min(1,q))*(MAP.length-1),i=Math.floor(x);return i>=MAP.length-1?MAP[MAP.length-1]:MAP[i]+(MAP[i+1]-MAP[i])*(x-i)}
 const FRAME_COUNT=172, FIRST=1, SET=innerWidth<860?'m':'d', src=i=>`film/${SET}/f_${String(i+FIRST).padStart(4,'0')}.webp`;
+const hdr=$('#top'), readout=$('#readout'), fade=$('#fade'), grain=$('#grain'), vig=$('#vig'), cap=$('#cap');
 const cv=$('#cv'), ctx=cv.getContext('2d',{alpha:false});
-const film=$('#film'), images=new Array(FRAME_COUNT), bitmaps=new Map(), decoding=new Set();
-let loaded=0, target=0, current=0, displayed=-1, shownKey=-1, bmpCenter=-999, W=0, H=0, DPR=1;
-const B_AHEAD=10, B_KEEP=14;
-function size(){DPR=Math.min(innerWidth<860?2:1.25,devicePixelRatio||1);W=innerWidth;H=innerHeight;cv.width=Math.round(W*DPR);cv.height=Math.round(H*DPR);displayed=-1;shownKey=-1}
-function nearest(i){for(let d=0;d<FRAME_COUNT;d++){if(images[i-d]&&images[i-d].complete)return i-d;if(images[i+d]&&images[i+d].complete)return i+d}return -1}
-function pick(i){const b=bitmaps.get(i);if(b)return b;const n=nearest(i);return n<0?null:images[n]}
-function paint(im,a){const iw=im.width,ih=im.height,cw=cv.width,ch=cv.height;const s=Math.max(cw/iw,ch/ih);const dw=iw*s,dh=ih*s;
- const fx=0.5;ctx.globalAlpha=a;ctx.drawImage(im,(cw-dw)*fx,(ch-dh)*0.5,dw,dh);ctx.globalAlpha=1}
-/* always one clean frame (blending two neighbours ghosts the image wherever the camera moves fast) */
-function draw(f,force){const i=Math.max(0,Math.min(FRAME_COUNT-1,Math.round(f)));if(i===shownKey&&!force)return;
- const a=pick(i);if(!a)return;paint(a,1);shownKey=i;displayed=i}
-function ensure(center){if(Math.abs(center-bmpCenter)<3)return;bmpCenter=center;const lo=Math.max(0,center-B_AHEAD),hi=Math.min(FRAME_COUNT-1,center+B_AHEAD);
- for(let i=lo;i<=hi;i++){if(bitmaps.has(i)||decoding.has(i)||!images[i]||!images[i].complete)continue;decoding.add(i);
-  createImageBitmap(images[i]).then(b=>{decoding.delete(i);if(Math.abs(i-bmpCenter)>B_KEEP){b.close();return}bitmaps.set(i,b);if(i===displayed)draw(current,true)}).catch(()=>decoding.delete(i))}
- for(const k of Array.from(bitmaps.keys()))if(k<center-B_KEEP||k>center+B_KEEP){bitmaps.get(k).close();bitmaps.delete(k)}}
-/* concurrency-capped pump; first frame first, then outward */
-let fq=[...Array(FRAME_COUNT).keys()], inflight=0; const CAP=10;
-function pump(){while(inflight<CAP&&fq.length){const i=fq.shift();const im=new Image();im.decoding='async';im.onload=im.onerror=()=>{inflight--;loaded++;$('#lbar').style.transform=`scaleX(${loaded/FRAME_COUNT})`;if(loaded===1){size();draw(0,true);ensure(0)}if(loaded>=8)$('#loader').classList.add('off');if(loaded===FRAME_COUNT)ready();pump()};im.src=src(i);images[i]=im;inflight++}}
+const film=$('#film'), images=new Array(FRAME_COUNT), decoded=new Set(), decoding=new Set();
+let loaded=0, target=0, current=0, displayed=-1, warmAt=-999, W=0, H=0, DPR=1;
+const WARM=8;
+function size(){DPR=Math.min(innerWidth<860?2:1.25,devicePixelRatio||1);W=innerWidth;H=innerHeight;cv.width=Math.round(W*DPR);cv.height=Math.round(H*DPR);displayed=-1}
+function nearest(i){for(let d=0;d<FRAME_COUNT;d++){if(images[i-d]&&images[i-d].complete&&images[i-d].naturalWidth)return i-d;if(images[i+d]&&images[i+d].complete&&images[i+d].naturalWidth)return i+d}return -1}
+function paint(im){const iw=im.naturalWidth,ih=im.naturalHeight,cw=cv.width,ch=cv.height;const sc=Math.max(cw/iw,ch/ih);const dw=iw*sc,dh=ih*sc;ctx.drawImage(im,(cw-dw)*0.5,(ch-dh)*0.5,dw,dh)}
+/* one clean frame per draw; the nearest loaded frame stands in until the exact one arrives */
+function draw(f,force){const i=Math.max(0,Math.min(FRAME_COUNT-1,Math.round(f)));if(i===displayed&&!force)return;const n=nearest(i);if(n<0)return;paint(images[n]);displayed=i;
+ hdr.classList.toggle('on-light',LUM[n]>138)}
+/* ask the browser to decode the frames just ahead and behind, off the main thread, so a draw never stalls on a decode */
+function warm(center){if(Math.abs(center-warmAt)<2)return;warmAt=center;for(let i=Math.max(0,center-WARM);i<=Math.min(FRAME_COUNT-1,center+WARM);i++){const im=images[i];if(!im||!im.complete||decoded.has(i)||decoding.has(i))continue;decoding.add(i);
+ im.decode().then(()=>{decoding.delete(i);decoded.add(i);if(i===displayed)draw(current,true)}).catch(()=>decoding.delete(i))}}
+/* concurrency-capped loader; the first frame is drawn the moment it lands */
+let fq=[...Array(FRAME_COUNT).keys()], inflight=0; const CAP=6;
+function pump(){while(inflight<CAP&&fq.length){const i=fq.shift();const im=new Image();im.decoding='async';im.onload=im.onerror=()=>{inflight--;loaded++;$('#lbar').style.transform=`scaleX(${loaded/FRAME_COUNT})`;if(loaded===1){size();draw(0,true);warm(0)}if(loaded>=6)$('#loader').classList.add('off');if(loaded===FRAME_COUNT)ready();pump()};im.src=src(i);images[i]=im;inflight++}}
 
 /* ---------- beats, readout, header, seam ---------- */
 const beats=$$('.beat').map(el=>({el,in:+el.dataset.in,peak:+el.dataset.peak,out:+el.dataset.out}));
 function beatAlpha(b,p){if(p<b.in||p>b.out)return 0;if(p<b.peak)return(p-b.in)/Math.max(1e-4,b.peak-b.in);if(b.out>1.5)return 1;return 1-(p-b.peak)/Math.max(1e-4,b.out-b.peak)}
 const CHAP=[[0,'The jar'],[.38,'The box'],[.78,'The table']];
-const hdr=$('#top'), readout=$('#readout'), fade=$('#fade'), grain=$('#grain'), vig=$('#vig'), cap=$('#cap');
-const lum=document.createElement('canvas');lum.width=16;lum.height=4;const lctx=lum.getContext('2d',{willReadFrequently:true});let lastLum=0;
-function sampleLum(){if(performance.now()-lastLum<180||displayed<0)return;lastLum=performance.now();try{lctx.drawImage(cv,0,0,cv.width,cv.height*0.12,0,0,16,4);const d=lctx.getImageData(0,0,16,4).data;let s=0;for(let i=0;i<d.length;i+=4)s+=d[i]*.299+d[i+1]*.587+d[i+2]*.114;const L=s/(d.length/4);hdr.classList.toggle('on-light',L>138)}catch(e){}}
+const LUM=[233,233,233,233,233,233,234,233,233,233,232,230,226,221,217,214,213,212,212,211,210,209,208,207,207,206,207,206,205,204,204,203,201,199,199,198,197,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,197,198,198,199,201,202,202,201,201,200,201,201,201,199,199,194,180,161,145,133,124,118,117,120,128,135,145,158,173,184,192,198,203,206,209,211,213,214,214,213,212,211,211,211,211,212,213,214,214,215,216,216,216,217,217,217,217,217,217,217,219,219,219,218,215,205,183,159,132,107,98,95,96,99,104,107,113,116,122,127,133,135,130,119,110,102,102,110,122,130,132,130,130,131,134,135,138,139,142,146,152,158,165,172,179,184,188,192,195,198,200,202,204,205,206,207,207,208,208,208];
 let p=0, filmDone=false;
 function progress(){const r=film.getBoundingClientRect();p=Math.max(0,Math.min(1,-r.top/(r.height-innerHeight)));filmDone=r.bottom<=innerHeight*0.5}
 function overlays(){beats.forEach(b=>{const a=beatAlpha(b,p);b.el.style.opacity=a;b.el.style.transform=`translateY(${(1-a)*10}px)`;b.el.classList.toggle('go',a>0.5)});
@@ -447,7 +443,7 @@ function overlays(){beats.forEach(b=>{const a=beatAlpha(b,p);b.el.style.opacity=
 let jank=[],lastT=0;
 function tick(t){if(lastT){const d=t-lastT;jank.push(d);if(jank.length>240)jank.shift()}lastT=t;
  progress();target=frameAt(p);current+= RM?(target-current):(target-current)*0.16;if(Math.abs(target-current)<0.02)current=target;
- ensure(Math.round(current));draw(current);sampleLum();overlays();requestAnimationFrame(tick)}
+ warm(Math.round(current));draw(current);overlays();requestAnimationFrame(tick)}
 window.__jank=()=>{const s=[...jank].sort((a,b)=>a-b);return{max:Math.round(s[s.length-1]||0),p95:Math.round(s[Math.floor(s.length*.95)]||0),n:s.length}};
 
 /* ---------- smooth scroll (skipped under ?jump and reduced motion) ---------- */
@@ -492,7 +488,7 @@ addEventListener('resize',()=>{size();draw(current,true)});
 size();pump();
 let readyFired=false;
 function ready(){if(readyFired)return;readyFired=true;
- if(JUMP!==null){scrollTo(0,+JUMP||0);progress();current=target=frameAt(p);ensure(Math.round(current));draw(current,true);overlays();spyUpdate()}
+ if(JUMP!==null){scrollTo(0,+JUMP||0);progress();current=target=frameAt(p);warm(Math.round(current));draw(current,true);overlays();spyUpdate()}
  setTimeout(()=>{window.__ready=true},JUMP!==null?400:0)}
 requestAnimationFrame(tick);spyUpdate();
 })();
